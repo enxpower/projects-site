@@ -1,16 +1,10 @@
 
 :root{
   --fg:#2F3437; --muted:#6B7280; --bg:#fff; --border:#E5E7EB; --primary:#2563EB;
-  /* Notion palette（近似） */
-  --c-gray:#9AA1A6;     --bg-gray:#F1F3F5;
-  --c-brown:#7B4B3A;    --bg-brown:#F6EFEA;
-  --c-orange:#D9730D;   --bg-orange:#FFF3E0;
-  --c-yellow:#B68B00;   --bg-yellow:#FEF7CD;
-  --c-green:#0F7B6C;    --bg-green:#E6F4EA;
-  --c-blue:#0B6E99;     --bg-blue:#E7F3FF;
-  --c-purple:#6940A5;   --bg-purple:#F3E8FF;
-  --c-pink:#AD1A72;     --bg-pink:#FDE7F3;
-  --c-red:#E03E3E;      --bg-red:#FDEBEC;
+  --c-gray:#9AA1A6; --bg-gray:#F1F3F5; --c-brown:#7B4B3A; --bg-brown:#F6EFEA;
+  --c-orange:#D9730D; --bg-orange:#FFF3E0; --c-yellow:#B68B00; --bg-yellow:#FEF7CD;
+  --c-green:#0F7B6C; --bg-green:#E6F4EA; --c-blue:#0B6E99; --bg-blue:#E7F3FF;
+  --c-purple:#6940A5; --bg-purple:#F3E8FF; --c-pink:#AD1A72; --bg-pink:#FDE7F3; --c-red:#E03E3E; --bg-red:#FDEBEC;
 }
 *{box-sizing:border-box} html,body{margin:0;padding:0}
 body{
@@ -23,41 +17,29 @@ h1{font-size:32px;margin:0} h2{font-size:24px;margin:28px 0 12px} h3{font-size:2
 p{margin:10px 0} a{color:var(--primary);text-decoration:none} a:hover{text-decoration:underline}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 
-/* 右上角把 Code 与条码绑在一起 */
+/* 头部：标题 + 标准条码（条码自带下方文字） */
 .header-flex{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.codebar{display:flex;align-items:center;gap:12px;flex-wrap:nowrap}
-.code-pill{
-  font:600 13px/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  background:#f1f5f9;border:1px solid #e5e7eb;border-radius:8px;
-  padding:6px 10px;white-space:nowrap
-}
 .barcode{display:block;height:64px;max-width:520px;width:auto;object-fit:contain;flex:0 0 auto}
+
+/* 下载按钮区 */
+.btn{
+  display:inline-block;padding:10px 14px;border-radius:8px;
+  background:#2563EB;color:#fff;text-decoration:none;font-weight:600;
+  border:1px solid #1e4fd9;transition:filter .15s;white-space:nowrap
+}
+.btn:hover{ filter:brightness(1.05); text-decoration:none }
+.btn-xs{ padding:6px 10px; font-size:13px }
+.btn-outline{ background:#fff; color:#2563EB; border-color:#2563EB }
+.downloads{ margin:12px 0 0; display:flex; gap:10px; flex-wrap:wrap }
 
 /* 图片 */
 article img{max-width:100%;height:auto;border-radius:8px}
 
-/* 表格修复：外层容器负责横向滚动；表格保留原生布局 */
-.table-wrap{
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  margin:16px 0;
-}
-.table-wrap table{
-  border-collapse:collapse;
-  table-layout:auto;     /* 按内容自然宽度 */
-  width:max-content;     /* 允许超出容器以便横向滚动 */
-  min-width:100%;        /* 内容很少时也撑满 */
-}
-article th,article td{
-  border:1px solid var(--border);
-  padding:8px 10px;
-  text-align:left;
-  vertical-align:top;
-  white-space:normal;
-  word-break:break-word;
-}
-article thead th{background:#F3F4F6}
-article tbody tr:nth-child(even) td{background:#FAFAFA}
+/* 表格修复：容器滚动 + 原生布局 */
+.table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:16px 0; }
+.table-wrap table{ border-collapse:collapse; table-layout:auto; width:max-content; min-width:100% }
+article th,article td{ border:1px solid var(--border); padding:8px 10px; text-align:left; vertical-align:top; white-space:normal; word-break:break-word }
+article thead th{background:#F3F4F6} article tbody tr:nth-child(even) td{background:#FAFAFA}
 
 /* 行内/块级颜色映射 */
 span.c-gray{color:var(--c-gray)}      span.c-brown{color:var(--c-brown)}  span.c-orange{color:var(--c-orange)}
@@ -67,7 +49,6 @@ span.bg-gray{background:var(--bg-gray)} span.bg-brown{background:var(--bg-brown)
 span.bg-yellow{background:var(--bg-yellow)} span.bg-green{background:var(--bg-green)} span.bg-blue{background:var(--bg-blue)}
 span.bg-purple{background:var(--bg-purple)} span.bg-pink{background:var(--bg-pink)} span.bg-red{background:var(--bg-red)}
 span[class^="bg-"]{padding:1px 4px;border-radius:3px}
-
 .block.c-gray{color:var(--c-gray)} .block.c-brown{color:var(--c-brown)} .block.c-orange{color:var(--c-orange)}
 .block.c-yellow{color:var(--c-yellow)} .block.c-green{color:var(--c-green)} .block.c-blue{color:var(--c-blue)}
 .block.c-purple{color:var(--c-purple)} .block.c-pink{color:var(--c-pink)} .block.c-red{color:var(--c-red)}
@@ -76,7 +57,7 @@ span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 .block.bg-purple{background:var(--bg-purple)} .block.bg-pink{background:var(--bg-pink)} .block.bg-red{background:var(--bg-red)}
 .block[class^="bg-"]{padding:8px 10px;border-radius:8px}
 
-/* Callout（跟随 block.color） */
+/* Callout / Toggle / 列布局 */
 .n-callout{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:12px 14px;margin:14px 0;border:1px solid transparent}
 .n-callout .icon{font-size:18px;line-height:1.2}
 .n-callout.bg-gray{background:var(--bg-gray);border-color:#DEE2E6}
@@ -88,27 +69,17 @@ span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 .n-callout.bg-purple{background:var(--bg-purple);border-color:#E3D3FF}
 .n-callout.bg-pink{background:var(--bg-pink);border-color:#F9CFE2}
 .n-callout.bg-red{background:var(--bg-red);border-color:#F4C7CB}
-
-/* 列布局、折叠 */
 .n-columns{display:grid;gap:16px}
 @media(min-width:860px){ .n-columns.cols-2{grid-template-columns:1fr 1fr} .n-columns.cols-3{grid-template-columns:1fr 1fr 1fr} }
 details.n-toggle{border:1px dashed var(--border);border-radius:8px;padding:10px 12px;margin:12px 0}
 details.n-toggle > summary{cursor:pointer;font-weight:600;list-style:none}
 details.n-toggle > summary::-webkit-details-marker{display:none}
 
-/* 代码块：Notion 风格浅色卡片，永不自动换行（只横向滚动） */
+/* 代码块：Notion 风格浅卡片 */
 pre.n-code-notion{
-  background:#f6f8fa;
-  color:#111827;
-  border:1px solid #e5e7eb;
-  border-radius:10px;
-  padding:14px 16px;
-  overflow:auto;
-  white-space:pre;
-  word-break:normal;
-  tab-size:2;
-  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
-  font-size:14px; line-height:1.6;
+  background:#f6f8fa;color:#111827;border:1px solid #e5e7eb;border-radius:10px;
+  padding:14px 16px;overflow:auto;white-space:pre;word-break:normal;tab-size:2;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;font-size:14px;line-height:1.6;
 }
 pre.n-code-notion code{background:transparent;padding:0;white-space:pre}
 
