@@ -1,7 +1,6 @@
 
 :root{
   --fg:#2F3437; --muted:#6B7280; --bg:#fff; --border:#E5E7EB; --primary:#2563EB;
-  /* Notion palette（近似值） */
   --c-gray:#9AA1A6;     --bg-gray:#F1F3F5;
   --c-brown:#7B4B3A;    --bg-brown:#F6EFEA;
   --c-orange:#D9730D;   --bg-orange:#FFF3E0;
@@ -19,16 +18,28 @@ body{
        "PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue", Arial, sans-serif;
 }
 main{max-width:960px;margin:40px auto;padding:0 16px}
-h1{font-size:32px;margin:0 0 12px} h2{font-size:24px;margin:28px 0 12px} h3{font-size:20px;margin:22px 0 10px}
+h1{font-size:32px;margin:0} h2{font-size:24px;margin:28px 0 12px} h3{font-size:20px;margin:22px 0 10px}
 p{margin:10px 0} a{color:var(--primary);text-decoration:none} a:hover{text-decoration:underline}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+
+/* 右上角把 Code 与条码绑在一起 */
+.header-flex{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.codebar{display:flex;align-items:center;gap:12px;flex-wrap:nowrap}
+.code-pill{
+  font:600 13px/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  background:#f1f5f9;border:1px solid #e5e7eb;border-radius:8px;
+  padding:6px 10px;white-space:nowrap
+}
+.barcode{display:block;height:64px;max-width:520px;width:auto;object-fit:contain;flex:0 0 auto}
+
+article img{max-width:100%;height:auto;border-radius:8px}
 
 /* 表格 */
 article table{border-collapse:collapse;width:100%;margin:16px 0;display:block;overflow-x:auto}
 article th,article td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
-article thead th{background:#F3F4F6} article tr:nth-child(even) td{background:#FAFAFA}
+article thead th{background:#F3F4F6} article tbody tr:nth-child(even) td{background:#FAFAFA}
 
-/* 行内与块级颜色映射 */
+/* 行内/块级颜色映射 */
 span.c-gray{color:var(--c-gray)}      span.c-brown{color:var(--c-brown)}  span.c-orange{color:var(--c-orange)}
 span.c-yellow{color:var(--c-yellow)}  span.c-green{color:var(--c-green)}  span.c-blue{color:var(--c-blue)}
 span.c-purple{color:var(--c-purple)}  span.c-pink{color:var(--c-pink)}    span.c-red{color:var(--c-red)}
@@ -37,7 +48,6 @@ span.bg-yellow{background:var(--bg-yellow)} span.bg-green{background:var(--bg-gr
 span.bg-purple{background:var(--bg-purple)} span.bg-pink{background:var(--bg-pink)} span.bg-red{background:var(--bg-red)}
 span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 
-/* 块级颜色（整段上色或高亮） */
 .block.c-gray{color:var(--c-gray)} .block.c-brown{color:var(--c-brown)} .block.c-orange{color:var(--c-orange)}
 .block.c-yellow{color:var(--c-yellow)} .block.c-green{color:var(--c-green)} .block.c-blue{color:var(--c-blue)}
 .block.c-purple{color:var(--c-purple)} .block.c-pink{color:var(--c-pink)} .block.c-red{color:var(--c-red)}
@@ -46,7 +56,7 @@ span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 .block.bg-purple{background:var(--bg-purple)} .block.bg-pink{background:var(--bg-pink)} .block.bg-red{background:var(--bg-red)}
 .block[class^="bg-"]{padding:8px 10px;border-radius:8px}
 
-/* Callout（颜色由 block.color 决定） */
+/* Callout（跟随 Notion block.color） */
 .n-callout{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:12px 14px;margin:14px 0;border:1px solid transparent}
 .n-callout .icon{font-size:18px;line-height:1.2}
 .n-callout.bg-gray{background:var(--bg-gray);border-color:#DEE2E6}
@@ -59,19 +69,28 @@ span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 .n-callout.bg-pink{background:var(--bg-pink);border-color:#F9CFE2}
 .n-callout.bg-red{background:var(--bg-red);border-color:#F4C7CB}
 
-/* 列布局、折叠、图片、代码高亮 */
-.n-columns{display:grid;gap:16px} @media(min-width:860px){ .n-columns.cols-2{grid-template-columns:1fr 1fr} .n-columns.cols-3{grid-template-columns:1fr 1fr 1fr} }
+/* 列布局、折叠 */
+.n-columns{display:grid;gap:16px}
+@media(min-width:860px){ .n-columns.cols-2{grid-template-columns:1fr 1fr} .n-columns.cols-3{grid-template-columns:1fr 1fr 1fr} }
 details.n-toggle{border:1px dashed var(--border);border-radius:8px;padding:10px 12px;margin:12px 0}
 details.n-toggle > summary{cursor:pointer;font-weight:600;list-style:none}
 details.n-toggle > summary::-webkit-details-marker{display:none}
-article img{max-width:100%;height:auto;border-radius:8px}
 
-code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;background:#F1F5F9;padding:1px 5px;border-radius:4px}
-pre.n-code{background:#0b1220;color:#e5e7eb;padding:14px 16px;border-radius:10px;overflow:auto;margin:14px 0}
-pre.n-code code{background:transparent;padding:0}
+/* 代码块：深色（用于有语言的代码）与浅色（用于未设语言/纯文本） */
+pre.n-code-dark{
+  background:#0b1220;color:#e5e7eb;padding:14px 16px;border-radius:10px;
+  overflow:auto;margin:14px 0;white-space:pre;word-break:normal;tab-size:2
+}
+pre.n-code-light{
+  background:#0f172a0d;color:#0f172a;padding:14px 16px;border-radius:10px;
+  border:1px solid #e5e7eb;overflow:auto;margin:14px 0;white-space:pre;word-break:normal;tab-size:2
+}
+pre.n-code-dark code, pre.n-code-light code{background:transparent;padding:0;white-space:pre}
 
-.header-flex{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
-.header-meta{font-size:12px;color:var(--muted)}
-.barcode{display:block;height:80px;max-width:480px;width:auto}
 .footer{margin:48px 0 24px 0;font-size:12px;color:var(--muted)}
-@media print{ a{color:#000;text-decoration:none} .barcode{height:96px} pre.n-code{page-break-inside:avoid} }
+
+@media print{
+  a{color:#000;text-decoration:none}
+  .barcode{height:96px}
+  pre.n-code-dark, pre.n-code-light{page-break-inside:avoid}
+}
