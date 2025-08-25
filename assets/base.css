@@ -1,3 +1,39 @@
-article img{max-width:100%;height:auto}
-article table{border-collapse:collapse}
-article table td,article table th{border:1px solid #ddd;padding:6px 10px}
+
+:root{--fg:#0f172a;--muted:#64748b;--bg:#fff;--card:#f8fafc;--border:#e5e7eb}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{color:var(--fg);background:var(--bg);font:16px/1.65 Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial}
+main{max-width:980px;margin:40px auto;padding:0 16px}
+h1{font-size:32px;line-height:1.25;margin:0 0 12px}
+h2{font-size:22px;margin:28px 0 12px}
+h3{font-size:18px;margin:22px 0 10px}
+p{margin:12px 0}
+a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}
+article img{max-width:100%;height:auto;border-radius:6px}
+article table{border-collapse:collapse;width:100%;margin:16px 0;display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+article thead th{background:#f3f4f6}
+article tr:nth-child(even){background:#fafafa}
+blockquote{margin:16px 0;padding:0;border-left:4px solid #94a3b8;background:#f8fafc;border-radius:6px}
+blockquote > p{margin:0;padding:12px 14px}
+.callout{margin:16px 0;border-left:4px solid transparent;border-radius:10px;padding:0}
+.callout > p{margin:0;padding:12px 14px}
+.callout.info{background:#eef6ff;border-color:#60a5fa}
+.callout.warn{background:#fff7ed;border-color:#f59e0b}
+.callout.danger{background:#fff1f2;border-color:#ef4444}
+.callout.tip{background:#f0fdf4;border-color:#22c55e}
+.callout.note{background:#f5f3ff;border-color:#8b5cf6}
+code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;background:#f1f5f9;padding:2px 5px;border-radius:4px}
+pre.code-block{background:#0b1220;color:#e5e7eb;padding:14px 16px;border-radius:10px;overflow:auto}
+pre.code-block code{background:transparent;padding:0}
+.hljs-keyword,.hljs-selector-tag,.hljs-literal{color:#93c5fd}
+.hljs-string,.hljs-attr,.hljs-number{color:#fde68a}
+.header-flex{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.header-meta{font-size:12px;color:var(--muted)}
+.barcode{display:block;height:80px;max-width:420px;width:auto}
+.footer{margin:48px 0 24px 0;font-size:12px;color:var(--muted)}
+@media print{
+  a{color:#000;text-decoration:none}
+  .barcode{height:96px}
+  pre.code-block{page-break-inside:avoid}
+}
