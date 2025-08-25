@@ -1,6 +1,7 @@
 
 :root{
   --fg:#2F3437; --muted:#6B7280; --bg:#fff; --border:#E5E7EB; --primary:#2563EB;
+  /* Notion palette（近似） */
   --c-gray:#9AA1A6;     --bg-gray:#F1F3F5;
   --c-brown:#7B4B3A;    --bg-brown:#F6EFEA;
   --c-orange:#D9730D;   --bg-orange:#FFF3E0;
@@ -32,9 +33,8 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 }
 .barcode{display:block;height:64px;max-width:520px;width:auto;object-fit:contain;flex:0 0 auto}
 
+/* 图片与表格 */
 article img{max-width:100%;height:auto;border-radius:8px}
-
-/* 表格 */
 article table{border-collapse:collapse;width:100%;margin:16px 0;display:block;overflow-x:auto}
 article th,article td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
 article thead th{background:#F3F4F6} article tbody tr:nth-child(even) td{background:#FAFAFA}
@@ -56,7 +56,7 @@ span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 .block.bg-purple{background:var(--bg-purple)} .block.bg-pink{background:var(--bg-pink)} .block.bg-red{background:var(--bg-red)}
 .block[class^="bg-"]{padding:8px 10px;border-radius:8px}
 
-/* Callout（跟随 Notion block.color） */
+/* Callout（跟随 block.color） */
 .n-callout{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:12px 14px;margin:14px 0;border:1px solid transparent}
 .n-callout .icon{font-size:18px;line-height:1.2}
 .n-callout.bg-gray{background:var(--bg-gray);border-color:#DEE2E6}
@@ -76,21 +76,26 @@ details.n-toggle{border:1px dashed var(--border);border-radius:8px;padding:10px 
 details.n-toggle > summary{cursor:pointer;font-weight:600;list-style:none}
 details.n-toggle > summary::-webkit-details-marker{display:none}
 
-/* 代码块：深色（用于有语言的代码）与浅色（用于未设语言/纯文本） */
-pre.n-code-dark{
-  background:#0b1220;color:#e5e7eb;padding:14px 16px;border-radius:10px;
-  overflow:auto;margin:14px 0;white-space:pre;word-break:normal;tab-size:2
+/* 代码块：Notion 风格的浅色卡片，永不自动换行（只横向滚动） */
+pre.n-code-notion{
+  background:#f6f8fa;             /* 浅灰底，接近 Notion */
+  color:#111827;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:14px 16px;
+  overflow:auto;
+  white-space:pre;                 /* 保持原样 */
+  word-break:normal;
+  tab-size:2;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  font-size:14px; line-height:1.6;
 }
-pre.n-code-light{
-  background:#0f172a0d;color:#0f172a;padding:14px 16px;border-radius:10px;
-  border:1px solid #e5e7eb;overflow:auto;margin:14px 0;white-space:pre;word-break:normal;tab-size:2
-}
-pre.n-code-dark code, pre.n-code-light code{background:transparent;padding:0;white-space:pre}
+pre.n-code-notion code{background:transparent;padding:0;white-space:pre}
 
 .footer{margin:48px 0 24px 0;font-size:12px;color:var(--muted)}
 
 @media print{
   a{color:#000;text-decoration:none}
   .barcode{height:96px}
-  pre.n-code-dark, pre.n-code-light{page-break-inside:avoid}
+  pre.n-code-notion{page-break-inside:avoid}
 }
