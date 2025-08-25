@@ -33,11 +33,31 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 }
 .barcode{display:block;height:64px;max-width:520px;width:auto;object-fit:contain;flex:0 0 auto}
 
-/* 图片与表格 */
+/* 图片 */
 article img{max-width:100%;height:auto;border-radius:8px}
-article table{border-collapse:collapse;width:100%;margin:16px 0;display:block;overflow-x:auto}
-article th,article td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
-article thead th{background:#F3F4F6} article tbody tr:nth-child(even) td{background:#FAFAFA}
+
+/* 表格修复：外层容器负责横向滚动；表格保留原生布局 */
+.table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:16px 0;
+}
+.table-wrap table{
+  border-collapse:collapse;
+  table-layout:auto;     /* 按内容自然宽度 */
+  width:max-content;     /* 允许超出容器以便横向滚动 */
+  min-width:100%;        /* 内容很少时也撑满 */
+}
+article th,article td{
+  border:1px solid var(--border);
+  padding:8px 10px;
+  text-align:left;
+  vertical-align:top;
+  white-space:normal;
+  word-break:break-word;
+}
+article thead th{background:#F3F4F6}
+article tbody tr:nth-child(even) td{background:#FAFAFA}
 
 /* 行内/块级颜色映射 */
 span.c-gray{color:var(--c-gray)}      span.c-brown{color:var(--c-brown)}  span.c-orange{color:var(--c-orange)}
@@ -76,15 +96,15 @@ details.n-toggle{border:1px dashed var(--border);border-radius:8px;padding:10px 
 details.n-toggle > summary{cursor:pointer;font-weight:600;list-style:none}
 details.n-toggle > summary::-webkit-details-marker{display:none}
 
-/* 代码块：Notion 风格的浅色卡片，永不自动换行（只横向滚动） */
+/* 代码块：Notion 风格浅色卡片，永不自动换行（只横向滚动） */
 pre.n-code-notion{
-  background:#f6f8fa;             /* 浅灰底，接近 Notion */
+  background:#f6f8fa;
   color:#111827;
   border:1px solid #e5e7eb;
   border-radius:10px;
   padding:14px 16px;
   overflow:auto;
-  white-space:pre;                 /* 保持原样 */
+  white-space:pre;
   word-break:normal;
   tab-size:2;
   font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
