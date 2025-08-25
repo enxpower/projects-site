@@ -19,7 +19,9 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 
 /* 头部：标题 + 标准条码（条码自带下方文字） */
 .header-flex{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.barcode{display:block;height:64px;max-width:520px;width:auto;object-fit:contain;flex:0 0 auto}
+.barcode{
+  display:block;height:64px;max-width:640px;width:auto;object-fit:contain;flex:0 0 auto
+}
 
 /* 下载按钮区 */
 .btn{
