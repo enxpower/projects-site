@@ -17,13 +17,13 @@ h1{font-size:32px;margin:0} h2{font-size:24px;margin:28px 0 12px} h3{font-size:2
 p{margin:10px 0} a{color:var(--primary);text-decoration:none} a:hover{text-decoration:underline}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 
-/* 头部：标题 + 标准条码（条码自带下方文字） */
+/* Header: title + standard barcode (with text inside image) */
 .header-flex{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .barcode{
   display:block;height:64px;max-width:640px;width:auto;object-fit:contain;flex:0 0 auto
 }
 
-/* 下载按钮区 */
+/* Downloads button group */
 .btn{
   display:inline-block;padding:10px 14px;border-radius:8px;
   background:#2563EB;color:#fff;text-decoration:none;font-weight:600;
@@ -34,16 +34,16 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 .btn-outline{ background:#fff; color:#2563EB; border-color:#2563EB }
 .downloads{ margin:12px 0 0; display:flex; gap:10px; flex-wrap:wrap }
 
-/* 图片 */
+/* Images */
 article img{max-width:100%;height:auto;border-radius:8px}
 
-/* 表格修复：容器滚动 + 原生布局 */
+/* Tables: horizontal scroll container + native layout */
 .table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:16px 0; }
 .table-wrap table{ border-collapse:collapse; table-layout:auto; width:max-content; min-width:100% }
 article th,article td{ border:1px solid var(--border); padding:8px 10px; text-align:left; vertical-align:top; white-space:normal; word-break:break-word }
 article thead th{background:#F3F4F6} article tbody tr:nth-child(even) td{background:#FAFAFA}
 
-/* 行内/块级颜色映射 */
+/* Inline / block color mapping */
 span.c-gray{color:var(--c-gray)}      span.c-brown{color:var(--c-brown)}  span.c-orange{color:var(--c-orange)}
 span.c-yellow{color:var(--c-yellow)}  span.c-green{color:var(--c-green)}  span.c-blue{color:var(--c-blue)}
 span.c-purple{color:var(--c-purple)}  span.c-pink{color:var(--c-pink)}    span.c-red{color:var(--c-red)}
@@ -59,7 +59,7 @@ span[class^="bg-"]{padding:1px 4px;border-radius:3px}
 .block.bg-purple{background:var(--bg-purple)} .block.bg-pink{background:var(--bg-pink)} .block.bg-red{background:var(--bg-red)}
 .block[class^="bg-"]{padding:8px 10px;border-radius:8px}
 
-/* Callout / Toggle / 列布局 */
+/* Callout / Toggle / Columns */
 .n-callout{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:12px 14px;margin:14px 0;border:1px solid transparent}
 .n-callout .icon{font-size:18px;line-height:1.2}
 .n-callout.bg-gray{background:var(--bg-gray);border-color:#DEE2E6}
@@ -77,7 +77,7 @@ details.n-toggle{border:1px dashed var(--border);border-radius:8px;padding:10px 
 details.n-toggle > summary{cursor:pointer;font-weight:600;list-style:none}
 details.n-toggle > summary::-webkit-details-marker{display:none}
 
-/* 代码块：Notion 风格浅卡片 */
+/* Code blocks: light Notion-like cards with optional highlight.js */
 pre.n-code-notion{
   background:#f6f8fa;color:#111827;border:1px solid #e5e7eb;border-radius:10px;
   padding:14px 16px;overflow:auto;white-space:pre;word-break:normal;tab-size:2;
