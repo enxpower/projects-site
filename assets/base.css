@@ -27,7 +27,7 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
 .header-flex, .downloads, .footer .footer-inner{max-width:78ch;margin:0 auto}
 .header-flex h1{margin:0}
 .barcode{
-  display:block;height:56px;max-width:640px;width:auto;object-fit:contain;flex:0 0 auto;margin-top:6px
+  display:block;height:64px;max-width:640px;width:auto;object-fit:contain;flex:0 0 auto;margin-top:6px
 }
 
 /* Buttons (downloads) */
