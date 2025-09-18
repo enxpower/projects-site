@@ -90,6 +90,10 @@ pre.n-code-notion{
 }
 pre.n-code-notion code{background:transparent;padding:0;white-space:pre}
 
+/* Math (MathJax) */
+.mjx-container{overflow-x:auto}
+.math-display{margin:16px 0}
+
 /* Footer with icons */
 .footer{margin:48px 0 24px 0;font-size:13px;color:var(--muted)}
 .footer-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
