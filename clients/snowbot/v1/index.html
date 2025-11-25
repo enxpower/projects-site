@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SnowBot 商用自主除雪机器人技术白皮书（V1.0）</title>
+<link rel="canonical" href="https://advisory.energizeos.com/clients/snowbot/v1/">
+<meta name="description" content="本文件作为 SnowBot V1 全系统技术与运营整合文档（Master Integrated Document） 的统一入口，目标是：">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EnergizeOS Advisory">
+<meta property="og:title" content="SnowBot 商用自主除雪机器人技术白皮书（V1.0）">
+<meta property="og:description" content="本文件作为 SnowBot V1 全系统技术与运营整合文档（Master Integrated Document） 的统一入口，目标是：">
+<meta property="og:url" content="https://advisory.energizeos.com/clients/snowbot/v1/">
+<meta property="og:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SnowBot 商用自主除雪机器人技术白皮书（V1.0）">
+<meta name="twitter:description" content="本文件作为 SnowBot V1 全系统技术与运营整合文档（Master Integrated Document） 的统一入口，目标是：">
+<meta name="twitter:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+<body>
+<main>
+  <div class="header-flex">
+    <h1>SnowBot 商用自主除雪机器人技术白皮书（V1.0）</h1>
+    <img class="barcode" alt="Barcode ENXJ274TRW4V8" src="data:image/png;base64,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">
+  </div>
+
+  
+
+  <article><pre class="n-code-notion"><code class="language-markdown">总目录（Master TOC）
+├── 0. 文档说明（About This Document）
+│
+├── 1. 产品定义与角色（Product Definition）
+│    ├── 1.1 SnowBot 产品定位
+│    ├── 1.2 应用场景与禁用场景
+│    ├── 1.3 系统边界（System Boundary）
+│    └── 1.4 生命周期与季节性（Lifecycle &amp; Seasonality）
+│
+├── 2. 关键性能指标（KPIs）
+│    ├── 2.1 作业性能
+│    ├── 2.2 可靠性指标（RE）
+│    ├── 2.3 安全指标
+│    ├── 2.4 环境适应性
+│    └── 2.5 运营能力（Fleet / Ops Quality）
+│
+├── 3. 系统整体架构（System Architecture）
+│    ├── 3.1 架构总览
+│    ├── 3.2 机械系统（Mechanical）
+│    ├── 3.3 电驱与动力系统（Drive Train）
+│    ├── 3.4 电池系统（Battery &amp; BMS）
+│    ├── 3.5 控制与低压系统（Control Electronics）
+│    ├── 3.6 感知系统（Light Perception）
+│    ├── 3.7 导航系统（Teach &amp; Repeat）
+│    ├── 3.8 软件系统（EnergizeOS Outdoor）
+│    └── 3.9 充电与回桩系统（Charging &amp; Docking）
+│
+├── 4. 结构工程规格（Structural Engineering Spec）
+│    ├── 4.1 车架与载荷路径（Load Path）
+│    ├── 4.2 雪铲结构与弱连杆（Blade &amp; Mount）
+│    ├── 4.3 底盘越障与几何结构（Undercarriage）
+│    ├── 4.4 外壳、防碰撞、防飞石（Body &amp; Protection）
+│    ├── 4.5 维护空间与服务包络（Service Envelope）
+│    ├── 4.6 抗疲劳与冲击工况（Fatigue &amp; Impact）
+│    ├── 4.7 材料与连接工艺（Materials &amp; Joints）
+│    ├── 4.8 充电桩/运输结构接口（Dock &amp; Transport）
+│    └── 4.9 平台化结构预留（Platform-ready Structure）
+│
+├── 5. 子系统技术规格（Subsystem Specifications）
+│    ├── 5.1 机械系统细则
+│    ├── 5.2 电驱系统细则
+│    ├── 5.3 电池系统细则
+│    ├── 5.4 控制系统细则
+│    ├── 5.5 感知系统细则
+│    ├── 5.6 Teach &amp; Repeat 细则
+│    ├── 5.7 软件/OTA/日志细则
+│    └── 5.8 充电与回桩细则
+│
+├── 6. 安全体系（Safety Architecture）
+│    ├── 6.1 设备安全（Device Safety）
+│    ├── 6.2 功能安全（Functional Safety）
+│    ├── 6.3 现场安全（Operational Safety）
+│    ├── 6.4 急停体系（Emergency Stop System）
+│    ├── 6.5 限速/禁区/Geo-fence
+│    └── 6.6 冬季特殊安全策略（Snow Mode Safety）
+│
+├── 7. 网络安全（Cyber Security）
+│    ├── 7.1 设备身份（Certificates &amp; Activation）
+│    ├── 7.2 加密通信（TLS / Anti-replay）
+│    ├── 7.3 OTA 签名与回滚（A/B Slots）
+│    ├── 7.4 Debug 接口与访问控制
+│    └── 7.5 通信失效策略（Fail-safe）
+│
+├── 8. 数据治理（Data Governance）
+│    ├── 8.1 数据分类（Telemetry / Ops / Diagnostics）
+│    ├── 8.2 数据流向与存储区域（North America Only）
+│    ├── 8.3 多租户隔离（Tenant Isolation）
+│    ├── 8.4 数据保留与删除策略
+│    ├── 8.5 隐私保护（No-Camera V1）
+│    └── 8.6 客户数据权利（Export / Delete）
+│
+├── 9. 北美合规（Regulatory Compliance）
+│    ├── 9.1 FCC / IC
+│    ├── 9.2 ISO 12100 风险评估
+│    ├── 9.3 SAE 灯光与标识
+│    ├── 9.4 电池 UL（2271 / 2580）预留
+│    └── 9.5 市政 / 校园 / 工业园区 运营合规
+│
+├── 10. 法律框架（Legal Framework）
+│    ├── 10.1 使用条款（Terms of Use）
+│    ├── 10.2 责任边界（Liability Boundary）
+│    ├── 10.3 事故处理流程（Incident Protocol）
+│    └── 10.4 保险框架（Insurance Requirement）
+│
+├── 11. 事件管理（Incident Management）
+│    ├── 11.1 黑匣子数据（Blackbox）
+│    ├── 11.2 故障分类（Fault Taxonomy）
+│    ├── 11.3 高优事件（P1）响应机制
+│    └── 11.4 远程封锁（Remote Lockdown）
+│
+├── 12. 软件/OTA 生命周期（Software Lifecycle）
+│    ├── 12.1 版本管理（SemVer）
+│    ├── 12.2 配置迁移（Config Migration）
+│    ├── 12.3 OTA 分批推送（Canary Waves）
+│    ├── 12.4 回滚策略
+│    └── 12.5 紧急停更机制
+│
+├── 13. 运营与机队（Ops &amp; Fleet）
+│    ├── 13.1 调度（Scheduling）
+│    ├── 13.2 回桩策略
+│    ├── 13.3 易损件策略
+│    ├── 13.4 成本模型（TCO）
+│    └── 13.5 数据驱动运营（Telemetry Analytics）
+│
+├── 14. 北美试点部署手册（Pilot Deployment Playbook）
+│    ├── 14.1 Pilot 流程
+│    ├── 14.2 场地勘查（Site Audit）
+│    ├── 14.3 上线流程（On-site Setup）
+│    ├── 14.4 路线录制（Teach &amp; Repeat）
+│    ├── 14.5 安全部署（Safety Protocol）
+│    ├── 14.6 暴雪运营策略
+│    ├── 14.7 维护与故障处理
+│    └── 14.8 KPI 验收标准
+│
+├── 15. 可靠性工程（Reliability Engineering）
+│    ├── 15.1 极寒测试矩阵
+│    ├── 15.2 冗余策略
+│    ├── 15.3 盐雾 / 冻雨 / 机械冲击测试
+│    ├── 15.4 DFMEA / PFMEA
+│    └── 15.5 结构仿真（FEA）要求
+│
+├── 16. 工业化 / 量产（DFM &amp; Manufacturing）
+│    ├── 16.1 装配工艺（Assembly）
+│    ├── 16.2 测试治具（Test Jigs）
+│    ├── 16.3 线束与模块化总成
+│    ├── 16.4 产线流程（Assembly Line）
+│    └── 16.5 量产验证（MP Validation）
+│
+├── 17. 运输 / 包装（Transport &amp; Packaging）
+│    ├── 17.1 出厂包装
+│    ├── 17.2 皮卡/拖车运输标准
+│    └── 17.3 运输锁定结构
+│
+└── 18. 附录（Appendices）
+├── A. Checklists（结构/安全/合规）
+├── B. 风险矩阵（ISO12100）
+├── C. 北美试点模板（Site Survey / KPI Sheet）
+├── D. 术语表（Glossary）
+└── E. 版本历史（Revision History）</code></pre><hr><h1><strong>0. 文档说明（About This Document）</strong></h1><h2><strong>0.1 文档目的（Purpose）</strong></h2><p>本文件作为 <strong>SnowBot V1 全系统技术与运营整合文档（Master Integrated Document）</strong> 的统一入口，目标是：</p><ol><li><strong>为工程团队提供完整的产品与系统定义</strong><p>包含机械、电控、结构、导航、软件、运维、可靠性、试点部署等全部技术内容。</p></li><li><strong>为管理层与合作伙伴提供统一的产品蓝图</strong><p>覆盖北美市场要求、合规框架、风险边界、运营模型以及服务体系。</p></li><li><strong>为未来量产与平台化升级奠定标准化依据</strong><p>所有结构规格、可维护性要求、子系统接口、DFM 规则均以该文档为源头。</p></li><li><strong>确保团队跨部门协作一致性</strong><p>所有工程决策需以本文件为对照基准，保持执行一致性与产品方向统一。</p></li></ol><hr><h2><strong>0.2 文档范围（Scope）</strong></h2><p>本文件覆盖 SnowBot V1 的<strong>全生命周期与全系统范围</strong>：</p><ul><li><strong>产品定义与角色定位</strong></li><li><strong>结构工程规格（车架、雪铲、疲劳等）</strong></li><li><strong>机械系统、电驱、电池、控制系统</strong></li><li><strong>Teach &amp; Repeat 导航策略</strong></li><li><strong>安全体系（设备安全、现场安全、功能安全）</strong></li><li><strong>数据治理、网络安全、北美合规</strong></li><li><strong>运营与机队管理（Fleet Ops）</strong></li><li><strong>北美试点部署手册（Playbook）</strong></li><li><strong>可靠性工程、量产工程（DFM）、包装运输</strong></li><li><strong>附录与 Checklists</strong></li></ul><p>该文档既适用于工程设计阶段，也适用于现场部署与长期运维阶段。</p><hr><h2><strong>0.3 使用对象（Intended Audience）</strong></h2><p>本文件面向以下人员与组织：</p><h3><strong>0.3.1 工程团队（Engineering Teams）</strong></h3><ul><li>机械工程师</li><li>结构工程师</li><li>电驱与控制工程师</li><li>嵌入式软件工程师</li><li>测试与验证团队</li><li>可靠性与 DFMEA 团队</li></ul><h3><strong>0.3.2 运营与服务团队（Ops &amp; Service）</strong></h3><ul><li>北美试点服务人员</li><li>现场调试工程师</li><li>维保团队</li><li>经销商与 VAR 合作伙伴</li></ul><h3><strong>0.3.3 管理团队（Management）</strong></h3><ul><li>产品管理</li><li>工程管理</li><li>供应链与制造管理</li><li>合规与法务</li></ul><h3><strong>0.3.4 外部利益相关方（External Stakeholders）</strong></h3><ul><li>市政与校园客户</li><li>工业园区与物业管理</li><li>保险公司</li><li>合作研发伙伴</li><li>投资人（用于理解系统全貌）</li></ul><hr><h2><strong>0.4 文档结构（Document Structure）</strong></h2><p>文档按工程逻辑自上而下组织，下列为顶层结构：</p><pre class="n-code-notion"><code class="language-plain text">0. 文档说明
+1. 产品定义与角色
+2. 关键性能指标
+3. 系统总体架构
+4. 结构工程规格
+5. 子系统技术规格
+6. 安全体系
+7. 网络安全
+8. 数据治理
+9. 北美合规
+10. 法律框架
+11. 事件管理
+12. 软件/OTA 生命周期
+13. 运营与机队
+14. 试点部署手册 (Pilot)
+15. 可靠性工程
+16. 工业化/量产（DFM）
+17. 运输与包装
+18. 附录
+</code></pre><hr><h2><strong>0.5 版本管理（Version Control）</strong></h2><p>本文件采用严格的版本管理策略：</p><ul><li><strong>主版本号（Major）</strong>：产品大架构调整、系统级重构</li><li><strong>次版本号（Minor）</strong>：功能扩展、子系统细化、架构添加</li><li><strong>修订号（Patch）</strong>：错误修正、细节补充、优化文案</li></ul><p>示例：</p><p><strong>v1.0.0</strong> = 首次对外公开可审阅的完整系统文档版本。</p><p>版本历史将记录在 <strong>附录 E</strong>。</p><hr><h2><strong>0.6 文档更新机制（Update Mechanism）</strong></h2><p>为确保文档与产品开发同步，规定如下：</p><ol><li><strong>任何工程变更必须更新对应章节</strong></li><li><strong>提交代码或变更 BOM 前必须引用文档章节编号</strong></li><li><strong>文档每两周进行一次 Review</strong></li><li><strong>重大设计调整需由工程负责人批准后更新主版本</strong></li><li><strong>Pilot 收到的现场反馈必须进入文档迭代</strong></li></ol><p>文档是设计的一部分，必须与工程执行保持严格一致。</p><hr><h2><strong>0.7 术语说明（Terminology）</strong></h2><p>在整份文档中：</p><ul><li>“SnowBot” = SnowBot V1</li><li>“系统” = 全车机械、电气、控制、导航、软件</li><li>“结构” = 车架、雪铲、连接件、外壳、越障系统</li><li>“控制柜/主控” = 主控制器 + 电驱控制</li><li>“Teach &amp; Repeat” = 手动录制路线 + 自动执行</li><li>“Pilot” = 北美试点项目</li><li>“Fleet” = 机队运营体系</li></ul><p>官方术语统一记录在附录 D《术语表》。</p><hr><h1><strong>1. 产品定义与角色（Product Definition）</strong></h1><h2><strong>1.1 SnowBot 产品定位（Product Positioning）</strong></h2><p>SnowBot 是一款面向 <strong>北美冬季环境</strong> 的 <strong>全自动道路与车道除雪机器人</strong>，适用于物业、市政、校园、商业园区等大型室外区域。其核心定位如下：</p><h3><strong>1.1.1 产品核心角色</strong></h3><ul><li><strong>自动化除雪作业机器人</strong><p>取代人工推雪、减少人工清雪成本与安全风险。</p></li><li><strong>安全、可控、可部署的“机队级”机器人设备</strong><p>支持多设备协同、远程管理、日志可审计、可 OTA 升级。</p></li><li><strong>极端工况适用设备</strong><p>针对暴雪、冰层、低温（-25°C 至 -35°C 区间）、夜间环境设计。</p></li><li><strong>可快速部署的自动化生产力工具</strong><p>采用 <strong>Teach &amp; Repeat 导航</strong>，无需建图，不依赖 GPS，不依赖外部基站。</p></li></ul><h3><strong>1.1.2 产品功能范畴</strong></h3><p>包含但不限于：</p><pre class="n-code-notion"><code class="language-plain text">作业功能
+├── 自动推雪（主功能）
+├── 自动返航（至充电桩/休息区）
+├── 自动充电（基于对接结构）
+├── 自动限速与避障（V1）
+└── 路径记忆与重复执行（Teach &amp; Repeat）
+</code></pre><h3><strong>1.1.3 市场定位</strong></h3><ul><li>属于 <strong>Commercial Service Robot（商用服务机器人）</strong></li><li>不是家用玩具，不是无人驾驶汽车，不是户外全场景导航机器人</li><li>属于 <strong>“特定功能场景机器人（Task-specific Outdoor Robot）”</strong></li></ul><h3><strong>1.1.4 产品设计原则</strong></h3><p>SnowBot 的设计遵循以下原则：</p><ol><li><strong>安全优先（Safety-First Architecture）</strong></li><li><strong>可维护性优先（Serviceability First）</strong></li><li><strong>极端环境可靠性（Winter-grade Reliability）</strong></li><li><strong>易部署（5 minutes to go live）</strong></li><li><strong>多机协同（Fleet-capable）</strong></li><li><strong>市政友好（Municipal-friendly）</strong></li></ol><hr><h2><strong>1.2 应用场景与禁用场景（Use &amp; Prohibited Scenarios）</strong></h2><h3><strong>1.2.1 典型应用场景（Use Cases）</strong></h3><pre class="n-code-notion"><code class="language-plain text">SnowBot 适用场景
+├── 商业园区 / 工业园区道路
+├── 物业社区车道与行人道路
+├── 校园内部道路与连廊
+├── 商场外部通道
+├── 停车场车道与泊位周边
+└── 医院、酒店等场景的内街道路
+</code></pre><p>这些场景具有共同特征：</p><ul><li>封闭或半封闭道路</li><li>低速交通</li><li>人/车混流但密度可控</li><li>对稳定、安全、可预测的除雪能力要求高</li><li>设备可长期停放并进行夜间作业</li></ul><h3><strong>1.2.2 增强适用场景（扩展场景）</strong></h3><p>这些需要根据未来版本（V2/V3）适配：</p><ul><li>市政道路支线（需增强合规与灯光要求）</li><li>大面积停车场的自动分区作业</li><li>拖挂式吹雪附件（V2 预留）</li></ul><h3><strong>1.2.3 禁用场景（Prohibited Scenarios）</strong></h3><p>以下场景 <strong>禁止使用 SnowBot</strong>：</p><pre class="n-code-notion"><code class="language-plain text">禁止场景
+├── 主干道路（City Main Road）
+├── 高速车辆流量区域
+├── 未经授权的跨路段、穿越道路行为
+├── 行人密度极高区域（如节假日商场入口）
+├── 陡坡 &gt; 20° 或横坡 &gt; 15°
+├── 建筑工地、坑洼严重区域
+├── 冰层极厚且需破冰机械（非推雪机器人范畴）
+└── 人为攀爬、站立或乘坐设备
+</code></pre><p>此外：</p><ul><li>禁止作为“车辆牵引力试验平台”</li><li>禁止载货或载人</li><li>禁止在未标记/未授权路径上运行</li></ul><hr><h2><strong>1.3 系统边界（System Boundary）</strong></h2><p>SnowBot 的系统边界明确如下：</p><h3><strong>1.3.1 车体系统（内部边界）</strong></h3><pre class="n-code-notion"><code class="language-plain text">SnowBot 车体构成
+├── 机械系统
+│    ├── 车架结构
+│    ├── 雪铲模块
+│    ├── 驱动模块（电机+减速器+轮组）
+│    └── 外壳与防护结构
+├── 电控系统
+│    ├── 主控单元
+│    ├── 电驱与功率模块
+│    ├── BMS 与电池
+│    └── 传感器（避障、IMU、编码器等）
+├── 软件系统
+│    ├── Teach &amp; Repeat 导航模块
+│    ├── 作业控制
+│    ├── OTA/远程更新
+│    └── 黑匣子日志系统
+└── 充电与对接系统
+     ├── 充电桩
+     └── 对接结构（导向与定位）
+</code></pre><h3><strong>1.3.2 外部系统（依赖边界）</strong></h3><p>SnowBot 依赖：</p><pre class="n-code-notion"><code class="language-plain text">外部依赖
+├── Teach 路径由人工录制
+├── 由客户提供适用的作业区域（非主干道路）
+├── 固定安装的充电桩与电源（120-240V）
+└── 运营人员提供的日常检查与解锁权限
+</code></pre><h3><strong>1.3.3 明确不属于系统边界的部分（Out of Scope）</strong></h3><p>不在 SnowBot 系统范畴：</p><pre class="n-code-notion"><code class="language-plain text">不属于 SnowBot 范畴
+├── 全场景自动导航（非目标）
+├── 高速自动驾驶
+├── 市政认证车辆（V2 才会涉及）
+├── 大型机械破冰
+├── 第三方通讯基站（不依赖 GPS）
+└── 专业除雪车替代品（这是轻量化设备）
+</code></pre><hr><h2><strong>1.4 生命周期与季节性（Lifecycle &amp; Seasonality）</strong></h2><h3><strong>1.4.1 季节性运行周期</strong></h3><p>SnowBot 专用于冬季：</p><pre class="n-code-notion"><code class="language-plain text">作业季节
+├── 北美冬季：11 月 – 次年 3 月
+├── 每日作业周期：夜间为主（18:00–06:00）
+├── 雪后连续作业：可连续运行 6–10 小时
+└── 非作业季：进入维护与存储模式
+</code></pre><h3><strong>1.4.2 运维生命周期</strong></h3><p>SnowBot 设备生命周期由四阶段组成：</p><pre class="n-code-notion"><code class="language-plain text">SnowBot 生命周期
+├── ① 部署阶段（1–3 天）
+│     ├── 路径录制
+│     ├── 多点 teach
+│     ├── 充电桩对接测试
+│     └── 安全培训
+├── ② 正式作业阶段（5 个月）
+│     ├── 自动除雪
+│     ├── 自动充电
+│     ├── 按需远程控制
+│     └── 周期性维护
+├── ③ 季末收车阶段
+│     ├── 清洁
+│     ├── 防腐维护
+│     └── 电池长期存放管理
+└── ④ 多年复用阶段（3–5 年寿命目标）
+      ├── 关键部件可更换
+      ├── software OTA 持续升级
+      └── 可扩展未来附件（吹雪/挂车）
+</code></pre><h3><strong>1.4.3 设计寿命目标</strong></h3><ul><li>整机目标寿命：<strong>3–5 年</strong></li><li>电池寿命：<strong>800–1200 循环</strong></li><li>车架与铲架疲劳寿命：<strong>≥ 3 冬季作业量</strong></li><li>驱动总成：可更换、可修复设计</li></ul><hr><h1><strong>2. 关键性能指标（KPIs）</strong></h1><p>SnowBot 的核心指标体系分为 <strong>作业性能、可靠性、安全、环境适应性、机队运营能力</strong> 五大类。本章为整个产品的“量化定义”，用于工程开发、试点评估、FAT/SAT 测试、量产验收与市场沟通。</p><hr><h2><strong>2.1 作业性能（Operational Performance）</strong></h2><h3><strong>2.1.1 推雪能力（Snow-clearing Capability）</strong></h3><pre class="n-code-notion"><code class="language-plain text">推雪性能指标
+├── 推雪宽度：90–110 cm（可根据机型定义）
+├── 推雪厚度：5–20 cm（轻雪/中雪/重雪）
+├── 最大可处理雪深：≥ 30 cm（需多轮作业）
+├── 工作速度：2–5 km/h（根据人/车密度自动限速）
+└── 推雪密度：≥ 180–220 kg/m³（实测依场景）
+</code></pre><h3><strong>2.1.2 作业效率（Productivity）</strong></h3><pre class="n-code-notion"><code class="language-plain text">单次作业效率目标
+├── 单次运行时长：4–10 小时（满电）
+├── 单次可覆盖面积：8,000–20,000 ft²（依路线复杂度变化）
+├── 返航次数：≤ 1 次/夜（理想）
+└── 任务完成率：≥ 95%（稳定天气）
+</code></pre><h3><strong>2.1.3 任务闭环能力（Mission Completion）</strong></h3><pre class="n-code-notion"><code class="language-plain text">任务闭环指标
+├── 自动返航成功率 ≥ 98%
+├── 自动充电对接成功率 ≥ 95%
+├── Teach &amp; Repeat 路径偏差 ≤ ±10 cm
+└── 每夜人工干预次数 ≤ 1 次（目标 0 次）
+</code></pre><h3><strong>2.1.4 关键动作性能</strong></h3><pre class="n-code-notion"><code class="language-plain text">动作性能指标
+├── 起步响应时间：&lt; 1.5 s
+├── 停车距离（满载 3 km/h）：≤ 50–70 cm
+├── 转弯半径：≤ 1.0 m（原地转向可选）
+└── 铲子升降/转角响应：&lt; 1 s
+</code></pre><hr><h2><strong>2.2 可靠性指标（RE, Reliability Engineering）</strong></h2><h3><strong>2.2.1 全机可靠性（System Reliability）</strong></h3><pre class="n-code-notion"><code class="language-plain text">整机可靠性指标
+├── MTBF（无故障平均时间）：≥ 150–300 小时（V1 范围）
+├── MTTR（平均维修时长）：≤ 30 分钟（模块化）
+├── 故障率（每百小时）：≤ 3 次（V1）
+└── 关键事件率（P1 事件）：&lt; 0.5 次/月/百台
+</code></pre><h3><strong>2.2.2 关键总成寿命</strong></h3><pre class="n-code-notion"><code class="language-plain text">关键总成设计寿命
+├── 电池组：800–1200 循环
+├── 驱动电机：≥ 3000 小时
+├── 减速器：≥ 1000 小时
+├── 铲架结构件：≥ 3 冬季
+└── 传感器平均寿命：≥ 2000 小时
+</code></pre><h3><strong>2.2.3 抗冲击与抗疲劳指标</strong></h3><pre class="n-code-notion"><code class="language-plain text">结构耐久指标
+├── 2 km/h 正撞路沿：结构可恢复无不可逆损伤
+├── 5 km/h 铲子撞冰块：损伤限于可更换部件
+├── 焊缝疲劳寿命：≥ 200,000 周期（估算级）
+└── 铲架连杆屈服安全系数 ≥ 1.5–2.0
+</code></pre><h3><strong>2.2.4 雪地工况可靠性</strong></h3><pre class="n-code-notion"><code class="language-plain text">雪地可靠性指标
+├── 雪阻导致的运动失效率：&lt; 5%
+├── 底盘积雪导致停机概率：&lt; 1 次/周
+├── 高盐环境导致腐蚀失效：≥ 2 冬季可承受
+└── 冰层导致的机构卡滞率：&lt; 2% / 周
+</code></pre><hr><h2><strong>2.3 安全指标（Safety KPIs）</strong></h2><h3><strong>2.3.1 人车混流安全性能</strong></h3><pre class="n-code-notion"><code class="language-plain text">避障性能（V1）
+├── 检测距离：0.5–2 m（取决于传感器配置）
+├── 遇人 / 遇车停止成功率：≥ 99%
+├── 自动限速区域反应时间：&lt; 1 s
+└── 完整制动距离：&lt; 1 m（3 km/h）
+</code></pre><h3><strong>2.3.2 急停体系可靠性</strong></h3><pre class="n-code-notion"><code class="language-plain text">急停指标
+├── 本地急停可用率：100%
+├── 无线急停响应时间：&lt; 300 ms
+├── 云端急停执行时间：&lt; 2 秒
+└── 急停可用性（E-stop availability）：≥ 99.99%
+</code></pre><h3><strong>2.3.3 结构与电气安全</strong></h3><pre class="n-code-notion"><code class="language-plain text">电池安全指标
+├── 热失控发生率：极低（&lt;百万分之级目标）
+├── 低温保护触发温度：≤ -20°C
+├── 过流保护：完整响应 &lt; 10 ms
+</code></pre><pre class="n-code-notion"><code class="language-plain text">结构安全指标
+├── 倾翻极限（侧向）：≥ 30°
+├── 倾翻极限（纵向）：≥ 35°
+├── 外壳抗冲击：≥ IK08（目标）
+</code></pre><hr><h2><strong>2.4 环境适应性（Environmental Adaptability）</strong></h2><h3><strong>2.4.1 气候环境适应性</strong></h3><pre class="n-code-notion"><code class="language-plain text">工作温度：-25°C ~ 0°C（基础）
+存储温度：-30°C ~ +40°C
+湿度：10%–95%（无凝结）
+</code></pre><h3><strong>2.4.2 雪地环境适应性</strong></h3><pre class="n-code-notion"><code class="language-plain text">雪密度：100–220 kg/m³
+雪类型：粉雪、湿雪、压实雪、轻度冰层
+冰点环境：可承受表层结冰、积雪压实
+</code></pre><h3><strong>2.4.3 防护等级与耐腐蚀</strong></h3><pre class="n-code-notion"><code class="language-plain text">防水防尘：IP55（整机目标）
+电控舱：独立密封 IP6X
+喷盐环境：≥ 2 冬季（结构防腐）
+紧固件：不锈 / 达克罗
+外壳：抗飞石与低温脆性
+</code></pre><hr><h2><strong>2.5 运营能力（Fleet / Ops Quality）</strong></h2><p>这是评估量产化、规模化运营能力的重要指标。</p><h3><strong>2.5.1 机队化能力（Fleet-readiness）</strong></h3><pre class="n-code-notion"><code class="language-plain text">机队运营指标
+├── 同站点最大机队规模：10–30 台
+├── Fleet 控制延迟：&lt; 200 ms
+├── OTA 成功率：≥ 95%
+├── OTA 回滚成功率：100%
+└── 设备唯一身份（Device Identity）：100% 设备具备
+</code></pre><h3><strong>2.5.2 远程运营与可见性（Ops Observability）</strong></h3><pre class="n-code-notion"><code class="language-plain text">设备状态可达性：≥ 98%
+远程指令执行成功率：≥ 95%
+黑匣子日志覆盖率：100% P1/P2 事件
+</code></pre><h3><strong>2.5.3 可维护性指标（Serviceability）</strong></h3><pre class="n-code-notion"><code class="language-plain text">日常维护时间（每台/每周）：≤ 15 分钟
+易损件更换时间：≤ 5 分钟
+电池拆装时间：≤ 3 分钟（快拆设计）
+模块化维修覆盖率：≥ 80%
+</code></pre><h3><strong>2.5.4 成本与经济性（Ops Cost &amp; Efficiency）</strong></h3><pre class="n-code-notion"><code class="language-plain text">年度可用性（Availability）：≥ 85%
+每平方英尺作业成本（估算）：显著低于人工
+冬季平均人力介入：&lt; 1 次/周/台（目标）
+</code></pre><hr><h1><strong>3. 系统整体架构（System Architecture）</strong></h1><p>SnowBot V1 遵循 <strong>“机械稳定性优先 + 控制可靠性优先 + 软件最小可用 + 运营闭环”</strong> 的整体架构理念。</p><p>系统结构采用 <strong>模块化 + 层级化 + 冗余化 + 可维护性优先</strong> 的设计，确保能在北美严苛冬季环境中稳定运行，并具备机队化运营能力。</p><hr><h2><strong>3.1 架构总览（Architecture Overview）</strong></h2><p>下图为 SnowBot 的全系统结构树：</p><pre class="n-code-notion"><code class="language-plain text">SnowBot V1 Architecture
+├── Mechanical System（机械系统）
+│     ├── 车架与结构件
+│     ├── 雪铲与铲架
+│     └── 底盘与外壳
+│
+├── Drive System（电驱系统）
+│     ├── 电机 + 减速器
+│     ├── 轮组系统
+│     └── 驱动控制器（Dual Motor Drivers）
+│
+├── Battery System（电池系统）
+│     ├── 主电池组
+│     ├── BMS
+│     └── 加热系统 / 低温保护
+│
+├── Control Electronics（控制系统）
+│     ├── 主控（EnergizeOS 主控板）
+│     ├── I/O 扩展
+│     └── 24V/低压系统
+│
+├── Perception Layer（轻感知系统）
+│     ├── 超声波
+│     ├── ToF 或短距雷达
+│     └── 防碰撞边条（可选）
+│
+├── Navigation Core（导航系统）
+│     ├── Teach &amp; Repeat 模式
+│     ├── 路线录制
+│     └── 路径重播与偏差控制
+│
+├── Software System（软件系统）
+│     ├── 核心控制栈（EnergizeOS Outdoor）
+│     ├── OTA 管理
+│     └── Fleet 后台
+│
+└── Charging &amp; Docking（充电与回桩）
+      ├── 机械导向结构
+      ├── 自动对接结构
+      └── 充电桩通讯
+</code></pre><p>架构强调以下原则：</p><ul><li><strong>结构可靠性 &gt; 控制稳定性 &gt; 功能扩展性</strong></li><li><strong>模块化，可替换，可维护</strong></li><li><strong>未来可扩展至 PatrolBot / InspectBot / CleaningBot</strong></li></ul><hr><h2><strong>3.2 机械系统（Mechanical）</strong></h2><p>机械系统承担：</p><ul><li>整机结构载荷</li><li>推雪载荷传递（Blade → 铲架 → 主车架）</li><li>冲击吸收与疲劳容忍</li><li>保护电控、电池、线束</li><li>确保低重心与稳定性</li></ul><h3><strong>3.2.1 组成结构</strong></h3><pre class="n-code-notion"><code class="language-plain text">机械系统组成
+├── 主车架（封闭式钢结构）
+├── 雪铲结构（blade + mount）
+├── 推力梁（力路径主受力件）
+├── 铲架升降机构（电动/线性机构）
+├── 外壳结构（抗冲击）
+└── 底盘防护板（防积雪/防飞石）
+</code></pre><h3><strong>3.2.2 机械设计要点</strong></h3><ul><li>力路径清晰，避免薄板受力</li><li>前端铲架通过弱连杆吸能</li><li>离地间隙与前悬结构适应路沿</li><li>外壳承担 IK08 级抗冲击</li><li>顶盖/维护门具备良好服务包络</li></ul><hr><h2><strong>3.3 电驱与动力系统（Drive Train）</strong></h2><p>驱动系统为全车的动力源，必须在低温、高雪阻环境下保持稳定。</p><h3><strong>3.3.1 总体结构</strong></h3><pre class="n-code-notion"><code class="language-plain text">电驱系统
+├── 双电机驱动（L/R）
+├── 带刹车减速器（紧凑、低温可用）
+├── 轮胎/防滑胎面
+└── 驱动控制器（Dual Motor Controller）
+</code></pre><h3><strong>3.3.2 关键要求</strong></h3><ul><li>额定扭矩可推 ≥ 180–220 kg/m³ 雪密度</li><li>在低温下保持扭矩输出（-20°C）</li><li>驱动模块可快拆（螺栓式安装）</li><li>冗余制动能力（电机制动 + 控制器限流）</li><li>支撑原地小半径转向</li></ul><hr><h2><strong>3.4 电池系统（Battery &amp; BMS）</strong></h2><h3><strong>3.4.1 电池配置</strong></h3><pre class="n-code-notion"><code class="language-plain text">电池系统组成
+├── 主电池组（Li-ion / LFP）
+├── BMS（温控、均衡、保护）
+├── 低温环境加热片
+└── 安全熔断/保险丝
+</code></pre><h3><strong>3.4.2 安全与性能要求</strong></h3><ul><li>工作温度：≥ -20°C</li><li>存储温度：≥ -30°C</li><li>支持恒温加热（Battery Heater）</li><li>BMS 具备：<ul><li>过流/过压保护</li><li>低温充电保护</li><li>SOH/SOC 上报</li></ul></li><li>电池可快拆（3 分钟内完成）</li><li>电池抽拉通道保持无遮挡</li></ul><hr><h2><strong>3.5 控制与低压系统（Control Electronics）</strong></h2><h3><strong>3.5.1 控制系统层级</strong></h3><pre class="n-code-notion"><code class="language-plain text">控制系统结构
+├── 主控 MCU/IPC（EnergizeOS Outdoor）
+│     ├── 状态机
+│     ├── Teach &amp; Repeat 执行
+│     ├── 安全逻辑（人车）
+│     └── OTA 更新
+│
+├── I/O 子模块
+│     ├── 电机驱动信号
+│     ├── 铲子升降/转角
+│     └── 急停/限位
+│
+└── 电源系统
+      ├── 24V DC-DC
+      ├── 保险丝盒
+      └── 线束（防盐、防水）
+</code></pre><h3><strong>3.5.2 控制策略</strong></h3><ul><li>安全优先级最高：急停 &gt; 避障 &gt; 路径跟踪 &gt; 辅助功能</li><li>所有控制动作必须具备日志记录</li><li>路径控制采用：<ul><li>位置偏差闭环</li><li>速度前馈</li><li>小幅修正避免过度波动</li></ul></li></ul><hr><h2><strong>3.6 感知系统（Light Perception）</strong></h2><p>SnowBot V1 不依赖视觉，采用轻感知体系为安全提供补充。</p><h3><strong>3.6.1 轻感知结构</strong></h3><pre class="n-code-notion"><code class="language-plain text">轻感知系统
+├── 超声波阵列（前/侧）
+├── ToF 短距传感器（可选）
+└── 防碰撞边条（机械式，可选）
+</code></pre><h3><strong>3.6.2 功能定义</strong></h3><ul><li>前方障碍检测：停止</li><li>侧向近距离检测：限速或停止</li><li>静态障碍高概率正确响应</li><li>不依赖人/车分类，仅判断距离</li></ul><blockquote><p>轻感知并非用于导航，只做“安全补充”。</p></blockquote><hr><h2><strong>3.7 导航系统（Teach &amp; Repeat）</strong></h2><p>SnowBot V1 使用高度稳定的 <strong>Teach &amp; Repeat</strong> 系统，这是北美冬季最实用的导航方式。</p><h3><strong>3.7.1 核心组成</strong></h3><pre class="n-code-notion"><code class="language-plain text">Teach &amp; Repeat 导航
+├── 手动驾驶录制路线
+├── 绑定环境特征（惯导+里程+轮速）
+├── 自动重播路线
+└── 偏差控制（误差修正）
+</code></pre><h3><strong>3.7.2 关键性能</strong></h3><ul><li>路径偏差 ≤ ±10 cm</li><li>具备偏差恢复能力（掉头/小范围修正）</li><li>支持多段任务与任务链式执行</li><li>不依赖摄像头与 GPS</li><li>可靠性适应黑夜/暴雪/白茫茫低能见度环境</li></ul><hr><h2><strong>3.8 软件系统（EnergizeOS Outdoor）</strong></h2><p>软件系统定义为“Outdoor 版 EnergizeOS”，强调稳定、安全、可远程管理。</p><h3><strong>3.8.1 软件栈结构</strong></h3><pre class="n-code-notion"><code class="language-plain text">软件系统结构
+├── 核心控制层（State Machine）
+├── Teach &amp; Repeat Engine
+├── Safety Layer（E-stop, Obstacle）
+├── OTA &amp; 版本管理
+└── 通信层（MQTT/WebSocket）
+</code></pre><h3><strong>3.8.2 后台（Fleet Console）</strong></h3><ul><li>查看设备状态</li><li>远程下发任务</li><li>OTA 推送</li><li>事件日志 / 黑匣子</li><li>多台设备协调（Fleet）</li></ul><hr><h2><strong>3.9 充电与回桩系统（Charging &amp; Docking）</strong></h2><p>充电系统确保单夜可重复自动运行，极为关键。</p><h3><strong>3.9.1 结构组成</strong></h3><pre class="n-code-notion"><code class="language-plain text">Charging System
+├── Dock 导向结构（左右斜坡/柱）
+├── 机械对接结构（充电触点）
+├── 限位与对中机构
+└── 充电桩（AC/DC）
+</code></pre><h3><strong>3.9.2 功能要求</strong></h3><ul><li>自动对接成功率 ≥ 95%</li><li>在雪堆、冰层、轻度漂移情况下仍能对接</li><li>支持轻感知辅助“最终 20 cm”调整</li><li>充电桩必须：<ul><li>具备排雪坡面</li><li>触点具备自清洁能力</li><li>防止被雪完全埋没</li></ul></li></ul><hr><h1><strong>4. 结构工程规格（Structural Engineering Spec）</strong></h1><p>SnowBot V1 的结构设计以 <strong>载荷路径明确、抗冲击、可维护、耐盐耐寒、可量产</strong> 为核心目标。所有结构件必须满足北美冬季环境（雪、冰、盐、高湿、反复热循环）与物业/市政长期使用场景。</p><hr><h2><strong>4.1 车架与载荷路径（Load Path）</strong></h2><h3><strong>4.1.1 载荷路径设计原则</strong></h3><pre class="n-code-notion"><code class="language-plain text">雪力载荷路径
+Blade → Blade Mount → 推力梁（Front Thrust Beam）
+      → 前车架闭环结构 → 主车架 → 地面
+</code></pre><p>必须满足：</p><ul><li><strong>整车必须为闭合环式或多闭合回路结构</strong><p>避免“U形开口架”的结构弱点。</p></li><li>载荷不可直接传递到薄板、装饰件、或焊缝直角位置。</li></ul><h3><strong>4.1.2 主车架结构</strong></h3><ul><li>主车架材料：S235JR（等效 Q235B）或更高等级钢</li><li>采用 <strong>矩形管 + 加强板 + 内部肋板</strong></li><li>封闭截面优先于开口截面</li><li>前端设置 <strong>Front Thrust Beam</strong>（推力梁）作为雪铲载荷主承载路径</li></ul><h3><strong>4.1.3 重心与稳定性要求</strong></h3><ul><li>完整装配后重心高度应 ≤ 车轮轴心高度的 65%</li><li>侧倾翻角 ≥ 30°</li><li>纵向翻角 ≥ 35°</li><li>电池必须布置在 <strong>最低平面/轴间位置</strong>，避免任何高重心布局</li></ul><hr><h2><strong>4.2 雪铲结构与弱连杆（Blade &amp; Mount）</strong></h2><h3><strong>4.2.1 铲架结构组成</strong></h3><pre class="n-code-notion"><code class="language-plain text">雪铲结构
+├── Blade（铲板）
+├── Cutting Edge（橡胶刮条）
+├── Blade Mount（铲架）
+├── Angle Adjustment Mechanism（转角机构）
+└── Weak-link Assembly（弱连杆组件）
+</code></pre><h3><strong>4.2.2 弱连杆设计（核心）</strong></h3><p>弱连杆必须：</p><ul><li>在撞击硬障碍（路沿/冰块）时<strong>先变形</strong></li><li>保护：推力梁、前车架、减速器</li><li>成本低廉、可快速更换（5–10 min）</li></ul><p><strong>吸能策略：</strong></p><ul><li>采用“弯曲屈服优先”的钢性连杆</li><li>或在转角机构下方设置一次性剪切销（shear pin）</li></ul><h3><strong>4.2.3 铲刀与地面的适应性</strong></h3><ul><li>刮条必须具备 <strong>弹性预紧</strong> + 微小浮动（1–3 mm）</li><li>铲架应有 <strong>小量随动行程</strong>（5–10 mm）吸收地面不平</li></ul><h3><strong>4.2.4 铲角锁止结构</strong></h3><ul><li>必须具备 <strong>机械齿盘/销轴锁止结构</strong></li><li>不能仅依赖电机力矩锁角</li><li>铲角锁定扭矩 ≥ 3 倍理论雪阻扭矩</li></ul><hr><h2><strong>4.3 底盘越障与几何结构（Undercarriage）</strong></h2><h3><strong>4.3.1 越障几何要求</strong></h3><ul><li>最小离地间隙：≥ 60–80 mm</li><li>前悬距（轮心→车头）最小化，以减少“前杵”</li><li>前下沿设计为 <strong>上扬斜坡</strong>，促进滑越路沿</li></ul><h3><strong>4.3.2 底盘形状</strong></h3><ul><li>整体必须具备“顺滑底面”</li><li>禁止出现：<ul><li>下垂的凸起</li><li>小台阶（易积冰）</li><li>孤立支架（挂雪点）</li></ul></li></ul><h3><strong>4.3.3 拖行与救援结构</strong></h3><p>雪地/冰面不可避免需要拖行：</p><pre class="n-code-notion"><code class="language-plain text">拖行结构要求
+├── 前拖挂点（承载 ≥ 3 × 整机重量）
+├── 后拖挂点（同上）
+└── 两者必须直接焊接或螺栓连接至主车架
+</code></pre><hr><h2><strong>4.4 外壳、防碰撞、防飞石（Body &amp; Protection）</strong></h2><h3><strong>4.4.1 外壳不仅是装饰，是防护件</strong></h3><p>外壳必须保护：</p><ul><li>电控仓（主控、驱动、电池线束）</li><li>充电接口与桩对接面</li><li>轮组上部与传动件</li></ul><h3><strong>4.4.2 抗冲击要求</strong></h3><ul><li>外壳材料：ABS+PC / HDPE / 金属复合件</li><li>抗冲击等级建议：IK08–IK10</li><li>前后必须具备：<ul><li><strong>结构性保险杠（steel tube + plastic cover）</strong></li><li>能承受低速（2–4 km/h）冲击</li></ul></li></ul><h3><strong>4.4.3 防飞石设计</strong></h3><ul><li>底盘边缘增加 <strong>飞石隔板</strong></li><li>防止飞起石头击中行人/车辆/外壳薄弱处</li></ul><h3><strong>4.4.4 禁止产生“踏板感”结构</strong></h3><ul><li>禁止出现可踩踏的水平平面</li><li>避免工人误踩 → 倾翻事故</li></ul><hr><h2><strong>4.5 维护空间与服务包络（Service Envelope）</strong></h2><h3><strong>4.5.1 结构维护原则</strong></h3><pre class="n-code-notion"><code class="language-plain text">服务包络必须满足：
+手可伸入
+工具可伸入
+视线可进入（开口清晰）
+快速更换（易损件 &lt;10 min）
+</code></pre><h3><strong>4.5.2 关键维护点</strong></h3><p>必须为以下结构件提供“快速维护空间”：</p><ul><li>刮条（2–3 分钟可换）</li><li>雪铲弱连杆（5–10 分钟）</li><li>电池模块（3 分钟快拆）</li><li>关键传感器（前/侧 ToF/超声）</li><li>轮组与减速器（可模块化拆卸）</li></ul><h3><strong>4.5.3 服务门与顶盖</strong></h3><ul><li>顶盖开启角必须 ≥ 90°</li><li>可拆卸式连接优先</li><li>内部无尖锐边缘/线束牵制点</li></ul><hr><h2><strong>4.6 抗疲劳与冲击工况（Fatigue &amp; Impact）</strong></h2><h3><strong>4.6.1 疲劳要求</strong></h3><p>关键焊缝必须遵循：</p><ul><li>SN 曲线估算</li><li>安全系数 ≥ 2.0</li><li>避免：<ul><li>直角焊缝</li><li>不连续焊缝</li><li>高应力聚集点</li></ul></li></ul><h3><strong>4.6.2 必跑冲击工况（建议仿真/台架测试）</strong></h3><pre class="n-code-notion"><code class="language-plain text">冲击工况建议（Impact Scenarios）
+1. 正面撞路沿（2 km/h）
+2. 铲刀撞硬冰块（5 km/h）
+3. 侧向撞停车位桩（2 km/h）
+4. 雪堆高阻力（铲子阻塞）→ 弱连杆触发
+</code></pre><p>必须保证：</p><ul><li>结构可控变形</li><li>主车架不发生永久塑性变形</li><li>弱连杆优先屈服</li><li>电机/减速器不承担脉冲冲击</li></ul><hr><h2><strong>4.7 材料与连接工艺（Materials &amp; Joints）</strong></h2><h3><strong>4.7.1 材料统一</strong></h3><pre class="n-code-notion"><code class="language-plain text">材料规范推荐：
+车架：S235JR 或 S355
+铝件：6061-T6
+外壳：ABS+PC / HDPE
+紧固件：不锈钢 304 或达克罗处理
+</code></pre><p>避免混用不同等级铝合金（6061/5052），提升一致性与强度可预测性。</p><h3><strong>4.7.2 焊接规范</strong></h3><ul><li>车架主结构：MIG 焊</li><li>关键焊缝要求：<ul><li>连续焊</li><li>内外缝搭配</li><li>避免热影响区靠近高载荷点</li></ul></li></ul><h3><strong>4.7.3 防腐与表面处理</strong></h3><ul><li>钢件：喷砂 + 喷粉 / E-coat（抗盐雾 ≥ 500 小时）</li><li>铝件：阳极氧化 + 喷涂</li><li>轮毂：防盐喷涂</li><li>紧固件：防咬死处理（防盐卡死）</li></ul><hr><h2><strong>4.8 充电桩/运输结构接口（Dock &amp; Transport）</strong></h2><h3><strong>4.8.1 Dock 机械导向结构</strong></h3><pre class="n-code-notion"><code class="language-plain text">Dock 导向结构要求：
+├── 左右导向斜坡（修正 ±10 cm 偏差）
+├── 前限位挡柱
+└── 触点对中斜面（自校正）
+</code></pre><p>对接成功率目标 ≥ 95%。</p><h3><strong>4.8.2 运输锁定</strong></h3><p>必须提供可上皮卡/拖车的结构接口：</p><ul><li>4 点固定孔（与车架焊接/螺栓连接）</li><li>能抵抗 3g 急刹</li><li>铲子必须具备“运输锁死位置”</li></ul><hr><h2><strong>4.9 平台化结构预留（Platform-ready Structure）</strong></h2><h3><strong>4.9.1 顶部预留点</strong></h3><p>用于未来：</p><ul><li>摄像头塔</li><li>小雷达</li><li>360° 园区灯</li><li>天线</li><li>扩展传感器</li></ul><p>采用 <strong>标准 M6/M8 螺孔阵列</strong> 或滑轨。</p><h3><strong>4.9.2 后部拖挂点</strong></h3><p>预留可拖挂小拖车：</p><ul><li>单点居中</li><li>螺栓式安装</li><li>牵引力要求 ≥ 2 × 自重</li></ul><h3><strong>4.9.3 电气预留</strong></h3><ul><li>预留 2–3 路 12V/24V 输出</li><li>预留未来线束通道</li><li>扩展时无需重新开孔</li></ul><hr><h1><strong>5. 子系统技术规格（Subsystem Specifications）</strong></h1><p>SnowBot V1 的所有子系统均围绕：<strong>极寒可靠性、低维护、工程化、量产可行性、北美物业级安全</strong> 而设计。本章定义每个子系统的明确技术要求、边界条件、接口要求与可验证指标。</p><hr><h2><strong>5.1 机械系统细则（Mechanical System Specification）</strong></h2><h3><strong>5.1.1 设计目标</strong></h3><pre class="n-code-notion"><code class="language-plain text">机械系统目标
+├── 可靠抗冲击（路沿、冰块、飞石）
+├── 高刚度载荷路径（持续推雪）
+├── 低温适应（-30℃）
+├── 快速维护（易损件 5–10 分钟可换）
+└── 平台化（支持未来摄像头/附件升级）
+</code></pre><h3><strong>5.1.2 主要组件</strong></h3><ul><li>主车架（S235/S355 钢）</li><li>推力梁（封闭式承载梁）</li><li>雪铲（钢+橡胶刮条）</li><li>铲架与弱连杆组件（可替换）</li><li>轮组/履带（依据版本）</li><li>外壳（ABS+PC / HDPE）</li><li>保险杠（钢管+塑料包覆）</li><li>拖挂/拖行钩点</li><li>顶部扩展孔阵列</li></ul><h3><strong>5.1.3 工程要求</strong></h3><ul><li>抗盐雾 ≥ 500 小时</li><li>IK08+ 抗冲击等级</li><li>结构疲劳寿命 ≥ 3 年物业高频使用</li><li>顶盖开启 ≥ 90°</li><li>雪铲随动行程 ≥ 5 mm</li><li>雪铲撞击触发弱连杆屈服，而非主车架</li></ul><hr><h2><strong>5.2 电驱系统细则（Drive System Specification）</strong></h2><h3><strong>5.2.1 目标</strong></h3><pre class="n-code-notion"><code class="language-plain text">电驱设计目标
+├── 大扭矩输出（推湿雪/冰雪）
+├── 低速稳定（0.1–1 m/s）
+├── 极寒可用（-30℃）
+├── 模块化可更换总成
+└── IP54+ 防水
+</code></pre><h3><strong>5.2.2 主要组件</strong></h3><ul><li>无刷直流电机（BLDC / PMSM）</li><li>减速器（行星或蜗轮蜗杆）</li><li>电机驱动器（FOC 控制）</li><li>轮组（冬季专用胎纹 / 软胶）</li><li>电机温度传感器</li></ul><h3><strong>5.2.3 技术参数（建议区间）</strong></h3><ul><li>轮端峰值扭矩：≥ 120–180 Nm</li><li>减速比：15:1 – 25:1</li><li>最高速度：2–3 km/h</li><li>最低速度：0.1 km/h（无抖动）</li><li>电机线温极限：≥ 150°C</li><li>驱动器低温起动能力：-30°C</li></ul><h3><strong>5.2.4 电驱保护</strong></h3><ul><li>低温限流</li><li>电流/扭矩限制</li><li>短路/过压保护</li><li>过载计算模型（越雪阻力过高 → 停机）</li><li>电机舱密封（防雪泥）</li></ul><hr><h2><strong>5.3 电池系统细则（Battery System Specification）</strong></h2><h3><strong>5.3.1 目标</strong></h3><pre class="n-code-notion"><code class="language-plain text">电池系统目标
+├── 低温可用（-20℃运行，-30℃存储）
+├── 预热能力
+├── 快拆更换（&lt; 3 分钟）
+├── 模块化
+└── BMS 完整保护
+</code></pre><h3><strong>5.3.2 技术要求</strong></h3><ul><li>电池类型：NMC 或 LFP（推荐 LFP）</li><li>额定电压：48–60 V</li><li>容量：1–2 kWh</li><li>工作温度：<ul><li>放电：-20℃～45℃</li><li>充电：0℃～45℃</li></ul></li><li>预热系统：PTC 或柔性加热膜</li><li>绝缘监控：绝缘电阻 ≥ 1 MΩ</li></ul><h3><strong>5.3.3 BMS 要求</strong></h3><ul><li>过充/过放保护</li><li>过流/短路保护</li><li>低温充电禁止</li><li>SOC 算法（库仑+开路电压）</li><li>均衡功能</li><li>CAN/RS485 通信</li></ul><hr><h2><strong>5.4 控制系统细则（Control System Specification）</strong></h2><h3><strong>5.4.1 控制架构</strong></h3><pre class="n-code-notion"><code class="language-plain text">控制系统架构
+├── 主控 MCU/IPC
+├── 驱动控制板（Motor Drivers）
+├── IO 模块（急停、外围）
+└── 二级安全 MCU（独立）
+</code></pre><h3><strong>5.4.2 功能要求</strong></h3><ul><li>Teach &amp; Repeat 路线执行</li><li>双通道急停</li><li>限速区域控制</li><li>推雪力判定（负载监控）</li><li>传感器融合（轻感知）</li><li>回桩控制</li></ul><h3><strong>5.4.3 环境/防护</strong></h3><ul><li>工作温度：-30℃～45℃</li><li>防水：IP54–IP65（根据舱体设计）</li><li>抗冷凝、防盐雾</li></ul><h3><strong>5.4.4 控制接口</strong></h3><ul><li>与 BMS：CAN</li><li>与驱动器：PWM/CANopen</li><li>与传感器：UART/I2C/CAN</li><li>与云端：LTE/WiFi（可选）</li></ul><hr><h2><strong>5.5 感知系统细则（Light Perception Specification）</strong></h2><h3><strong>5.5.1 设计理念：轻感知（Light AI）</strong></h3><pre class="n-code-notion"><code class="language-plain text">感知原则
+├── 以 Teach &amp; Repeat 为主
+├── 感知为“安全增强”
+├── 雪天自动降级
+└── 不依赖重视觉（避免雪盲）
+</code></pre><h3><strong>5.5.2 传感器构成</strong></h3><ul><li>前向超声波 / ToF</li><li>前向防撞杠压力/触碰传感器</li><li>侧向超声（可选）</li><li>背向泊车雷达（用于回桩）</li></ul><h3><strong>5.5.3 特殊设计</strong></h3><ul><li>传感器加热（避免结冰）</li><li>传感器护罩 + 防雪帽</li><li>雪天模式（降低感知权重）</li></ul><h3><strong>5.5.4 避障策略（V1）</strong></h3><ul><li>遇人 → 停</li><li>遇车 → 停</li><li>遇障碍物 → 停</li><li>传感器异常 → 停/降速（Fail-safe）</li></ul><hr><h2><strong>5.6 Teach &amp; Repeat 细则（Teach &amp; Repeat Specification）</strong></h2><h3><strong>5.6.1 路线录制要求</strong></h3><pre class="n-code-notion"><code class="language-plain text">路线录制流程
+1. 手动驾驶
+2. 系统记录时间戳轨迹
+3. 自动平滑
+4. 生成路线文件
+5. 干跑验证（Dry Run）
+</code></pre><h3><strong>5.6.2 技术要求</strong></h3><ul><li>重复精度：±10 cm</li><li>路线更新时间：&lt; 5 分钟</li><li>支持“回桩路线”独立录制</li><li>支持多路线切换</li><li>自动避开“临时停车”区域</li></ul><h3><strong>5.6.3 安全限制</strong></h3><ul><li>不得穿越主道路</li><li>禁止穿越邻居车道</li><li>推雪方向必须面向堆雪区</li></ul><hr><h2><strong>5.7 软件/OTA/日志细则（Software / OTA / Logs Specification）</strong></h2><h3><strong>5.7.1 软件模块</strong></h3><pre class="n-code-notion"><code class="language-plain text">EnergizeOS Outdoor 模块
+├── Navigation Engine
+├── Safety Engine
+├── Power Manager
+├── Task Scheduler
+├── OTA Manager
+└── Logging System
+</code></pre><h3><strong>5.7.2 OTA 要求</strong></h3><ul><li>双分区（A/B）</li><li>签名校验</li><li>Canary rollout（分批推送）</li><li>OTA 失败自动回滚</li><li>配置迁移脚本</li></ul><h3><strong>5.7.3 日志系统（Blackbox）</strong></h3><p>必须记录：</p><ul><li>速度、电流、扭矩</li><li>障碍识别</li><li>急停状态</li><li>传感器状态</li><li>路线执行数据（前 30 秒 + 后 30 秒）</li></ul><h3><strong>5.7.4 云端要求</strong></h3><ul><li>北美服务器（Primary）</li><li>断网可运行本地任务</li><li>不上传敏感影像（V1 无摄像头）</li></ul><hr><h2><strong>5.8 充电与回桩细则（Charging &amp; Docking Specification）</strong></h2><h3><strong>5.8.1 Dock 机械结构</strong></h3><ul><li>自对准斜坡</li><li>左右导向柱</li><li>加热功能（化冰雪）</li><li>防积雪形状（斜顶 + 排雪槽）</li></ul><h3><strong>5.8.2 充电规格</strong></h3><ul><li>48–60 V DC</li><li>8–15 A（依据版本）</li><li>冷态禁止充电（由 BMS 控制）</li><li>自动触点加热（雪天专用）</li></ul><h3><strong>5.8.3 回桩控制</strong></h3><pre class="n-code-notion"><code class="language-plain text">回桩逻辑
+1. 识别进入回桩区
+2. 限速
+3. 侧向修正（依据导向结构）
+4. 前向靠拢
+5. 对位完成
+6. 进入充电模式
+</code></pre><p>成功率目标 ≥ 95%。</p><h3><strong>5.8.4 异常处理</strong></h3><ul><li>对位失败 → 重试</li><li>充电失败 → 推送通知</li><li>充电桩被雪埋 → 自动报警</li></ul><hr><h1><strong>6. 安全体系（Safety Architecture）</strong></h1><p>SnowBot V1 的安全体系遵循“永远以安全为最高优先级”的设计原则：</p><p><strong>急停 &gt; 安全控制 &gt; 导航 &gt; 任务执行 &gt; 所有辅助功能</strong>。</p><p>安全体系分为六大部分：设备安全、功能安全、现场安全、急停体系、限速与禁区控制、冬季特殊安全策略。</p><hr><h2><strong>6.1 设备安全（Device Safety）</strong></h2><p>设备安全定义“机器人本体必须具备的安全能力”，确保在机械、电气、环境极端条件下保持可控状态。</p><h3><strong>6.1.1 安全硬件基础</strong></h3><pre class="n-code-notion"><code class="language-plain text">硬件安全构成
+├── 物理急停按钮（E-Stop）
+├── 双通道动力切断（Dual-channel power cut）
+├── 雪地专用保险杠（软防撞结构）
+├── 防雪防冰外壳（封闭式）
+├── 充电触点短路保护
+└── 防误触开盖传感器（可选 Anti-tamper）
+</code></pre><h3><strong>6.1.2 电驱安全</strong></h3><ul><li>过流/过压保护</li><li>电机堵转保护</li><li>低温保护（预热+限流）</li><li>输出扭矩上限（防撞时失控）</li></ul><h3><strong>6.1.3 电池安全</strong></h3><ul><li>低温充电禁止</li><li>电池包 IP67</li><li>热失控三级保护：BMS → 保险丝 → 机械隔离</li><li>过温自动降功率</li><li>电池对地绝缘监控</li></ul><h3><strong>6.1.4 环境安全</strong></h3><ul><li>雪天自动降级（感知/速度）</li><li>大风时限制最大速度</li><li>覆冰/冰雹环境 → 启动“低速+限推力”模式</li></ul><hr><h2><strong>6.2 功能安全（Functional Safety）</strong></h2><p>SnowBot 不要求完整 SIL 认证，但必须具备工程级“功能安全能力”。</p><h3><strong>6.2.1 控制链冗余</strong></h3><pre class="n-code-notion"><code class="language-plain text">双链路安全控制
+├── 主控 MCU（Navigation + Motion）
+└── 安全 MCU（监控急停、速度、超限）
+</code></pre><p>安全 MCU 可在以下情况下接管：</p><ul><li>主控异常重启</li><li>速度超限</li><li>驱动器反馈异常</li><li>传感器自检失败</li></ul><h3><strong>6.2.2 自检机制（Self-check）</strong></h3><p>上电自检必须包含：</p><ul><li>急停环路</li><li>驱动器状态</li><li>BMS 状态</li><li>传感器在线性</li><li>IMU/Encoder 在线</li></ul><p>作业中持续执行：</p><ul><li>心跳检测（Main ↔ Safety MCU）</li><li>传感器覆盖监测（雪/冰覆盖）</li><li>电机电流异常波动监测</li></ul><h3><strong>6.2.3 功能防护</strong></h3><ul><li><strong>丢失定位 → 自动停机</strong></li><li><strong>轨迹偏移 &gt; 安全阈值 → 停机或低速行驶</strong></li><li><strong>感知全盲 → 停机</strong></li><li><strong>驱动温度过高 → 逐级限流</strong></li></ul><hr><h2><strong>6.3 现场安全（Operational Safety）</strong></h2><p>现场安全确保 SnowBot 在“人车混流场景”中安全运行。</p><h3><strong>6.3.1 避障策略</strong></h3><ul><li>遇人 → 停</li><li>遇车 → 停</li><li>遇障碍（无法识别） → 停</li><li>遇临时障碍物 → 停</li><li>车辆从侧面驶入 → 降速并停</li></ul><p><strong>V1 避障目标：安全优先，不做绕行。</strong></p><h3><strong>6.3.2 作业区域安全</strong></h3><p>客户 MUST：</p><ul><li>设置作业区域标识</li><li>设置“禁止穿越”区域</li><li>在校园/小区 → 夜间限制人流</li><li>提前清理可能影响路线的大障碍（如停错位置的车辆）</li></ul><h3><strong>6.3.3 作业时间安全</strong></h3><ul><li>人流少 → 自动执行</li><li>人流多（上下班） → 强制限速或禁止启动</li><li>暴雪时高频启动 → 但仍需保持避障规则</li></ul><h3><strong>6.3.4 工作者误操作防护</strong></h3><ul><li>禁止站上 robot（结构上不允许有踏脚面）</li><li>禁止人工搬运 robot 时从雪铲提起（避免铲架变形）</li><li>提供标准拖移钩点</li></ul><hr><h2><strong>6.4 急停体系（Emergency Stop System）</strong></h2><p>急停体系是整套安全系统的核心，由三层机制组成：</p><h3><strong>6.4.1 三层急停架构</strong></h3><pre class="n-code-notion"><code class="language-plain text">急停系统（三层）
+1. 物理急停（硬件最高优先级）
+2. 无线急停（LoRa/WiFi）
+3. 云端急停（Remote Lock）
+</code></pre><h3><strong>6.4.2 物理急停（E-stop）</strong></h3><ul><li>单击 → 立即断电（动力总线）</li><li>反锁设计，需旋转才能复位</li><li>全温工作（-40℃～45℃）</li></ul><h3><strong>6.4.3 无线急停</strong></h3><ul><li>可由现场操作员随时触发</li><li>独立通道（不依赖云端）</li><li>触发后立即停机</li></ul><h3><strong>6.4.4 云端急停</strong></h3><ul><li>用于远程事故管理</li><li>通信延迟不影响安全（本地为主）</li><li>云端急停触发后 robot 保持锁机状态直到人工复位</li></ul><hr><h2><strong>6.5 限速 / 禁区 / Geo-fence</strong></h2><p>限制类安全用于确保机器人在特定环境下的行为安全。</p><h3><strong>6.5.1 限速（Speed Limit）</strong></h3><ul><li>接近人群 → ≤ 1–2 km/h</li><li>接近车辆 → ≤ 1–2 km/h</li><li>一般道路 → ≤ 3 km/h</li><li>回桩 → ≤ 1 km/h</li><li>未知状态（传感器异常） → ≤ 0.5–1 km/h</li></ul><h3><strong>6.5.2 禁区（No-go Zones）</strong></h3><p>用户可定义禁区类型：</p><pre class="n-code-notion"><code class="language-plain text">禁区类型
+├── 永久禁区（草坪、邻居私有区）
+├── 路口禁区（进出道路）
+├── 高风险禁区（台阶、下坡、坑洼）
+└── 临时禁区（今天停了一辆车）
+</code></pre><p>系统规则：</p><ul><li>禁区不可进入</li><li>进入则立即停机</li><li>若错误录制 → 自动报警</li></ul><h3><strong>6.5.3 Geo-fence（地理围栏）</strong></h3><ul><li>自动禁止 robot 离开预设区域</li><li>意外离开（拖走 / 被偷）→ 远程锁机+报警</li><li>支持多边形区域</li></ul><hr><h2><strong>6.6 冬季特殊安全策略（Snow Mode Safety）</strong></h2><p>极寒、多雪环境下 SnowBot 的安全策略必须特别定义。</p><h3><strong>6.6.1 雪盲防护</strong></h3><ul><li>视觉/光学传感器结冰 → 自动降级为 IMU+编码器</li><li>冰雪覆盖传感器 → 自动加热/震动清除</li><li>感知全盲 → 停机</li></ul><h3><strong>6.6.2 推雪阻力安全</strong></h3><p>SnowBot 必须监控：</p><ul><li>电流曲线</li><li>扭矩负载</li><li>速度误差</li></ul><p>当检测到：</p><ul><li>冰堆</li><li>隐藏障碍</li><li>路沿</li></ul><p>执行：</p><p>→ 板载限力模式</p><p>→ 自动脱困（前后摆）</p><p>→ 不可脱困 → 停机+报警</p><h3><strong>6.6.3 冰面打滑防护</strong></h3><ul><li>Wheel slip 检测（编码器差分 + 电流）</li><li>自动切换“低速高扭矩模式”</li><li>多次打滑 → 自动停机</li></ul><h3><strong>6.6.4 暴雪运行安全</strong></h3><pre class="n-code-notion"><code class="language-plain text">暴雪安全策略
+├── 自动高频作业（避免深雪）
+├── 低可见度 → 强制灯光模式
+├── 大雪遮挡充电桩 → 自动报警
+└── 回桩失败 → 立即停机，不乱走
+</code></pre><h3><strong>6.6.5 低温安全</strong></h3><ul><li>低温启动限制（电驱、BMS、控制器）</li><li>电池预热未完成前禁止作业</li><li>控制箱自动加热</li><li>执行器低温润滑策略</li></ul><hr><h1><strong>7. 网络安全（Cyber Security）</strong></h1><p>SnowBot V1 在北美市场运行，需要满足“联网设备 + 户外商用机器人”的安全基线。</p><p>所有网络安全策略遵循以下原则：</p><p><strong>身份唯一、通信加密、OTA 可控、接口受限、断网可运行。</strong></p><p>本章从五个部分定义 SnowBot 的网络安全体系。</p><hr><h2><strong>7.1 设备身份（Certificates &amp; Activation）</strong></h2><p>每台 SnowBot MUST 具备独立、不可伪造、可吊销的设备身份。</p><p>设备身份用于：认证、OTA 授权、云端通信、用户绑定。</p><h3><strong>7.1.1 设备证书体系（Device Certificates）</strong></h3><pre class="n-code-notion"><code class="language-plain text">身份体系组成
+├── 设备证书（Device Certificate, X.509）
+├── 设备私钥（Private Key, 不可导出）
+├── 设备唯一序列号（SN）
+└── 激活 Token（Activation Token）
+</code></pre><p>要求：</p><ul><li>私钥 MUST 存储在安全芯片（Secure Element）或等效安全区域</li><li>私钥 MUST NOT 可从设备导出</li><li>证书可按需吊销（revocation）</li></ul><h3><strong>7.1.2 激活流程（Activation Flow）</strong></h3><ol><li>Robot 首次接入网络</li><li>向 Energize Cloud 发起设备认证</li><li>Cloud 验证证书 + 激活 Token</li><li>激活成功后绑定客户与园区</li><li>未激活 → 禁止执行任务 / 禁止 OTA</li></ol><h3><strong>7.1.3 证书吊销机制（Revocation）</strong></h3><p>以下情况必须可立即吊销：</p><ul><li>设备被盗</li><li>可疑网络攻击</li><li>地理围栏越界</li><li>客户终止合同（RaaS 收回设备）</li></ul><p>吊销后行为：</p><p>→ 无法连接云端</p><p>→ 无法执行 OTA</p><p>→ Robot 进入“锁机模式（Lockdown）”</p><hr><h2><strong>7.2 加密通信（TLS / Anti-replay）</strong></h2><p>SnowBot 所有网络通信 MUST 满足如下要求：</p><h3><strong>7.2.1 TLS 加密</strong></h3><ul><li>TLS 1.2 或更高</li><li>禁止使用弱 Cipher（如 TLS_RSA_…）</li><li>使用 ECDHE 或等效加密套件</li><li>双向验证（可选）：Cloud 也需验证 Robot 的证书</li></ul><h3><strong>7.2.2 Anti-replay 防重放攻击</strong></h3><p>不允许攻击者利用旧包伪造指令：</p><ul><li>每个指令包 MUST 包含时间戳</li><li>每个包 MUST 包含随机 nonce</li><li>云端与设备都要做时间校验（±3 秒窗口）</li><li>对过期包 → 丢弃</li><li>对重复 nonce → 拒绝并报警</li></ul><h3><strong>7.2.3 API 访问控制（Token Based）</strong></h3><ul><li>客户端（App / Web）使用短期 Token</li><li>Token 双向绑定：<p>→ 用户账号</p><p>→ 设备 ID</p></li><li>Token 到期自动刷新</li></ul><h3><strong>7.2.4 数据最小化原则（Minimization）</strong></h3><p>传输的数据仅包括：</p><ul><li>Telemetry（无敏感信息）</li><li>故障诊断数据</li><li>运营状态</li></ul><p>严禁上传：</p><ul><li>用户照片</li><li>人脸信息</li><li>车牌信息</li><li>位置以外的隐私数据</li></ul><hr><h2><strong>7.3 OTA 签名与回滚（A/B Slots）</strong></h2><p>OTA 是联网机器人最大的风险点，SnowBot 必须构建“<strong>不能被刷死 + 不能被攻击刷入恶意固件</strong>”的机制。</p><h3><strong>7.3.1 A/B 双分区结构（A/B Slots）</strong></h3><pre class="n-code-notion"><code class="language-plain text">分区结构（示例）
+├── Slot A：当前运行固件
+└── Slot B：待升级固件
+</code></pre><p>升级流程：</p><ol><li>下载升级包到 Slot B</li><li>校验签名</li><li>切换到 Slot B</li><li>启动 → 自检（Health Check）</li><li>成功 → 写入“稳定标记（Stable Flag）”</li><li>失败 → 自动回滚 Slot A</li></ol><h3><strong>7.3.2 签名校验（Signed OTA）</strong></h3><ul><li>OTA 包必须具备：<p>→ SHA-256 Hash</p><p>→ RSA/ECDSA 签名</p></li><li>签名必须在：<p>→ Robot 本地验证</p><p>→ Cloud 端双重验证（可选）</p></li></ul><p>未通过签名验证 → 丢弃</p><h3><strong>7.3.3 分批推送（Canary Release）</strong></h3><p>推送顺序：</p><ol><li>内测设备</li><li>北美测试实验站点设备</li><li>5% 小规模生产机</li><li>全量客户部署设备</li></ol><p>若 2–3 台出现高优故障 → 立即停更（Stop Release）</p><h3><strong>7.3.4 OTA 安全策略</strong></h3><ul><li>OTA 过程中断网 → 保持旧系统继续运行</li><li>OTA 过程中掉电 → 自动回滚</li><li>OTA 必须可远程暂停</li></ul><hr><h2><strong>7.4 Debug 接口与访问控制</strong></h2><p>调试接口在量产机器人上是巨大的安全风险。</p><p>SnowBot V1 必须在设计上完全限制未授权访问。</p><h3><strong>7.4.1 Debug 接口默认关闭</strong></h3><p>包括：</p><pre class="n-code-notion"><code class="language-plain text">禁用接口
+├── UART / Serial 调试口
+├── USB-MassStorage
+├── Bootloader 接口
+└── 现场配置端口（如 UART pins）
+</code></pre><p>全部默认关闭，不可在非维护模式使用。</p><h3><strong>7.4.2 维护模式（Maintenance Mode）</strong></h3><p>开启前必须：</p><ul><li>输入一次性维护口令</li><li>由授权账号在云端生成</li><li>维护模式有效期仅限 10–30 分钟</li><li>超时自动关闭所有接口</li></ul><h3><strong>7.4.3 物理防拆（Anti-tamper）</strong></h3><p>当机体被非法拆开时：</p><ul><li>记录日志</li><li>触发报警</li><li>严重情况触发“锁机模式”</li></ul><h3><strong>7.4.4 开发接口物理隔离</strong></h3><ul><li>开发用板卡需与量产板卡区分</li><li>开发接口不可在量产设备焊接</li><li>若必须焊接 → 需隐藏于内部结构（不可外部触达）</li></ul><hr><h2><strong>7.5 通信失效策略（Fail-safe）</strong></h2><p>SnowBot 必须在断网、弱网、云服务中断时仍能安全运行。</p><h3><strong>7.5.1 本地闭环（Local Autonomy）</strong></h3><p>通信失效时：</p><ul><li>Robot 按本地任务继续执行</li><li>所有安全机制（避障/限速/急停）保持运行</li><li>禁止执行云端新指令</li></ul><h3><strong>7.5.2 弱网降级策略</strong></h3><p>网络波动 → Robot 自动进入：</p><ul><li>低频 Telemetry</li><li>不下载大包</li><li>不执行 OTA</li><li>不切换路线</li></ul><h3><strong>7.5.3 云端失联（Cloud Lost）</strong></h3><p>若连续失联超过一定时间（如 300 秒）：</p><ul><li>Robot → 安全停机</li><li>推送本地声光报警</li><li>回桩失败 + 失联 → 原地等待</li></ul><h3><strong>7.5.4 异常通信检测</strong></h3><p>检测以下情况并立即停机：</p><ul><li>指令频率异常</li><li>包序号异常</li><li>恶意重复包</li><li>来自未知 IP 的指令</li></ul><h3><strong>7.5.5 重连策略</strong></h3><p>网络恢复后：</p><ul><li>自动重连</li><li>若与云端版本号不一致 → 自动检查 OTA</li><li>同步离线期间的 Telemetry</li></ul><hr><h1><strong>8. 数据治理（Data Governance）</strong></h1><p>SnowBot V1 虽然是无摄像头设备，但它仍然是一个“运行在客户物业内的联网机器人”，涉及运行数据、位置数据、诊断数据的采集与存储。本章定义数据分类、数据流向、存储、隔离、隐私保护以及客户数据权利。</p><hr><h2><strong>8.1 数据分类（Telemetry / Ops / Diagnostics）</strong></h2><p>SnowBot 所产生的数据分为三大类。</p><p>每类数据对应不同的敏感度与保留规则。</p><h3><strong>8.1.1 Telemetry（实时运行数据）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Telemetry 数据（低敏类别）
+├── 电机电流、电压、转速
+├── 速度、姿态、方向角
+├── GPS / GNSS 基础位置
+├── 电池电量、温度、循环次数
+├── 任务状态（Idle / Working / Error）
+└── 运动控制模式（Manual / Auto）
+</code></pre><p>特点：</p><ul><li>不含个人信息</li><li>不含视频</li><li>主要用于实时监控与遥测</li></ul><h3><strong>8.1.2 Ops Data（运营与任务数据）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Ops Data（中敏类别）
+├── 清雪路线（点位序列）
+├── 作业面积与时间
+├── 手动接管次数
+├── 回桩记录（Docking Result）
+└── 任务开始/结束时间
+</code></pre><p>用途：</p><ul><li>KPI 计算</li><li>班次交接</li><li>客户对账</li></ul><h3><strong>8.1.3 Diagnostics（诊断与黑匣子数据）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Diagnostics（高敏类别）
+├── 故障码（Error Codes）
+├── 异常日志（Debug Level）
+├── 控制器内部状态
+├── OTA 状态记录
+└── 结构/电机异常事件（如撞击）
+</code></pre><p>要求：</p><ul><li>需加密</li><li>仅授权人员可访问</li><li>用于工程分析与售后支持</li></ul><hr><h2><strong>8.2 数据流向与存储区域（North America Only）</strong></h2><p>SnowBot V1 所有云端相关数据要求：</p><p><strong>必须存储在北美（US 或 Canada）云区域，不允许跨区复制。</strong></p><h3><strong>8.2.1 数据流向（Data Flow）</strong></h3><pre class="n-code-notion"><code class="language-plain text">数据流向示意
+Robot → Edge Gateway（可选） → Cloud（北美区域）
+                                   ↓
+                              Customer Portal
+</code></pre><h3><strong>8.2.2 存储区域（Region Restriction）</strong></h3><ul><li>SnowBot 所有 Telemetry / Ops / Diagnostics MUST 存储在：<p>→ AWS / Azure / GCP 的 <strong>美国或加拿大区域</strong></p></li><li>禁止传输到：<p>→ 中国</p><p>→ 欧洲</p><p>→ 亚洲其他地区</p></li></ul><h3><strong>8.2.3 数据驻留（Data Residency）</strong></h3><p>企业客户（如大型物业集团）在北美最关注：</p><p><strong>数据不离开北美司法管辖区。</strong></p><p>文档中应明确写：</p><blockquote><p>Energize Cloud 服务仅在北美区域部署，不传输到境外，不复制到境外数据中心。</p></blockquote><hr><h2><strong>8.3 多租户隔离（Tenant Isolation）</strong></h2><p>作为多物业客户的商用机器人系统，Tenant Isolation 对稳定运营至关重要。</p><h3><strong>8.3.1 逻辑隔离（Logical Isolation）</strong></h3><p>每一个客户（Tenant）在数据库和服务层都独立隔离：</p><pre class="n-code-notion"><code class="language-plain text">Tenant Isolation 层级
+├── 数据库表级隔离（Row-level Security）
+├── API 访问隔离（Token-bound Tenant ID）
+└── Dashboard 权限隔离
+</code></pre><h3><strong>8.3.2 园区级隔离（Site-level Isolation）</strong></h3><p>同一客户下的不同园区必须隔离运营：</p><ul><li>A 园区看不到 B 园区的设备</li><li>路线与任务不可跨园区调用</li></ul><h3><strong>8.3.3 工程与测试隔离</strong></h3><p>Energize 内部工程团队必须：</p><ul><li>使用专用测试租户</li><li>禁止查看真实客户的数据</li><li>若需调试 → 客户授权 + 时间窗口</li></ul><hr><h2><strong>8.4 数据保留与删除策略</strong></h2><p>SnowBot V1 需遵守“<strong>最小必要数据</strong>”原则，同时确保黑匣子数据可用于调查事故。</p><h3><strong>8.4.1 数据保留时间（Retention）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Telemetry：30–90 天
+Ops Data：180 天
+Diagnostics（黑匣子）：1–2 年
+</code></pre><p>理由：</p><ul><li>Telemetry 实时性强，无需长期保存</li><li>Ops Data 需要跨季节分析</li><li>Diagnostics 需要覆盖一个冬季完整周期</li></ul><h3><strong>8.4.2 数据自动删除（Auto-delete）</strong></h3><p>系统按周期自动清理过期数据：</p><ul><li>Telemetry 过期自动删除</li><li>Diagnostic 数据迁移到冷存储再删除</li></ul><h3><strong>8.4.3 停用与回收设备的数据处理</strong></h3><p>设备被回收时：</p><ul><li>云端解绑 SN</li><li>Telemetry &amp; Ops 清除</li><li>Diagnostics 归档用于售后分析，可不关联客户身份</li></ul><hr><h2><strong>8.5 隐私保护（No-Camera V1）</strong></h2><p>SnowBot V1 不含摄像头，是一个“大幅简化隐私风险”的商业机器人。</p><p>本节定义 SnowBot 如何满足北美隐私要求。</p><h3><strong>8.5.1 No Camera = 无人脸/无个人信息</strong></h3><p>V1 明确不采集：</p><ul><li>人脸</li><li>车牌</li><li>图像</li><li>视频</li><li>环境音频</li></ul><h3><strong>8.5.2 位置隐私（Location Privacy）</strong></h3><p>位置数据仅用于：</p><ul><li>路线执行</li><li>任务记录</li><li>安全停机</li></ul><p>不用于：</p><ul><li>人员追踪</li><li>资产定位</li><li>第三方营销</li></ul><h3><strong>8.5.3 “最小化存储原则”</strong></h3><p>SnowBot 本地：</p><ul><li>只存运行必需的数据</li><li>路线以点位序列方式存储，不保存区域图像</li></ul><p>云端：</p><ul><li>不存过度数据</li><li>不生成行为特征</li></ul><hr><h2><strong>8.6 客户数据权利（Export / Delete）</strong></h2><p>北美 B2B 客户普遍要求明确的“数据所有权、可导出、可删除”条款。</p><p>SnowBot V1 必须满足这些要求。</p><h3><strong>8.6.1 数据导出权（Export Right）</strong></h3><p>客户可以导出：</p><pre class="n-code-notion"><code class="language-plain text">可导出的数据
+├── 清雪任务记录
+├── 故障数据
+├── 电量与里程记录
+├── 路线点位信息
+└── 设备运行日志（部分）
+</code></pre><p>格式：CSV / JSON / PDF 报表</p><p>目的：审计、对账、内部管理</p><h3><strong>8.6.2 数据删除权（Deletion Right）</strong></h3><p>客户有权要求：</p><ul><li>删除与其物业相关的 Ops Data</li><li>删除 Telemetry 与位置记录</li><li>注销租户后清空所有数据</li></ul><p>法律义务：遵守</p><ul><li>PIPEDA（加拿大）</li><li>CCPA（美国加州，如有）</li></ul><h3><strong>8.6.3 数据所有权声明（Ownership）</strong></h3><p>文档中应明确：</p><blockquote><p>客户拥有其运营数据（Ops Data）和运行环境信息；</p></blockquote><hr><h1><strong>9. 北美合规（Regulatory Compliance）</strong></h1><p>SnowBot 属于“户外低速自治机器人（Outdoor Low-speed Autonomous Mobile Robot）”，在北美运营必须满足无线、电磁兼容、机械安全、灯光要求、电池安全、市政运营合规等多维度标准。</p><p>本章目的：</p><p><strong>定义 SnowBot V1 在北美市场部署所需的全部基础合规要求，并对未来认证进行预留设计。</strong></p><hr><h2><strong>9.1 FCC / IC</strong></h2><p>SnowBot 含无线传输模块（如 WiFi、LTE、LoRa、蓝牙），严格要求所有无线功能必须符合北美法规。</p><h3><strong>9.1.1 FCC 合规（美国）</strong></h3><p>SnowBot 内的无线模块必须满足：</p><pre class="n-code-notion"><code class="language-plain text">FCC Part 15 Subpart B（无意辐射设备）
+FCC Part 15 Subpart C/E（意图辐射设备，WiFi/BT）
+FCC OET Bulletin 65（人体暴露）
+</code></pre><p>合规要求：</p><ul><li>选用已通过 FCC 认证的通信模块（Modular Approval）</li><li>外壳设计必须确保不会影响无线天线辐射/泄露</li><li>整机最终需通过 Conducted / Radiated emission 测试（Class B）</li></ul><h3><strong>9.1.2 IC / ISED 合规（加拿大）</strong></h3><p>对应标准：</p><pre class="n-code-notion"><code class="language-plain text">ICES-003（电磁兼容）
+RSS-Gen（通用射频要求）
+RSS-247 / RSS-210（WiFi/BT）
+</code></pre><p>要求与 FCC 相同：</p><p>模块必须已认证、整机需满足发射限值。</p><hr><h2><strong>9.2 ISO 12100 风险评估</strong></h2><p>SnowBot 虽非工业机械，但属于“户外作业机器人”。</p><p>ISO 12100 是北美所有机械类产品通用的风险评估体系。</p><h3><strong>9.2.1 风险评估流程</strong></h3><p>基于 ISO 12100 的三步法：</p><pre class="n-code-notion"><code class="language-plain text">Step 1: 危险源识别（Hazard Identification）
+Step 2: 风险估算（Risk Estimation）
+Step 3: 风险降低（Risk Reduction）
+</code></pre><h3><strong>9.2.2 典型危险源（SnowBot 特有）</strong></h3><pre class="n-code-notion"><code class="language-plain text">雪铲推力 → 冲击风险
+驱动轮 → 压伤风险
+低温 → 电池/塑料脆化
+冰面打滑 → 丢控风险
+暴雪低能见度 → 可视性风险
+行人/车辆 → 碰撞风险
+推雪视野遮挡 → 隐藏障碍物
+</code></pre><h3><strong>9.2.3 风险降低措施（示例）</strong></h3><pre class="n-code-notion"><code class="language-plain text">机械：弱连杆 + 吸能结构
+电子：限速 + 障碍停机
+电气：双通道急停
+控制：禁区 + 软边界
+可视性：爆闪灯 + 反光贴
+运营：Teach &amp; Repeat 安全检查
+</code></pre><p>完成 ISO 12100 报告后可形成：</p><p><strong>《SnowBot 风险矩阵（Hazard Matrix）》</strong></p><p>用于客户与保险公司审核。</p><hr><h2><strong>9.3 SAE 灯光与标识</strong></h2><p>SnowBot 属于“低速、在户外与人车共同环境工作”的机器人，在北美必须满足 SAE 灯光与标识要求。</p><h3><strong>9.3.1 SAE J845（爆闪灯）</strong></h3><p>建议装备：</p><ul><li>SAE J845 Class 1 or Class 2</li><li>琥珀色（Amber）灯</li><li>在暴雪、低能见度、夜间必须开启</li></ul><h3><strong>9.3.2 SAE 颜色与反光标识</strong></h3><p>SnowBot 必须满足：</p><pre class="n-code-notion"><code class="language-plain text">ANSI Z535（警示色）
+SAE AMS-STD-595（反光黄/橙色）
+反光贴（3M 等级 ≥ 983/984）
+</code></pre><p>要求：</p><ul><li>前后左右可见性 &gt; 50 m</li><li>反光贴至少覆盖前后两侧边缘</li></ul><h3><strong>9.3.3 声音与提示（可选）</strong></h3><p>若在校园或行人密集区运营建议：</p><ul><li>低速提示音</li><li>倒车提示音<p>（类似小型清扫车）</p></li></ul><hr><h2><strong>9.4 电池 UL（2271 / 2580）预留</strong></h2><p>虽然 V1 可能暂未进行 UL 电池认证，但必须为后续版本设计好结构、电气、安全接口。</p><h3><strong>9.4.1 UL 2271（轻型交通工具电池）</strong></h3><p>适用于：</p><ul><li>小型电动交通设备</li><li>户外移动设备</li></ul><p>SnowBot 可在未来申请。</p><p>需要预留：</p><ul><li>绝缘隔离距离</li><li>过流/过压保护（BMS）</li><li>防短路设计</li><li>单体温度传感器</li><li>电池箱结构抗穿刺</li></ul><h3><strong>9.4.2 UL 2580（电动汽车电池）</strong></h3><p>更严格，但部分客户会要求“参考”其安全结构。</p><h3><strong>9.4.3 冬季特有要求（低温）</strong></h3><p>SnowBot 电池必须满足：</p><ul><li>20°C 充电禁止</li><li>低温预热功能</li><li>结构避免冰雪侵入（IP67 建议）</li></ul><hr><h2><strong>9.5 市政 / 校园 / 工业园区 运营合规</strong></h2><p>SnowBot 是市政与校园可能引入的第一代户外自治机器人。</p><p>因此运营合规比认证更重要。</p><h3><strong>9.5.1 市政（Municipal）合规核心点</strong></h3><pre class="n-code-notion"><code class="language-plain text">禁止进入机动车道
+禁止跨越园区主入口
+必须贴有高可见度警示标识
+必须有远程急停
+必须有夜间可视灯光
+</code></pre><p>市政一般不会批准“进入公共道路”，SnowBot 设计必须默认禁止。</p><h3><strong>9.5.2 校园 Campus 合规</strong></h3><p>校园要求更严格：</p><pre class="n-code-notion"><code class="language-plain text">低速区域（1–3 km/h）
+不可运行在人流高峰时段
+必须对接校园安保部门
+必须设置地理围栏（Geo-fence）
+必须定期提交运行报表
+</code></pre><h3><strong>9.5.3 工业园区（Industrial Parks）</strong></h3><p>工业园区关注：</p><pre class="n-code-notion"><code class="language-plain text">设备重量与地面损伤风险
+与叉车/运输车的混流安全性
+冬季夜间可视性
+设备登记制度（Visitor Equipment Rules）
+定期体检的维护记录
+</code></pre><h3><strong>9.5.4 私人物业（Commercial Properties）</strong></h3><p>物业关心的合规点：</p><pre class="n-code-notion"><code class="language-plain text">事故责任范围（必须明确）
+允许运行的时间窗口
+与出租户（Tenant）的干扰最小化
+噪音限制
+冬季夜间照明要求
+</code></pre><hr><h1><strong>10. 法律框架（Legal Framework）</strong></h1><p>本章定义 SnowBot 在北美的<strong>合法使用方式、责任边界、事故处理流程以及保险要求</strong>，确保产品部署时的法律风险最小化，并保护 Energize Robotics 与客户双方的权益。</p><p>法律框架适用于：</p><ul><li>市政（Municipal）</li><li>校园（Campus）</li><li>工业园区（Industrial Parks）</li><li>物业（Commercial Properties）</li><li>医院 / 机构（Institutions）</li></ul><hr><h2><strong>10.1 使用条款（Terms of Use）</strong></h2><p>SnowBot 属于“户外低速自治设备”，客户在使用时必须遵守以下条款。</p><p>任何偏离以下条款的行为，均不属于 Energize Robotics 的责任范围。</p><h3><strong>10.1.1 允许的使用场景（Permitted Use）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 除雪、推雪作业
+• 仅在客户自有或授权场地
+• Teach &amp; Repeat 已验证路线
+• 夜间自动运行但在限制区域内
+</code></pre><h3><strong>10.1.2 禁止的使用场景（Prohibited Use）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 进入公共道路、机动车道
+• 进入未授权区域
+• 随意更改任务路径
+• 用作载人设备（严禁站人/乘人）
+• 改装、拆解或绕过安全装置
+• 在极端风暴或严重能见度不足情况下强制投入使用
+</code></pre><h3><strong>10.1.3 客户必须履行的义务（Customer Obligations）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 设置作业区域警示标志
+• 培训操作人员
+• 定期维护与检查设备
+• 提供清晰的 Teach &amp; Repeat 路线
+• 保持地面无重大障碍（石块、工具等）
+• 在物业内部告知相关人员机器人运行时间
+</code></pre><h3><strong>10.1.4 Energize Robotics 可执行的动作（Energize Rights）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 在检测到危险或违规状况时远程锁机（Remote Lockdown）
+• 拒绝在未达标场地运行
+• 拒绝支持未经授权的改装
+</code></pre><hr><h2><strong>10.2 责任边界（Liability Boundary）</strong></h2><p>明确定义本设备的责任范围，是 SnowBot 巴黎凯撒级别（top-tier）合规体系的核心。</p><h3><strong>10.2.1 Energize Robotics 责任范围</strong></h3><p>Energize 负责：</p><pre class="n-code-notion"><code class="language-plain text">• 产品设计缺陷
+• 制造缺陷
+• 软件与控制逻辑缺陷
+• 电池与电气系统非滥用条件下的故障
+• 经授权的 OTA 更新引发的问题
+</code></pre><h3><strong>10.2.2 客户责任范围</strong></h3><p>客户需承担：</p><pre class="n-code-notion"><code class="language-plain text">• 未按使用条款运行设备
+• 自主改装 / 私自拆解设备
+• 未设置必要的警示区域
+• Teach &amp; Repeat 路线未按要求检查
+• 将设备放入禁止区域运行
+• 设备被用作载客、载物、拖拽等非设计用途
+</code></pre><h3><strong>10.2.3 责任排除（Exclusions）</strong></h3><p>以下情形 Energize 不承担责任：</p><pre class="n-code-notion"><code class="language-plain text">• 因人为操作错误导致的碰撞
+• 因客户未维护或未清洁导致的故障
+• 因极端天气（Blizzard / Ice Storm）造成的损害
+• 因违规存放导致的电池损伤
+• 因第三方系统或网络中断导致的运行问题
+</code></pre><h3><strong>10.2.4 第三方损害（Third-party Damages）</strong></h3><p>如果 SnowBot 在客户场地产生第三方损害（如居民车辆、学校设施等）：</p><ul><li>若客户使用不当 → 客户责任</li><li>若设备存在制造/控制缺陷 → 由 Energize 承担</li></ul><p><em>通过事故数据（Blackbox）判定原因是标准流程的一部分。</em></p><hr><h2><strong>10.3 事故处理流程（Incident Protocol）</strong></h2><p>事故分级遵循“北美物业/校园标准化事件等级”。</p><h3><strong>10.3.1 事故等级（Severity Levels）</strong></h3><pre class="n-code-notion"><code class="language-plain text">P1：人员受伤 / 车辆受损 / 重大财产损失
+P2：设备疑似失控 / 急停触发
+P3：轻微碰撞 / 卡住 / 自恢复失败
+</code></pre><hr><h3><strong>10.3.2 标准事故流程（Standard Protocol）</strong></h3><h3><strong>步骤 1：立即停机（Immediate Stop）</strong></h3><ul><li>通过急停按键</li><li>或远程急停（云端）</li></ul><h3><strong>步骤 2：封锁设备（Remote Lockdown）</strong></h3><p>自动成立当：</p><pre class="n-code-notion"><code class="language-plain text">• 发生 P1 / P2 事件
+• 设备位置越界
+• 设备状态异常重启
+</code></pre><h3><strong>步骤 3：资料保存（Data Preservation）</strong></h3><p>系统自动生成事故包：</p><pre class="n-code-notion"><code class="language-plain text">• 前 30 秒 + 后 30 秒黑匣子
+• 传感器数据
+• 控制日志
+• OTA 状态
+</code></pre><h3><strong>步骤 4：现场资料采集</strong></h3><p>客户需提供：</p><pre class="n-code-notion"><code class="language-plain text">• 现场照片
+• 作业区域图
+• 是否人为干预
+</code></pre><h3><strong>步骤 5：责任归因（Case Review）</strong></h3><p>由 Energize Robotics：</p><pre class="n-code-notion"><code class="language-plain text">• 工程团队
+• 法务团队
+• 安全团队
+</code></pre><p>联合审核。</p><h3><strong>步骤 6：恢复前认证（Re-certify Before Reuse）</strong></h3><p>设备需通过：</p><pre class="n-code-notion"><code class="language-plain text">• 结构检查
+• 功能检查
+• 传感器检查
+• OTA 版本验证
+</code></pre><hr><h3><strong>10.3.3 P1 事件的时效要求（Time-bound SLA）</strong></h3><pre class="n-code-notion"><code class="language-plain text">1 小时内：召开内部事故会议
+24 小时内：Preliminary Report
+72 小时内：技术调查初稿
+7 天内：Final Report
+</code></pre><p><em>该流程可直接对接保险公司和校园/市政官方要求。</em></p><hr><h2><strong>10.4 保险框架（Insurance Requirement）</strong></h2><p>本节为 North America（US + Canada）物业/市政合规实践。</p><h3><strong>10.4.1 客户需具备的保险（Customer-side Insurance）</strong></h3><p>客户必须持有：</p><h3><strong>a. General Liability（商业综合保险）</strong></h3><p>覆盖：</p><pre class="n-code-notion"><code class="language-plain text">• 场地事故
+• 第三方财产损害
+• 人身伤害
+</code></pre><p>建议保额（典型市政/校园要求）：</p><pre class="n-code-notion"><code class="language-plain text">CAD/USD 1M – 5M
+</code></pre><h3><strong>b. Equipment Insurance（设备保险）</strong></h3><p>覆盖：</p><pre class="n-code-notion"><code class="language-plain text">• 设备损坏
+• 盗窃
+• 火灾
+• 存放期间损坏
+</code></pre><p>客户应将 <strong>SnowBot 列入保单资产列表（Asset Schedule）</strong>。</p><hr><h3><strong>10.4.2 Energize Robotics 内部保险（Vendor Coverage）</strong></h3><p>Energize 将提供：</p><pre class="n-code-notion"><code class="language-plain text">• 产品责任险（Product Liability Insurance）
+  — 覆盖设计/制造缺陷造成的事故
+</code></pre><p>这让客户与投资人非常放心。</p><hr><h3><strong>10.4.3 保险事件流程（Insurance Claim Protocol）</strong></h3><p>SnowBot 事故 → 黑匣子确定原因 →</p><p>责任区分（客户 / Energize） →</p><p>提交完整事故包 →</p><p>由客户或 Energize 向保险公司报案。</p><p>事故包包括：</p><pre class="n-code-notion"><code class="language-plain text">• Blackbox 数据
+• 控制与传感器日志
+• OTA 历史
+• 现场照片
+• 运行环境记录
+</code></pre><hr><h1><strong>11. 事件管理（Incident Management）</strong></h1><p>本章定义 SnowBot 的事件记录、故障分类、紧急事故处理以及远程封锁机制，确保在发生安全风险、设备异常、或潜在事故时，系统能够做到：</p><ul><li><strong>可追溯（Traceable）</strong></li><li><strong>可诊断（Diagnosable）</strong></li><li><strong>可恢复（Recoverable）</strong></li><li><strong>可隔离（Isolatable）</strong></li></ul><p>事件管理体系是 North America（物业 / 市政 / 校园）部署的核心合规能力。</p><hr><h2><strong>11.1 黑匣子数据（Blackbox）</strong></h2><p>SnowBot V1 内置<strong>工业级事件记录系统（Blackbox Recorder）</strong>，用于保存所有事故前后关键数据。</p><h3><strong>11.1.1 数据窗口（Time Window）</strong></h3><p>黑匣子记录：</p><pre class="n-code-notion"><code class="language-plain text">• 事故前 30 秒
+• 事故后 30 秒
+</code></pre><p>确保能够完整还原事件发生路径。</p><h3><strong>11.1.2 数据内容（Recorded Data Fields）</strong></h3><p>黑匣子存储以下高频数据：</p><pre class="n-code-notion"><code class="language-plain text">• 电流、电压、功率
+• 驱动指令与实际速度
+• 避障传感器状态
+• 急停状态（机械/远程）
+• 控制器状态机（FSM）
+• 路径位置（Teach &amp; Repeat 索引点）
+• 电池温度 / BMS 状态
+• OTA 状态 / 最近写入记录
+• 设备健康（Heartbeat）
+</code></pre><h3><strong>11.1.3 数据安全（Tamper-proof）</strong></h3><p>数据具备：</p><pre class="n-code-notion"><code class="language-plain text">• SHA256 校验
+• 不可被用户清除
+• 仅工程团队可以解密
+</code></pre><p>满足保险公司、市政客户、校园安全部门的审计要求。</p><h3><strong>11.1.4 数据提取（Extraction）</strong></h3><p>触发条件：</p><pre class="n-code-notion"><code class="language-plain text">• 急停
+• 撞击传感器
+• 失控判定
+• 越界（Geo-fence）
+• OTA 异常重启
+</code></pre><p>提取方式：</p><ul><li>通过云端自动上传</li><li>或现场通过维护模式（Maintenance Mode）</li></ul><hr><h2><strong>11.2 故障分类（Fault Taxonomy）</strong></h2><p>SnowBot 采用<strong>分层故障编码体系</strong>，便于快速定位、机队分析、现场维保，以及 OTA 自动修复。</p><h3><strong>11.2.1 故障分类树（顶层）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Fault Categories
+├── Mxx — Mechanical Failures      （机械类）
+├── Dxx — Drive / Navigation       （驱动 / 导航类）
+├── Bxx — Battery / Power          （电池 / 电源类）
+├── Cxx — Communication            （通信类）
+└── Sxx — Safety / E-stop / Limits（安全类）
+</code></pre><h3><strong>11.2.2 示例编码</strong></h3><pre class="n-code-notion"><code class="language-plain text">• M01：左侧轮毂堵转
+• M12：铲子角度调节机构异常
+
+• D03：Teach &amp; Repeat 轨迹偏移
+• D21：位置估计跳变
+
+• B07：电池低温保护触发
+• B14：BMS 通信中断
+
+• C05：云端失联
+• C11：内部总线通信异常
+
+• S01：急停触发
+• S10：越界（Geo-fence breach）
+</code></pre><h3><strong>11.2.3 故障等级（Severity Levels）</strong></h3><pre class="n-code-notion"><code class="language-plain text">L1（Critical） → 停机（需人为介入）
+L2（Major）    → 自动降级（限速/暂停任务）
+L3（Minor）    → 自动恢复（无需停机）
+</code></pre><hr><h2><strong>11.3 高优事件（P1）响应机制</strong></h2><p>P1 事件指：</p><pre class="n-code-notion"><code class="language-plain text">• 人员受伤
+• 车辆受损
+• 财产损坏
+• 明确的失控风险
+</code></pre><h3><strong>11.3.1 P1 自动响应链（Auto Response Chain）</strong></h3><p>系统自动执行：</p><pre class="n-code-notion"><code class="language-plain text">1. 立即停机
+2. 远程封锁（Remote Lockdown）
+3. 点亮最高优先级报警灯
+4. 生成 30+30 秒黑匣子包
+5. 上传云端安全服务器
+6. 通知工程安全团队（PagerDuty / Ops Alert）
+</code></pre><h3><strong>11.3.2 人工介入（Human-in-loop）</strong></h3><p>工程团队收到 P1 事件后自动进入流程：</p><pre class="n-code-notion"><code class="language-plain text">• 1 小时内：内部事故会议
+• 24 小时内：Preliminary Report
+• 72 小时内：技术调查初稿
+• 7 天内：最终事故报告（Final Report）
+</code></pre><h3><strong>11.3.3 客户方动作</strong></h3><p>客户需提供：</p><pre class="n-code-notion"><code class="language-plain text">• 现场照片
+• 当时天气 / 能见度情况
+• 区域封锁措施记录
+• 操作人员是否手动干预
+</code></pre><p>这些内容用于快速责任划分。</p><hr><h2><strong>11.4 远程封锁（Remote Lockdown）</strong></h2><p>远程封锁（Remote Lockdown）是 SnowBot 的核心安全能力，可在以下情况自动或手动触发。</p><h3><strong>11.4.1 自动封锁触发条件（Auto-lock Conditions）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• P1 事件
+• 设备越界（Geo-fence breach）
+• Teach &amp; Repeat 未授权偏离
+• 设备连续 3 次异常重启
+• OTA 签名校验失败
+• 被盗 / 丢失（位置异常）
+</code></pre><h3><strong>11.4.2 封锁动作（Lockdown Behavior）</strong></h3><p>触发后 SnowBot将：</p><pre class="n-code-notion"><code class="language-plain text">• 切断驱动输出
+• 停止所有任务
+• 禁止远程启动
+• 点亮高亮度报警灯
+• 锁定充电与推雪机构
+</code></pre><p>仅授权技术人员可以解锁。</p><h3><strong>11.4.3 手动远程封锁（Manual Lockdown）</strong></h3><p>以下角色可在云端平台执行远程封锁：</p><pre class="n-code-notion"><code class="language-plain text">• Energize Robotics 工程团队
+• 客户管理员角色（Admin Role）
+• 市政/校园监管授权账户（可选）
+</code></pre><h3><strong>11.4.4 解锁流程（Unlock Protocol）</strong></h3><p>设备能在确认以下步骤后恢复：</p><pre class="n-code-notion"><code class="language-plain text">• 黑匣子已成功上传
+• 故障根因已判定
+• 必要零件已更换完毕
+• 安全检查（Device Safety Check）通过
+• 远程授权重新启用（Re-Enable）
+</code></pre><p>该机制确保设备不会在未确认安全问题前恢复运行。</p><hr><h1><strong>12. 软件 / OTA 生命周期（Software Lifecycle）</strong></h1><p>SnowBot 的软件体系遵循“安全、稳定、可回滚、可审计”四大原则，确保在北美商业运营场景中能够稳定迭代，不中断服务。</p><p>软件生命周期覆盖：</p><ul><li>研发 → 内部测试</li><li>北美试点（Pilot Sites）</li><li>小规模部署 → 全量部署（General Availability）</li><li>运营维护 → 退役（Decommissioning）</li></ul><p>并形成完整的版本管理、配置迁移、OTA 推送与回滚策略。</p><hr><h2><strong>12.1 版本管理（SemVer）</strong></h2><p>SnowBot 使用扩展版 <strong>SemVer（语义化版本号）</strong>：</p><pre class="n-code-notion"><code class="language-plain text">MAJOR.MINOR.PATCH-build
+</code></pre><p>示例：</p><p><code>1.3.2-stable.47</code></p><h3><strong>12.1.1 版本号含义</strong></h3><pre class="n-code-notion"><code class="language-plain text">MAJOR — 架构变更 / 不兼容升级（如 Teach &amp; Repeat 重写、驱动协议变化）
+MINOR — 功能新增（如暴雪模式、新的限速 Zone）
+PATCH — BUG 修复 / 性能优化 / 小范围调参
+build — CI/CD 自动生成的构建号
+</code></pre><h3><strong>12.1.2 版本发布类型</strong></h3><pre class="n-code-notion"><code class="language-plain text">• alpha（内部研发测试）
+• beta（北美试点）
+• stable（正式商业版）
+• hotfix（紧急修复）
+</code></pre><h3><strong>12.1.3 版本冻结（Version Freeze）</strong></h3><p>在北美暴雪季（11–3 月），启用版本冻结：</p><pre class="n-code-notion"><code class="language-plain text">MAJOR 禁止
+MINOR 禁止
+仅允许 PATCH / hotfix
+</code></pre><p>确保极端天气期间系统最大稳定性。</p><hr><h2><strong>12.2 配置迁移（Config Migration）</strong></h2><p>OTA 过程中最关键就是 <strong>路线 / 安全区 / 限速区 / 参数 不得丢失</strong>。</p><p>SnowBot 内置<strong>配置迁移引擎（Config Migration Engine）</strong>：</p><h3><strong>12.2.1 迁移原则</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 旧配置 + 新版本 = 自动合并
+• 永不覆写用户参数
+• 强制向后兼容
+</code></pre><h3><strong>12.2.2 迁移流程（Migration Pipeline）</strong></h3><pre class="n-code-notion"><code class="language-plain text">旧版本配置 → Schema 检查 → 自动补齐缺失字段
+            → 按版本差异执行 Patch → 写入新版本 Slot
+</code></pre><h3><strong>12.2.3 迁移失败处理</strong></h3><p>若迁移失败：</p><pre class="n-code-notion"><code class="language-plain text">• OTA 自动中止
+• 系统继续运行旧版本
+• 生成 Migration Error 日志
+</code></pre><p>确保不会因为配置问题导致机器人无法工作。</p><hr><h2><strong>12.3 OTA 分批推送（Canary Waves）</strong></h2><p>OTA 采用“梯度式策略”，避免一版上线导致机队大规模问题。</p><h3><strong>12.3.1 OTA 分批模型（Waves Model）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Wave 0 — 内部测试机（3 台）
+Wave 1 — 北美特选试点（5 台）
+Wave 2 — 小规模客户（20% 机队）
+Wave 3 — 全量部署（100%）
+</code></pre><h3><strong>12.3.2 每一 Wave 的验证项目</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 推雪性能
+• Teach &amp; Repeat 稳定度
+• 回桩成功率
+• 安全策略触发（限速、急停）
+
+• 电池/BMS 状态
+• 无人值守模式运行
+</code></pre><h3><strong>12.3.3 失败即停更（Fail-Fast）</strong></h3><p>任一 wave 发现下列问题：</p><pre class="n-code-notion"><code class="language-plain text">• 路线偏移 / 不可控运动
+• 回桩失败率上升
+• 暴雪期间性能下降
+• Crash / 异常重启
+</code></pre><p>→ 立即 <strong>暂停下一轮 OTA</strong>。</p><hr><h2><strong>12.4 回滚策略（Rollback Strategy）</strong></h2><p>SnowBot 必须具备<strong>双系统分区 A/B 镜像结构</strong>，支持无损回滚。</p><h3><strong>12.4.1 A/B 分区结构</strong></h3><pre class="n-code-notion"><code class="language-plain text">Slot A — 当前运行版本
+Slot B — 新 OTA 版本
+</code></pre><p>OTA 下载到 B 后：</p><pre class="n-code-notion"><code class="language-plain text">校验成功 → 切换到 B
+校验失败 → 保持运行 A
+运行异常 → 自动回滚 A
+</code></pre><h3><strong>12.4.2 自动回滚触发条件</strong></h3><pre class="n-code-notion"><code class="language-plain text">• OTA 启动 10 分钟内 Crash &gt; 3 次
+• 控制器异常重启
+• 版本校验失败
+• Teach &amp; Repeat 文件损坏
+• 驱动指令异常
+• 安全策略异常（限速失效等）
+</code></pre><h3><strong>12.4.3 人工回滚</strong></h3><p>工程团队/客户管理员可执行：</p><pre class="n-code-notion"><code class="language-plain text">“Revert to Last Stable Release”
+</code></pre><p>适用于大规模客户运营场景。</p><hr><h2><strong>12.5 紧急停更机制（Emergency Stop of OTA）</strong></h2><p>紧急停更用于：</p><ul><li>OTA 引发潜在安全问题</li><li>雪季期间出现系统性异常</li><li>市政/物业紧急要求保留稳定版本</li><li>P1 事故关联到新版本</li></ul><h3><strong>12.5.1 停更触发条件</strong></h3><pre class="n-code-notion"><code class="language-plain text">• P1 事件
+• 机队中任意 5 台出现同类问题
+• 版本影响回桩能力
+• Teach &amp; Repeat 精度下降
+• 电池管理出现异常充放电
+</code></pre><h3><strong>12.5.2 停更动作</strong></h3><p>触发后系统立即：</p><pre class="n-code-notion"><code class="language-plain text">✔ 停止所有未开始的 OTA
+✔ 取消所有已排队的更新任务
+✔ 阻止新版本下发
+✔ 强制所有设备停留在当前稳定版本
+</code></pre><h3><strong>12.5.3 恢复机制</strong></h3><p>恢复 OTA 必须满足：</p><pre class="n-code-notion"><code class="language-plain text">• 新版本通过内部 + 北美试点验证
+• 事故根因确认闭环
+• 全部关键指标恢复到正常基准
+</code></pre><hr><h1><strong>13. 运营与机队（Ops &amp; Fleet）</strong></h1><p>本章定义 SnowBot 从单机 → 多机 → 大规模机队的运营体系，包括调度、回桩策略、易损件管理、成本模型（TCO）、数据驱动运营方法。</p><p>目标：</p><p><strong>让 SnowBot 能够在北美商业环境下做到可复制、可运营、可规模化。</strong></p><hr><h2><strong>13.1 调度（Scheduling）</strong></h2><p>SnowBot 的调度体系需支持“季节性、高频、无人值守”的作业模式。</p><p>V1 默认采用<strong>本地调度 + 云端监控</strong>架构。</p><h3><strong>13.1.1 调度模式</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 定时任务（Scheduled Jobs）
+• 事件触发（降雪传感器 / 天气 API）
+• 手动启动（Manual Run）
+• 夜间自动除雪（Night Mode）
+</code></pre><h3><strong>13.1.2 调度原则</strong></h3><pre class="n-code-notion"><code class="language-plain text">1. 首雪优先清理入口、坡道区域
+2. 降雪 &gt; 20 cm 时，频次自动提升（2–3 小时一次）
+3. 车流、人流高峰期 → 自动限速 or 待机
+4. 路面温度 &lt; -10°C → 启用低温推力策略
+</code></pre><h3><strong>13.1.3 多机协同（Fleet Scheduling）</strong></h3><p>SnowBot V2 / Fleet 目标：</p><pre class="n-code-notion"><code class="language-plain text">• 任务区域切片（Zone Partitioning）
+• 多机器人避免重复作业
+• 多机器人避免碰撞
+• 均衡电量回桩（Staggered Docking）
+</code></pre><hr><h2><strong>13.2 回桩策略（Docking Strategy）</strong></h2><p>SnowBot 回桩（充电回位）必须具备<strong>高成功率（≥ 95%）</strong>，否则无人值守模式不可实现。</p><h3><strong>13.2.1 回桩触发条件</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 电量 &lt; 25%
+• 完成任务
+• 温度过低（需加热）
+• 云端指令：立即回桩（Emergency Return）
+</code></pre><h3><strong>13.2.2 回桩路径设计</strong></h3><p>回桩路线必须：</p><pre class="n-code-notion"><code class="language-plain text">• 独立于除雪路线
+• 保证全程无遮挡
+• 不穿越车辆停放区
+• 不包含锐角 / S 形急转弯
+• 雪堆方向需避开（避免堵住桩位）
+</code></pre><h3><strong>13.2.3 回桩失败处理</strong></h3><pre class="n-code-notion"><code class="language-plain text">1. 重试 3 次
+2. 自动降低速度
+3. 开启“机械导向模式”
+4. 若仍失败 → Push to App
+5. 客户收到警报后可远程手动导航至桩
+</code></pre><h3><strong>13.2.4 充电策略（Charging Policy）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 智能加热（&lt;0°C 自动预热）
+• 快充禁止（保护电池寿命）
+• 高寒天气维持温度 → 低功率恒温模式
+</code></pre><hr><h2><strong>13.3 易损件策略（Wear Parts Strategy）</strong></h2><p>SnowBot 长期运行过程中，易损件管理会成为运营成本控制的核心。</p><h3><strong>13.3.1 易损件清单（V1）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 刮板橡胶条（最核心易损件）
+• 冬季用轮胎（高磨耗）
+• 保险丝
+• 铲架弱连杆（撞击吸能件）
+• 顶部灯带 / 标识灯
+</code></pre><h3><strong>13.3.2 更换周期建议</strong></h3><pre class="n-code-notion"><code class="language-plain text">刮板橡胶：每 1–2 个月更换
+弱连杆：撞击后更换
+轮胎：每 2–3 个月检查
+保险丝：故障触发时更换
+灯带：半年检查一次
+</code></pre><h3><strong>13.3.3 加速易损原因</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 冰块冲击
+• 盐和砂石磨损
+• 水汽 + 低温导致橡胶老化
+• 不平路面导致结构震动
+</code></pre><h3><strong>13.3.4 北美备件体系（Service Stock）</strong></h3><p>要求：</p><pre class="n-code-notion"><code class="language-plain text">• 区域备件库（US West / US East / Canada）
+• 常用件 2–3 天内送达客户
+• 经销商可本地囤件
+• 统一零件编码（Part Numbering）
+</code></pre><hr><h2><strong>13.4 成本模型（TCO, Total Cost of Ownership）</strong></h2><p>SnowBot 的成本设计目标是 <strong>比人工便宜 40–60%</strong>，并通过可预测的运营成本实现高续租率。</p><h3><strong>13.4.1 TCO 构成</strong></h3><pre class="n-code-notion"><code class="language-plain text">1. 采购成本（CapEx）
+2. 维护 + 备件
+3. 电力消耗
+4. 运营服务（若客户付费）
+5. OTA / SaaS / Fleet 管理费
+6. 大修费（如碰撞导致组件更换）
+</code></pre><h3><strong>13.4.2 TCO 对比（SnowBot vs 人工）</strong></h3><p>以典型北美商业园区为例：</p><pre class="n-code-notion"><code class="language-plain text">人工：20,000–35,000 USD / 雪季
+SnowBot：12,000–18,000 USD / 雪季
+节省：≈ 40–60%
+</code></pre><h3><strong>13.4.3 影响 TCO 的关键变量</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 场地大小
+• 地面材质
+• 降雪量
+• 机器人数量
+• 回桩位置优化程度
+• 易损件使用寿命
+</code></pre><h3><strong>13.4.4 机队规模化带来的边际成本下降</strong></h3><p>当机队数量从 10 台 → 100 台：</p><pre class="n-code-notion"><code class="language-plain text">• 单位运维成本下降 30–50%
+• OTA / 后端成本趋近于固定
+• 备件周转率上升，库存成本下降
+• 现场部署效率提升
+</code></pre><hr><h2><strong>13.5 数据驱动运营（Telemetry Analytics）</strong></h2><p>SnowBot 所有运营数据都用于“优化策略、降低成本、提高可靠性”。</p><h3><strong>13.5.1 数据来源</strong></h3><pre class="n-code-notion"><code class="language-plain text">• Telemetry（速度、电流、温度）
+• 任务日志（路线、耗时、面积）
+• 故障日志（Error Code）
+• 充电与回桩数据
+• 雪情 + 天气 API（可选）
+</code></pre><h3><strong>13.5.2 KPI 体系（Fleet KPIs）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 任務成功率（≥ 90%）
+• 覆盖率（≥ 95%）
+• 每周人工干预次数（≤ 2 次）
+• 回桩成功率（≥ 95%）
+• OTA 成功率（≥ 99%）
+• 易损件寿命（标准差 ≤ 15%）
+</code></pre><h3><strong>13.5.3 数据驱动的优化方向</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 找出最常见故障 → 优先修复
+• 优化回桩路径 → 提升稳定性
+• 判断哪些地点“路线规划不合理”
+• 自动生成“下一次 OTA”的优先级清单
+</code></pre><h3><strong>13.5.4 机队级健康评分（Fleet Health Score）</strong></h3><p>基于以下因素自动计算评分：</p><pre class="n-code-notion"><code class="language-plain text">• 故障频率
+• 回桩成功率
+• 任务成功率
+• 电池健康度（SOH）
+• OTA 版本一致性
+</code></pre><p>用于：</p><pre class="n-code-notion"><code class="language-plain text">• 客户 SLA
+• 内部维保 KPI
+• 自动触发预防性维护
+</code></pre><hr><h1><strong>14. 北美试点部署手册（Pilot Deployment Playbook）</strong></h1><p>本章定义 SnowBot 在北美商业环境下的标准试点部署流程，确保客户能够在无需研发团队参与的情况下顺利完成部署、录制路线、运营与验证，并最终进入规模化部署。</p><p>目标：</p><pre class="n-code-notion"><code class="language-plain text">• 提高试点成功率（≥ 90%）
+• 将部署流程标准化、可复制
+• 降低人工支持成本
+• 为投资人、经销商、客户提供专业可信的落地体系
+</code></pre><hr><h2><strong>14.1 Pilot 流程（Pilot Flow Overview）</strong></h2><p>试点从前期资格筛选到最终验收，共分 8 步：</p><pre class="n-code-notion"><code class="language-plain text">Pilot Flow
+├── Step 0：资格筛选（Qualification）
+├── Step 1：场地勘查（Site Audit）
+├── Step 2：现场部署（On-site Setup）
+├── Step 3：路线录制（Teach &amp; Repeat）
+├── Step 4：安全区配置（Geo-fence &amp; Safety）
+├── Step 5：3–5 次降雪测试（Storm Runs）
+├── Step 6：运营监控（Monitoring）
+├── Step 7：KPI 验收 &amp; Scale-up 建议
+</code></pre><p>每一步都有清晰目标、责任人、检查清单。</p><hr><h2><strong>14.2 场地勘查（Site Audit）</strong></h2><p>现场勘查决定整个试点能否成功，是 Pilot 的核心步骤之一。</p><h3><strong>14.2.1 必查项目（Checklist）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 场地面积、形状、路宽（必须 ≥ 1.2m）
+• 地面材质（混凝土 / 沥青 / 砖 / 其他）
+• 坡度（纵坡、横坡）
+• 推雪方向与堆雪区域（Push-to Zones）
+• 车辆停放习惯与出入口
+• 人流密度高峰区
+• 可能存在的危险区（盲点、急转弯）
+• 充电桩可放置区域
+• 充电桩电源路径（是否可铺设电缆）
+</code></pre><h3><strong>14.2.2 不推荐部署的场景</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 频繁有车辆进出的主通道
+• 大面积玻璃墙反光区（如写字楼入口）
+• 被雪埋概率极高的凹形地面
+• 充电桩附近无硬质地面
+• 无法提供 120V / 240V 电源
+</code></pre><h3><strong>14.2.3 输出文件</strong></h3><pre class="n-code-notion"><code class="language-plain text">《Pilot Site Survey Report》
+    • 场地图（Google Earth 标注）
+    • 禁区 / 限速区
+    • 推雪方向 &amp; 堆雪点
+    • 充电桩位置草图
+    • 风险点记录
+</code></pre><hr><h2><strong>14.3 上线流程（On-site Setup）</strong></h2><p>SnowBot 的部署设计为 <strong>“2 小时可完成”</strong> 的快速落地模式。</p><h3><strong>14.3.1 开箱（Unboxing）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 外观检查（划伤、裂纹、松动）
+• 检查轮胎压力 / 履带张紧度
+• 检查雪铲安装情况
+• 电池舱、BMS、线束固定情况
+</code></pre><h3><strong>14.3.2 充电桩安装（Dock Setup）</strong></h3><p>充电桩必须安装在：</p><pre class="n-code-notion"><code class="language-plain text">• 不积水、不积冰的位置
+• 前方至少 2.5m 的对位直线区域
+• 可固定电缆、无绊倒风险的路径
+</code></pre><p>并测试：</p><pre class="n-code-notion"><code class="language-plain text">• 加热板加热能力
+• 防雪遮罩有效性
+• 雪泥与冰堆模拟（手撒雪测试）
+</code></pre><h3><strong>14.3.3 初次上电检查（Power-on Checklist）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 低温预热功能（&lt;0°C 自动启动）
+• 控制器自检（IMU/GNSS/编码器）
+• 急停按钮功能测试
+• 手动驾驶是否顺畅
+• 回桩功能 Dry Run 测试
+</code></pre><hr><h2><strong>14.4 路线录制（Teach &amp; Repeat）</strong></h2><p>SnowBot V1 的核心能力是<strong>轻量级 Teach &amp; Repeat</strong>。</p><h3><strong>14.4.1 路线录制步骤</strong></h3><pre class="n-code-notion"><code class="language-plain text">1. 明确边界 → 设置预期推雪方向
+2. 手动驾驶一圈 → 覆盖所有需清雪区域
+3. 系统自动记录轨迹（Position + Pose）
+4. 完成录制 → 系统自动生成预跑路线
+5. 进行 2 次 Dry Run（无雪验证）
+</code></pre><h3><strong>14.4.2 路线录制原则</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 不进入邻居车道
+• 避开车辆密集区
+• 记录“回桩路线”
+• 避免录制经过临时放置物的位置（如当日停的车）
+• 所有转弯半径必须 &gt; 0.8m
+</code></pre><h3><strong>14.4.3 常见错误（需避免）</strong></h3><pre class="n-code-notion"><code class="language-plain text">✗ 录得太贴边 → 容易刮车
+✗ 忘记录制回桩 → 机器人回不去
+✗ 录入积雪储存点导致卡住
+✗ 路径包含不可重复的动态障碍
+</code></pre><hr><h2><strong>14.5 安全部署（Safety Protocol）</strong></h2><h3><strong>14.5.1 必须设置</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 作业区域标识牌（Warning Signs）
+• 夜间高亮灯模式（High Visibility）
+• 人流密集区限速（1–3 km/h）
+• 至少 1 个避人区（No-entry Zone）
+• 远程急停绑定（App or Web）
+</code></pre><h3><strong>14.5.2 Geo-fence 配置</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 禁止跨越人行道入口
+• 禁止进入车辆出入口
+• 禁止进入无监控的背街角落
+• 禁止靠近斜坡边缘 &amp; 楼梯
+</code></pre><h3><strong>14.5.3 Teach &amp; Repeat 安全补丁</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 路线自动收紧 5–10 cm 安全边界
+• 感知异常 → 自动降速 or 停机
+</code></pre><hr><h2><strong>14.6 暴雪运营策略（Storm Operations）</strong></h2><p>暴雪期是验证 SnowBot 真价值的关键阶段。</p><h3><strong>14.6.1 暴雪定义</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 降雪速度 ≥ 3 cm/h
+• 总量 &gt; 20 cm
+• 伴随风导致深雪堆积
+</code></pre><h3><strong>14.6.2 暴雪运行策略</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 降雪期间持续运行：每 2–3 小时运行一次
+• 雪深 &gt; 25 cm → 自动分层推雪
+• 雪铲角度自动调整（避免阻力过大）
+• 电池低于 30% → 强制回桩
+</code></pre><h3><strong>14.6.3 暴雪期的回桩增强策略</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 开启“高亮回桩模式”
+• 降低速度至 0.8–1.2 m/s
+• 启用机械导向辅助
+• 强制疏雪（自动扫开桩前雪）
+</code></pre><hr><h2><strong>14.7 维护与故障处理（Maintenance &amp; Troubleshooting）</strong></h2><h3><strong>14.7.1 日常维护（Daily Maintenance）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 清理雪泥、冰块
+• 检查电池舱密封条
+• 检查刮板橡胶
+• 清理充电桩积雪
+</code></pre><h3><strong>14.7.2 周期性维护（Weekly Maintenance）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 检查轮胎磨损
+• 检查松动螺栓
+• 清理底盘积雪
+• 检查前后保险杠
+</code></pre><h3><strong>14.7.3 常见故障表</strong></h3><div class="table-wrap"><table><thead><tr><th>现象</th><th>可能原因</th><th>解决方案</th></tr></thead><tbody><tr><td>不回桩</td><td>桩前积雪、对位偏差</td><td>清理积雪 / 重录回桩路线</td></tr><tr><td>推雪无力</td><td>铲角错误、轮胎空转</td><td>调整铲角 / 启用防滑模式</td></tr><tr><td>急停触发</td><td>传感器遮挡 / 倾斜</td><td>清理雪帽 / 重启自检</td></tr><tr><td>暴雪跑不动</td><td>积雪 &gt; 30 cm</td><td>分层推雪策略</td></tr></tbody></table></div><hr><h2><strong>14.8 KPI 验收标准（Acceptance Criteria）</strong></h2><p>试点成功必须满足以下量化指标：</p><pre class="n-code-notion"><code class="language-plain text">• 覆盖率 ≥ 95%
+• 任务成功率 ≥ 90%
+• 回桩成功率 ≥ 95%
+• 每周人工干预 ≤ 2 次
+• 客户满意度 ≥ 8/10
+• 易损件寿命符合预期（标准差 ≤ 15%）
+</code></pre><p>试点通过后，生成：</p><pre class="n-code-notion"><code class="language-plain text">《Pilot Result Report》
+→ 包含：ROI、路线优化建议、规模化部署方案
+</code></pre><hr><h1><strong>15. 可靠性工程（Reliability Engineering）</strong></h1><p>SnowBot V1 的可靠性工程目标是：确保设备在 <strong>北美极寒、高湿、高盐、连续降雪</strong> 条件下，维持稳定运行，达到商用级别的 MTBF、季节寿命与运营可用性。本章提供可靠性标准、测试矩阵、冗余设计、仿真要求与 FMEA 原则。</p><hr><h2><strong>15.1 极寒测试矩阵（Low Temperature Test Matrix）</strong></h2><p>SnowBot 的核心运行环境是 <strong>-30°C ~ 0°C</strong>。必须通过下列极寒环境测试。</p><h3><strong>15.1.1 环境温度等级</strong></h3><pre class="n-code-notion"><code class="language-plain text">T1：0°C（轻微寒冷，标准测试）
+T2：-10°C（一般运行温度）
+T3：-20°C（深冬运行）
+T4：-30°C（极寒运行，保证可启动）
+</code></pre><h3><strong>15.1.2 极寒测试项目总览</strong></h3><pre class="n-code-notion"><code class="language-plain text">Low Temperature Test Matrix
+├── A. 冷启动测试
+├── B. 低温运行测试
+├── C. 低温加热系统测试
+├── D. 线路与接插件低温脆性测试
+├── E. 润滑体系低温适配测试
+├── F. 低温充电测试
+└── G. IMU / Encoder 低温稳定性测试
+</code></pre><h3><strong>15.1.3 必须通过的极寒功能测试</strong></h3><div class="table-wrap"><table><thead><tr><th>测试项目</th><th>环境温度</th><th>目标</th><th>判定标准</th></tr></thead><tbody><tr><td>冷启动可用性</td><td>-30°C</td><td>正常上电、自检</td><td>上电成功率 100%，自检 &lt; 60s</td></tr><tr><td>电池加热</td><td>-20°C</td><td>&lt;0°C 自动加热</td><td>电芯温度 ≥ 5°C 方允许放电</td></tr><tr><td>低温转向</td><td>-20°C</td><td>正常转向</td><td>扭矩无抖动，无异常声</td></tr><tr><td>推雪运行</td><td>-10°C ~ -20°C</td><td>连续 1 小时</td><td>无降功率，无控制中断</td></tr><tr><td>低温回桩</td><td>-20°C</td><td>成功回桩</td><td>成功率 ≥ 95%</td></tr><tr><td>低温充电</td><td>-5°C</td><td>安全充电</td><td>禁止 &lt;0°C 充电，保护触发正确</td></tr></tbody></table></div><hr><h2><strong>15.2 冗余策略（Redundancy Strategy）</strong></h2><p>冗余策略确保在传感器、通信、控制出现异常时，设备仍可安全运行或安全停机。</p><h3><strong>15.2.1 冗余类型</strong></h3><pre class="n-code-notion"><code class="language-plain text">Redundancy Types
+├── A. 感知冗余（Perception）
+├── B. 控制冗余（Control Logic）
+├── C. 电源冗余（Power Path）
+├── D. 通信冗余（Comms Fail-safe）
+├── E. 安全链路冗余（Emergency）
+</code></pre><h3><strong>15.2.2 冗余策略详述</strong></h3><h3><strong>A. 感知冗余</strong></h3><pre class="n-code-notion"><code class="language-plain text">• IMU + 里程计（主）
+• 编码器（速度冗余）
+• 超声波冗余前向避障（前 3，后 2）
+• 雷达（可选）用于前方 2–4m 避车冗余
+</code></pre><p>感知故障时策略：</p><pre class="n-code-notion"><code class="language-plain text">Primary failure → 自动降级模式（Reduced Speed）
+Secondary failure → 强制停机
+</code></pre><h3><strong>B. 控制冗余</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 控制器双路径自检（软件心跳 + 硬件看门狗）
+• 任务执行异常 → 本地 Fail-safe 代替云端
+• 云端失效 → 继续执行本地路线
+</code></pre><h3><strong>C. 电源冗余</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 主电源（Battery）+ BMS 三级保护
+• 低压 24V 供电 → 单独保险
+• 控制系统与驱动系统分离供电（避免共灾）
+</code></pre><h3><strong>D. 通信冗余</strong></h3><pre class="n-code-notion"><code class="language-plain text">• WiFi / LTE 任一失效 → 继续任务
+• 长期失联 → 自动降速 + 回桩 or 停机
+</code></pre><h3><strong>E. 安全链路冗余</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 双通道急停回路（硬件级）
+• 急停优先级最高
+• 主控异常 → 急停直接切断动力
+</code></pre><hr><h2><strong>15.3 盐雾 / 冻雨 / 机械冲击测试（Corrosion &amp; Mechanical Stress）</strong></h2><p>北美冬季环境中的三大破坏源：</p><pre class="n-code-notion"><code class="language-plain text">• 盐雾（corrosion）
+• 冻雨（icing）
+• 冲击（impact loads）
+</code></pre><h3><strong>15.3.1 盐雾测试（Salt Fog, ASTM B117）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 目标：≥ 240 小时无关键结构失效
+• 覆盖部件：车架、连接件、紧固件、雪铲底部、轮毂、电控箱
+• 判定：无红锈扩散到影响结构强度
+</code></pre><h3><strong>15.3.2 冻雨测试（Freezing Rain Test）</strong></h3><p>模拟实际场景：</p><pre class="n-code-notion"><code class="language-plain text">• 机器人暴露 2–6 小时结冰
+• 冰厚：2–8 mm
+• 目标：驱动可启动，无卡滞
+• 充电桩加热片可正常融冰
+</code></pre><h3><strong>15.3.3 机械冲击 &amp; 路沿碰撞测试（Impact Test）</strong></h3><p>定义三类典型冲击：</p><div class="table-wrap"><table><thead><tr><th>冲击类型</th><th>条件</th><th>目标</th><th>判定</th></tr></thead><tbody><tr><td>正面撞击</td><td>2 km/h 撞路沿</td><td>铲架变形可控</td><td>车架不弯曲</td></tr><tr><td>中速撞击</td><td>5 km/h 撞冰块</td><td>模块吸能件破坏</td><td>核心结构不受损</td></tr><tr><td>侧向撞击</td><td>撞停车挡车桩</td><td>保险杠保护有效</td><td>零部件可修复</td></tr></tbody></table></div><hr><h2><strong>15.4 DFMEA / PFMEA（Failure Mode Analysis）</strong></h2><p>可靠性工程中，需要在 V1 量产前完成基本级别的 <strong>设计 FMEA</strong> 和 <strong>工艺 FMEA</strong>。</p><h3><strong>15.4.1 DFMEA（Design FMEA）范围</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 雪铲结构
+• 铲架弱连杆
+• 车架焊缝
+• 减速器法兰连接
+• 电池与 BMS
+• 线束固定点
+• 充电桩机械结构
+</code></pre><p>每项必须分析：</p><pre class="n-code-notion"><code class="language-plain text">→ 失效模式（Failure Mode）
+→ 严重度（Severity）
+→ 发生概率（Occurrence）
+→ 检测难度（Detection）
+→ 风险优先级（RPN）
+</code></pre><p>目标：</p><pre class="n-code-notion"><code class="language-plain text">RPN 超过阈值（如 150）必须工程整改。
+</code></pre><h3><strong>15.4.2 PFMEA（Process FMEA）范围</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 车架焊接工艺
+• 铲架总成装配
+• 驱动模块装配
+• 电池装配
+• 整车线束布线
+• 防水防尘密封
+</code></pre><p>PFMEA 输出：</p><pre class="n-code-notion"><code class="language-plain text">• 关键工序（KC/KT）识别
+• 工装夹具需求
+• 质量控制点（QCP）
+</code></pre><hr><h2><strong>15.5 结构仿真（FEA）要求（Finite Element Analysis）</strong></h2><h3><strong>15.5.1 必跑 FEA 场景</strong></h3><pre class="n-code-notion"><code class="language-plain text">FEA Required Scenarios
+├── A. 雪铲推力加载（Full Load Push）
+├── B. 冲击模拟（2–5 km/h Impact）
+├── C. 弯曲强度（车架前推力梁）
+├── D. 扭转测试（整车扭转载荷）
+├── E. 安装孔疲劳模拟
+</code></pre><h3><strong>15.5.2 FEA 目标指标</strong></h3><div class="table-wrap"><table><thead><tr><th>项目</th><th>最低指标</th><th>备注</th></tr></thead><tbody><tr><td>结构屈服裕度</td><td>≥ 1.8</td><td>主承载部分</td></tr><tr><td>极限载荷安全系数</td><td>≥ 2.5</td><td>推雪最大力</td></tr><tr><td>铲架结构刚度</td><td>位移 &lt; 8 mm</td><td>侧推方向加载</td></tr><tr><td>框架扭转角</td><td>&lt; 1.5°</td><td>在额定扭矩下</td></tr></tbody></table></div><h3><strong>15.5.3 网格与材料建模要求</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 网格尺寸：5–10 mm（关键部位）
+• 焊缝模拟：T-joint / fillet weld 建模
+• 材料模型：双线性屈服模型（钢件）
+• 铝件：6061-T6 弹塑性模型
+</code></pre><h3><strong>15.5.4 碰撞模拟（Impact FEA）要求</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 模型需包含弱连杆断裂点
+• 能量吸收区域标注
+• 碰撞后应明确可修复部件
+</code></pre><hr><h1><strong>16. 工业化 / 量产（DFM &amp; Manufacturing）</strong></h1><p>SnowBot V1 的设计目标是进入 <strong>北美商用市场</strong>，这要求产品从第一天起具备可制造性（DFM）、可装配性（DFA）、可测试性（DFT），并能在低成本、高一致性、可扩展的流水线上稳定生产。本章定义 V1 的工业化标准、装配工艺、线束模块化策略、产线流程与量产验证体系。</p><hr><h2><strong>16.1 装配工艺（Assembly）</strong></h2><p>装配工艺需遵循以下核心原则：</p><pre class="n-code-notion"><code class="language-plain text">Assembly Principles
+├── A. 模块化优先（Motor / Gearbox / Battery / EC Box）
+├── B. 防呆设计（Poka-Yoke）
+├── C. 单方向装配（从下往上，从前往后）
+├── D. 少螺栓、少 TORX 型号、少工具切换
+├── E. 所有关键工序可量产、可检验、可重工
+</code></pre><h3><strong>16.1.1 装配顺序（Assembly Order）</strong></h3><p>建议的整车装配顺序：</p><pre class="n-code-notion"><code class="language-plain text">SnowBot Assembly Flow
+1. 主车架（Welded Frame）检验
+2. 驱动模块安装（轮毂 + 电机 + 减速器）
+3. 悬挂/越障机构装配
+4. 电池舱与下壳体安装
+5. 线束主干（Main Harness）铺设
+6. 控制器 / 低压电控盒安装
+7. 感知组件安装（US, Radar, IMU）
+8. 雪铲架与弱连杆安装
+9. 顶盖、侧壳、防护壳安装
+10. 终检（EOL Test）
+</code></pre><h3><strong>16.1.2 装配工艺包（Assembly Work Instructions）</strong></h3><p>每个工位需提供：</p><pre class="n-code-notion"><code class="language-plain text">• 工序编号（OP10 / OP20 / OP30）
+• 工具（扭矩枪、治具型号）
+• 扭矩规格（Nm）
+• 拧紧顺序
+• 防呆点位
+• 检验项目（QCP）
+</code></pre><hr><h2><strong>16.2 测试治具（Test Jigs）</strong></h2><p>量产离不开标准化测试治具（DFT）。</p><h3><strong>16.2.1 治具体系</strong></h3><pre class="n-code-notion"><code class="language-plain text">Test Jig System
+├── A. 电气测试治具（LV / HV）
+├── B. 雪铲升降测试台
+├── C. 驱动电机空载测试平台
+├── D. 控制器自检治具
+├── E. 线束导通 + 短路测试夹具
+└── F. 整车 EOL 测试台（End-of-line）
+</code></pre><h3><strong>16.2.2 EOL 测试项</strong></h3><pre class="n-code-notion"><code class="language-plain text">EOL Checklist
+1. 上电自检通过
+2. 驱动前后转动正常
+3. 雪铲升降 / 左右调整正常
+4. 全部超声波传感器正常
+5. IMU 静态偏移 &lt; 规格限
+6. WiFi / LTE 连接正常
+7. GPS 固定时间（如有）
+8. 急停功能 OK
+9. 整车防水测试（淋雨 3 分钟）
+</code></pre><hr><h2><strong>16.3 线束与模块化总成（Harness &amp; Modular Assembly）</strong></h2><p>线束是量产的痛点。必须从 V1 起做到 Automotive/VDA 级规范。</p><h3><strong>16.3.1 线束策略（Harness Strategy）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Harness Architecture
+├── A. 主干线束（Main Harness）
+├── B. 驱动模块线束（Wheel Module）
+├── C. 电池线束（Battery Pack）
+├── D. 传感器线束（Perception）
+├── E. 顶盖线束（Lighting / Beacon）
+└── F. 充电接口线束
+</code></pre><h3><strong>16.3.2 模块化原则</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 每个模块可独立工厂预装
+• 预留固定点 + 防摩擦保护
+• 线束长度不得现场“靠感觉裁”
+• 接口全部统一为工业级防水接插件（IP67）
+</code></pre><h3><strong>16.3.3 风险与对策</strong></h3><pre class="n-code-notion"><code class="language-plain text">Risk → 漏装 / 错装 / 插头松动
+Countermeasure → 防呆键位 + 颜色编码 + 固定卡扣
+</code></pre><hr><h2><strong>16.4 产线流程（Assembly Line）</strong></h2><p>量产需要明确每个工位、节拍（Cycle Time）与人力。</p><h3><strong>16.4.1 产线结构（Line Layout）</strong></h3><pre class="n-code-notion"><code class="language-plain text">SnowBot Assembly Line
+├── Line 1：车架检验与预装工位
+├── Line 2：驱动模块装配工位
+├── Line 3：线束布线工位
+├── Line 4：电池 + BMS 安装
+├── Line 5：感知系统安装
+├── Line 6：雪铲机构装配
+├── Line 7：外壳工位
+└── Line 8：EOL 测试工位
+</code></pre><h3><strong>16.4.2 节拍（Cycle Time）</strong></h3><pre class="n-code-notion"><code class="language-plain text">目标：30–45 分钟 / 工位
+整车目标产能：8–12 台/天（单线）
+</code></pre><h3><strong>16.4.3 工序质量控制（QCP）</strong></h3><p>每个工序必须定义：</p><pre class="n-code-notion"><code class="language-plain text">• 检查项
+• 检查方法
+• 检查工具
+• 通过 / 不通过判据
+</code></pre><hr><h2><strong>16.5 量产验证（MP Validation）</strong></h2><p>量产前必须经过 EVT → DVT → PVT → MP 流程。</p><h3><strong>16.5.1 验证阶段定义</strong></h3><pre class="n-code-notion"><code class="language-plain text">EVT（工程验证）→ 验证设计是否可行
+DVT（设计验证）→ 验证设计是否可靠
+PVT（产能验证）→ 验证产线是否稳定
+MP（量产）→ 正式量产
+</code></pre><h3><strong>16.5.2 每阶段产量建议</strong></h3><pre class="n-code-notion"><code class="language-plain text">EVT：5–10 台
+DVT：20–30 台
+PVT：50–100 台（首台品 + 产线调优）
+MP：持续量产
+</code></pre><h3><strong>16.5.3 PVT 验证项（必须全部通过）</strong></h3><pre class="n-code-notion"><code class="language-plain text">PVT Checklist
+1. 工位节拍达标（&lt; 45 分钟）
+2. 一致性达标（抽检 10 台）
+3. EOL 通过率 ≥ 98%
+4. 零部件质量稳定
+5. 供应链交期稳定
+6. 测试治具可靠
+7. 故障类型收敛
+</code></pre><h3><strong>16.5.4 MP（量产阶段）KPI</strong></h3><pre class="n-code-notion"><code class="language-plain text">• FPY（首件合格率）≥ 95%
+• RMA &lt; 3%（首季）
+• 保内故障率 &lt; 1%
+• 返工率 &lt; 2%
+</code></pre><hr><h1><strong>17. 运输 / 包装（Transport &amp; Packaging）</strong></h1><p>本章定义 Energize SnowBot 从工厂出货，到达北美部署现场的全流程运输与包装标准。</p><p>目标是保证：</p><ul><li><strong>运输过程中不损坏结构件/外壳/雪铲/传感器</strong></li><li><strong>北美皮卡、拖车能直接固定运输</strong></li><li><strong>包装材料满足防潮、防撞、防压要求</strong></li><li><strong>机器人运输锁定机构可在一分钟内完成操作</strong></li></ul><hr><h2><strong>17.1 出厂包装</strong></h2><p>出厂包装需要满足：</p><ul><li>海运 / 空运 / 卡车运输全过程</li><li>北美冬季湿冷、海运盐雾</li><li>堆叠、叉车作业</li></ul><h3><strong>17.1.1 包装结构（Crate Structure）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Export Crate
+├── A. 底部钢托盘（Forklift-friendly）
+├── B. 胶合板外箱（Plywood Crate）
+├── C. 内部缓冲层（EVA / EPE）
+├── D. 顶部防压梁（Anti-crush Beam）
+├── E. 防水包装袋（Vacuum / VCI 可选）
+└── F. 再固定绑带（Strap System）
+</code></pre><h3><strong>17.1.2 关键要求</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 上下左右六面保护
+• 叉车可从四面进入（4-way forklift access）
+• 不允许压到雪铲、传感器、爆闪灯区域
+• 箱外印刷：SN、重量、重心、唛头、Fragile
+• 箱内含：User Manual、工具包、易损件包
+</code></pre><h3><strong>17.1.3 运输前锁定（Pre-ship Locking）</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 雪铲完全升起并锁死（Mechanical Lock Pin）
+• 车轮处于运输模式，不允许自由转动（Wheel Block）
+• 电池处于 Shipping Mode（SOC 30% ± 5%）
+• 急停按下，主电断开
+</code></pre><hr><h2><strong>17.2 皮卡 / 拖车运输标准</strong></h2><p>SnowBot 的部署与售后大量依赖北美客户自运，因此必须设计可直接用 <strong>皮卡 / 拖车（Pickup / Trailer）</strong> 搬运的标准。</p><h3><strong>17.2.1 皮卡装载要求</strong></h3><pre class="n-code-notion"><code class="language-plain text">Pickup Transport
+├── A. 允许车型：F-150 / RAM1500 / Silverado1500 及以上
+├── B. 上车方式：踏板坡道 or 手动绞盘
+├── C. 固定方式：4 点式绑带固定（到车架硬点）
+└── D. 绑扎角度：30°–60°，禁止水平拉力
+</code></pre><h3><strong>17.2.2 拖车运输要求</strong></h3><pre class="n-code-notion"><code class="language-plain text">Trailer Transport
+├── A. 最小拖车：5×8 尺（含系紧锚点）
+├── B. 后门坡道用于推上车
+├── C. 绑带必须通过车架硬点，不允许绑外壳
+└── D. 雪铲必须有“运输锁定销”
+</code></pre><h3><strong>17.2.3 绑带与工具标准</strong></h3><pre class="n-code-notion"><code class="language-plain text">• 1.5–2 吨额定绑带 × 4
+• 金属棘轮装置（Ratchet）
+• 软套防止划伤喷涂
+• 轮 chock × 2
+</code></pre><hr><h2><strong>17.3 运输锁定结构</strong></h2><p>运输锁定是结构章节 4.8 的延伸，本节给出可执行的标准。</p><h3><strong>17.3.1 锁定结构总览</strong></h3><pre class="n-code-notion"><code class="language-plain text">Transport Locking System
+├── A. 雪铲三点锁定（上下、左右、前伸）
+├── B. 驱动轮锁定（Mechanical Block）
+├── C. 前后拖钩（Tow Points）
+└── D. 车架固定孔（D-ring Compatible）
+</code></pre><h3><strong>17.3.2 雪铲锁定机制（Blade Transport Lock）</strong></h3><p>必须具备以下机械结构：</p><pre class="n-code-notion"><code class="language-plain text">• 升降机构配有“上死点锁销”（Transport Pin）
+• 左右角度机构需有齿盘锁止 + 固定螺母
+• 铲面前端有防抖结构（Rubber Stopper）
+</code></pre><p>目的：</p><p>运输过程中 <strong>不晃、不跳、不撞击铲架连接点</strong>。</p><h3><strong>17.3.3 驱动轮锁定（Wheel Block）</strong></h3><p>机械要求：</p><pre class="n-code-notion"><code class="language-plain text">• 轮间放置专用阻轮块（Wheel Chock）
+• 或车架两侧预留“车轮固定孔”，可插入锁杆
+• 禁止仅依赖电机力矩保持位置
+</code></pre><h3><strong>17.3.4 车架固定点（Chassis Tie-down Points）</strong></h3><p>必须在车架上提供 <strong>4 个等距、对称、可承受 1 吨拉力</strong> 的固定点：</p><pre class="n-code-notion"><code class="language-plain text">Tie-down Points
+├── 前左右 × 2（靠近主梁）
+└── 后左右 × 2（靠近电池舱）
+</code></pre><p>要求：</p><pre class="n-code-notion"><code class="language-plain text">• 孔径适配常见 D-ring / S-hook
+• 焊缝与母材安全系数 ≥ 3.0
+• 不允许使用外壳/保险杠作为固定点
+</code></pre><h3><strong>17.3.5 清晰的用户操作指南</strong></h3><p>包装内附必须包含：</p><pre class="n-code-notion"><code class="language-plain text">1. Transport Mode Checklist
+2. 如何拉上皮卡 / 拖车
+3. 绑带连接点位置图
+4. 雪铲锁定方法图示
+5. 禁止操作（Do-Not List）
+</code></pre><hr><h1><strong>18. 附录（Appendices）</strong></h1><p>本章收录 SnowBot 在研发、试点部署、合规、结构设计与运营过程中需要的补充材料，以保证文件可执行、可审计、可追踪。</p><hr><h2><strong>18.1 A. Checklists（结构 / 安全 / 合规）</strong></h2><p>用于设计评审、试点上线、安全验收、量产前冻结。</p><h3><strong>18.1.1 结构工程 Checklist（Structural Checklist）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Structural Checklist
+├── Frame（车架）
+│    ├── 闭合截面、明确载荷路径
+│    ├── 推力传递路径验证（Blade → Mount → Frame）
+│    └── 焊缝疲劳位置无尖角/应力集中
+├── Blade &amp; Mount（雪铲）
+│    ├── 弱连杆存在
+│    ├── 齿盘锁止机构
+│    └── 随动 / 防啃地结构
+├── Undercarriage
+│    ├── 前悬长度可接受
+│    ├── 底盘平整性无积雪台阶
+│    └── 拖车钩与四点固定孔
+└── Service Envelope
+     ├── 电池可抽出
+     ├── 顶盖≥90°可开启
+     └── 手 + 工具空间足够
+</code></pre><hr><h3><strong>18.1.2 安全体系 Checklist（Safety Checklist）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Safety Checklist
+├── Device Safety
+│    ├── 急停按钮（E-Stop）
+│    ├── 双通道动力断电
+│    └── 爆闪灯符合 SAE
+├── Functional Safety
+│    ├── ISO 12100 风险清单
+│    ├── Teach &amp; Repeat 限速
+│    └── 人车混流区域自动限速
+├── Operational Safety
+│    ├── 作业区域标识
+│    ├── 黑暗环境照明开关
+│    └── 禁止进入主干道路
+└── Emergency Stop System
+     ├── 机械急停
+     ├── 遥控急停
+     └── 云端急停
+</code></pre><hr><h3><strong>18.1.3 合规 Checklist（Regulatory Checklist）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Regulatory Checklist
+├── FCC / IC 模块证书
+├── SAE 灯光色号与亮度
+├── 电池 UL 2271 结构预留
+├── ISO 12100 风险矩阵
+└── 隐私：无摄像头（V1）
+</code></pre><hr><h2><strong>18.2 B. 风险矩阵（ISO12100）</strong></h2><p>SnowBot 风险评估矩阵，用于北美市政、校园运营前的文档提交。</p><pre class="n-code-notion"><code class="language-plain text">ISO12100 Hazard Matrix
+├── A. 机械风险
+│    ├── 挤压（车架、铲架）
+│    ├── 切削（锋利边缘）
+│    └── 推雪冲击（Blade Impact）
+├── B. 电气风险
+│    ├── 低压短路
+│    ├── BMS 失控
+│    └── 极寒导致的电池异常
+├── C. 控制风险
+│    ├── Teach &amp; Repeat 丢失路径
+│    ├── 传感器失效
+│    └── OTA 中断
+├── D. 环境风险
+│    ├── 暴雪埋机
+│    ├── 冰面打滑
+│    └── 盐雾腐蚀
+└── E. 运营风险
+     ├── 客户未设安全区域
+     ├── 操作人员未培训
+     └── 进入主干道路
+</code></pre><p>每一个风险包含：</p><pre class="n-code-notion"><code class="language-plain text">• Severity (S)
+• Frequency (F)
+• Possibility of Avoidance (P)
+• Risk Level (R = S × F × P)
+• Mitigation（工程/软件/运营）
+</code></pre><hr><h2><strong>18.3 C. 北美试点模板（Pilot Templates）</strong></h2><p>用于部署与验收。</p><h3><strong>18.3.1 Site Survey 模板（电源 / 积雪 / 地形 / 安全）</strong></h3><pre class="n-code-notion"><code class="language-plain text">Site Survey Template
+├── A. 入口与道路宽度
+├── B. 坡度、台阶、障碍
+├── C. 充电桩位置
+├── D. 积雪路径评估
+├── E. 进出路线风险点
+└── F. 夜间环境（照明）
+</code></pre><h3><strong>18.3.2 KPI 验收模板</strong></h3><pre class="n-code-notion"><code class="language-plain text">Pilot KPI Sheet
+├── 清雪能力：通道宽度 / 次数
+├── 作业时间：实际 vs 计划
+├── 人机交互：是否安全
+├── 回桩成功率：≥ 95%
+├── 故障率：≤ 1 次 / 周
+└── 运营成本：TCO 评估
+</code></pre><hr><h2><strong>18.4 D. 术语表（Glossary）</strong></h2><pre class="n-code-notion"><code class="language-plain text">Glossary
+├── Teach &amp; Repeat：通过录制轨迹生成路径
+├── Weak Link（弱连杆）：撞击时保护车架的结构件
+├── Service Envelope：维保可触达空间
+├── Blackbox：30s 前后运行数据记录
+├── OTA：Over-The-Air Software Update
+├── Geo-fence：虚拟围栏边界
+├── TCO：Total Cost of Ownership
+└── DFM：Design for Manufacturing
+</code></pre><hr><h2><strong>18.5 E. 版本历史（Revision History）</strong></h2><pre class="n-code-notion"><code class="language-plain text">Revision History
+├── v0.1：初版目录
+├── v0.2：补充结构工程章节
+├── v0.3：新增安全 &amp; 合规体系
+├── v0.4：加入导航/Teach &amp; Repeat 细则
+├── v0.5：加入 Pilot 模板与风险矩阵
+└── v1.0：正式版发布
+</code></pre><hr></article>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <span>© 2025 Energize Solutions Inc. — All rights reserved. Powered by GitHub Pages | Contact:</span>
+    <a href="mailto:info@energizeos.com">info@energizeos.com</a>
+    <span class="sep">·</span>
+    <a class="icon" href="https://www.linkedin.com/in/gongtiejing" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v13H0zM7 8h4.8v1.8h.07C12.54 8.94 14.17 8 16.6 8c5.06 0 6 3.33 6 7.66V21h-5v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.69-2.5 3.43V21H7V8z"/>
+      </svg>
+    </a>
+    <a class="icon" href="https://github.com/enxpower" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.15 8.96 7.52 10.41.55.1.75-.24.75-.53 0-.26-.01-1.1-.02-1.99-3.06.66-3.71-1.3-3.71-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.56 1.19 3.18.91.1-.72.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.43 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.42.11-2.96 0 0 .93-.3 3.05 1.13a10.7 10.7 0 0 1 2.78-.37c.94 0 1.88.13 2.78.37 2.12-1.43 3.05-1.13 3.05-1.13.6 1.54.22 2.68.11 2.96.71.77 1.13 1.75 1.13 2.95 0 4.22-2.58 5.14-5.03 5.41.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53A10.54 10.54 0 0 0 23 11.5C23 5.24 18.27.5 12 .5z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.min.js"></script>
+
+</body></html>
