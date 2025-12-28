@@ -30,13 +30,16 @@ hr{border:none;border-top:1px solid var(--border);margin:28px 0}
   display:block;height:64px;max-width:640px;width:auto;object-fit:contain;flex:0 0 auto;margin-top:6px
 }
 
-/* Buttons (downloads) */
+/* Buttons */
 .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:#2563eb;color:#fff;
      text-decoration:none;font-weight:600;border:1px solid #1e4fd9;transition:filter .15s;white-space:nowrap}
 .btn:hover{filter:brightness(1.05);text-decoration:none}
 .btn-xs{padding:6px 10px;font-size:13px}
 .btn-outline{background:#fff;color:#2563eb;border-color:#2563eb}
 .downloads{margin:12px auto 0; padding:0 2px; display:flex; gap:10px; flex-wrap:wrap}
+
+/* Attachment note (filename under caption button) */
+.file-note{color:var(--muted);font-size:13px;margin:6px 0 0 0}
 
 /* Typography */
 article > * + *{margin-top:12px}
