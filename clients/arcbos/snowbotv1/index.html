@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCBOS™ 除雪机器人Snowbot v1.0 结构设计</title>
+<link rel="canonical" href="https://advisory.energizeos.com/clients/arcbos/snowbotv1/">
+<meta name="description" content="交付物（总工）">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EnergizeOS Advisory">
+<meta property="og:title" content="ARCBOS™ 除雪机器人Snowbot v1.0 结构设计">
+<meta property="og:description" content="交付物（总工）">
+<meta property="og:url" content="https://advisory.energizeos.com/clients/arcbos/snowbotv1/">
+<meta property="og:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ARCBOS™ 除雪机器人Snowbot v1.0 结构设计">
+<meta name="twitter:description" content="交付物（总工）">
+<meta name="twitter:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+<body>
+<main>
+  <div class="header-flex">
+    <h1>ARCBOS™ 除雪机器人Snowbot v1.0 结构设计</h1>
+    <img class="barcode" alt="Barcode ENXYWFS4JJB53" src="data:image/png;base64,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">
+  </div>
+
+  <article><figure><img src="/assets/images/arcbos/snowbotv1/199a08fef4614386137df83ea5652c0.jpg" alt=""><figcaption></figcaption></figure><h1>冻结级 结构设计基线 Baseline v1.0</h1><pre class="n-code-notion"><code class="language-markup">一台重载级、全电动、自主运行的除雪机器人。
+紧凑型工业尺度，整体占地尺寸接近大型商用履带式除雪机。
+该设备是工业机器人，而不是车辆。
+
+【核心身份约束】
+这是一个完全无人化的工业机器人系统。
+在任何设计层面，都不允许承载、容纳或服务人类。
+外观与结构必须明确避免任何“可驾驶设备”或“有人操作机械”的暗示。
+
+【绝对禁止的元素】
+- 任何形式的驾驶舱、座舱、操作舱
+- 挡风玻璃、玻璃、窗户、透明面板
+- 顶棚、车顶结构、雨棚
+- 雨刷、后视镜
+- 方向盘、座椅、把手、踏板
+- 类车辆比例或车身语言
+- 任何用于传感器或灯具的立杆、立柱、桅杆
+- 科幻化造型、消费级产品风格、玩具感设计
+
+【整体造型语言】
+- 装甲化工业机器人平台
+- 开放式结构或装甲钢壳式结构
+- 平直、折线化或多面焊接钢板
+- 清晰可见的螺栓、紧固件、焊缝、加强筋
+- 加强型边角与抗冲击结构
+- 可拆卸、螺栓固定的牺牲式耐磨部件
+- 不存在任何足以容纳人体的封闭空间
+- 明确呈现为“机器人/机械系统”，而非车辆
+
+【工业设计哲学】
+- 功能优先，零装饰
+- 机械真实感：结构与受力路径可被直观看出
+- 设计目标是承受冰块、路沿、硬雪、杂物的反复冲击
+- 所有部件看起来都可维护、可更换
+- 商用级工业设备，而非消费级产品
+
+【大致尺寸比例】
+- 宽度约 1.0 米
+- 长度约 1.5 米
+- 高度约 1.2 米
+- 紧凑、密实的工业比例
+- 低重心设计
+- 短前后悬，无高耸上部结构
+
+【底盘与材料】
+- 重型焊接钢结构底盘
+- 厚实钢板，清晰可见材料厚度
+- 外露工业级紧固件
+- 围绕除雪系统的加强型副车架
+- 工业黄色 + 深灰色配色
+  灵感来源于卡特彼勒（Caterpillar）与约翰迪尔（John Deere）
+- 哑光或半哑光工业涂层
+- 禁止高光、装饰性表面处理
+
+【前端除雪系统】
+- 商用级重载双级除雪系统
+- 前置螺旋绞龙直接喂入中央叶轮
+- 绞龙与叶轮处于同一连续壳体内
+- 除雪流向在视觉与物理上必须真实合理
+- 叶轮将雪垂直向上抛出
+- 抛雪筒直接安装在叶轮壳体正上方
+- 抛雪筒仅左右旋转，底座固定
+- 抛雪筒为厚钢板结构，不得使用塑料外观
+- 禁止侧向抛雪或不合理的气流路径
+
+【切削边与耐磨件】
+- 清晰可见、可更换的金属切削刀刃
+- 螺栓固定的牺牲式切削边
+- 硬化钢耐磨滑靴
+- 耐磨件与结构件在视觉上有明确区分
+- 重载商用级钢结构外观
+
+【履带行走系统】
+- 厚实的工业级橡胶履带
+- 紧凑型履带驱动系统
+- 相对于高度具有较宽的履带站距
+- 针对积雪、结冰、不平整路面优化
+- 不得出现轮胎
+- 工业级驱动轮与导向轮部分外露
+
+【动力与系统属性】
+- 全电动驱动系统
+- 电池供电的工业设备
+- 不得出现排气口或暗示内燃机的进气结构
+- 密封式电气舱
+- 可隐约看到高压电安全警示标识
+
+【传感器与自主系统】
+- 激光雷达集成于低矮装甲化传感器舱内
+- 工业相机嵌入装甲式传感器模块
+- 传感器外置但与结构高度一体化
+- 禁止玻璃罩、透明穹顶
+- 禁止任何传感器立杆或高耸支架
+- 传感器布局支持 360 度环境感知
+- 所有感知硬件为工业级、抗冲击、抗低温设计
+
+【安全与照明系统】
+- 低矮圆柱形工业琥珀色 LED 警示灯
+- 警示灯完全嵌入顶部装甲结构
+- 禁止立杆、支架、外伸结构
+- 短而宽、重载型警示灯
+  风格接近机场或重型施工设备
+- 前向高亮白色工业工作灯
+- 后向琥珀色警示灯
+- 侧向嵌入式示廓灯
+- 所有灯具均为密封、防冲击、抗振动结构
+- 适用于无人化、公共或半公共环境运行
+- 符合商用设备可视与安全预期
+
+【运行特征】
+- 自主优先设计（Autonomous-first）
+- 无任何明显人工操作界面
+- 设计用于夜间、无人值守连续运行
+- 工业可靠性高于外观美感
+- 安静、电动、目的性极强的存在感
+
+【场景与环境】
+- 机器人正在商业停车场内执行除雪作业
+- 暴雪环境，雪量大、雪花密集
+- 雪流清晰可见地通过绞龙、叶轮与抛雪筒
+- 夜间或低照度环境
+- 工作灯与警示灯照亮飞雪颗粒
+- 警示灯处于闪烁状态
+- 场景中无任何人类
+- 无近距离交互的车辆
+- 电影级但真实的工业摄影风格
+- 高真实度、物理逻辑合理
+- 专业级商用工业设备气质
+</code></pre><h1>结构工程师任务树（Work Breakdown Tree / WBS）</h1><pre class="n-code-notion"><code class="language-markup">ARCBOS SnowBot（全电动无人重载除雪机器人）
+└─ 0. 全局硬约束（所有结构设计必须同时满足）
+   ├─ 身份约束：工业机器人，不是车辆（禁止任何车辆语义）
+   ├─ 绝对禁止：驾驶舱/座舱/操作舱、玻璃/窗、雨棚/车顶、方向盘/座椅/把手、雨刷/后视镜
+   ├─ 禁止立杆/桅杆：任何传感器与灯具不得使用立柱、外伸支架
+   ├─ 外形语言：装甲化工业平台；焊接钢板；可见焊缝、螺栓、加强筋；牺牲式耐磨件可更换
+   ├─ 尺寸边界：W≈1.0m / L≈1.5m / H≈1.2m；低重心；短前后悬；无高耸上部结构
+   ├─ 商用级：抗冲击/抗低温/抗振；可维护可更换；结构真实感（受力路径可读）
+   └─ 外观限制：哑光/半哑光工业涂层；工业黄+深灰（CAT/John Deere 气质）；拒绝玩具感/科幻感/装饰面
+
+└─ 1. 总体结构架构（结构总工牵头）
+   ├─ 1.1 总体布置与结构分区（Frame + Modules）
+   │  ├─ 目标：形成“开放式结构/装甲壳”但无人体容积；可快速拆装维护
+   │  ├─ 关键点：结构受力路径清晰；雪流通道不被结构干扰；传感器/灯具必须低矮内嵌
+   │  └─ 交付物：总体布置图（2D/3D）、模块安装面定义、质量/重心预估、维修开盖路径图
+   ├─ 1.2 强度/刚度/振动基础指标（冬季工况）
+   │  ├─ 工况：冰块冲击、路沿磕碰、硬雪反力、履带振动、叶轮高转速激振
+   │  └─ 交付物：设计载荷表、结构安全系数假设、初版FEA计划（静强度+模态）
+   └─ 1.3 模块化与可维护性策略
+      ├─ 目标：关键部件“快拆+标准紧固件+可替换耐磨件”
+      └─ 交付物：模块拆装序列、备件/牺牲件清单、检修空间与工具可达性评估
+
+└─ 2. 主承载底盘与焊接钢车架（Chassis / Main Frame）
+   ├─ 2.1 焊接主框架（重载钢结构）
+   │  ├─ 要求：厚钢板、可见焊缝与加强筋、结构“机械真实感”
+   │  ├─ 防跑偏：不能做成“汽车底盘+外壳”的车辆套路；必须像工业机器人底座
+   │  └─ 交付物：焊接总成图、焊缝等级与工艺建议、吊装/搬运点设计
+   ├─ 2.2 加强副车架（Snowblower Module Subframe）
+   │  ├─ 目标：前端除雪模块与主框架之间形成抗冲击隔离/加强结构
+   │  └─ 交付物：安装基准面、定位销/螺栓组、抗冲击加强件设计
+   └─ 2.3 密封电气舱结构（非透明/非玻璃）
+      ├─ 要求：密封、防雪水侵入、抗振；可隐约呈现高压警示标识
+      └─ 交付物：电气舱外壳图、密封方案、检修门与锁扣方案
+
+└─ 3. 履带底盘结构（Tracked Undercarriage）
+   ├─ 3.1 履带模块与安装界面
+   │  ├─ 要求：厚工业橡胶履带；宽站距；低重心；不出现轮胎语义
+   │  └─ 交付物：履带模块安装图、受力路径说明、快速更换方案
+   ├─ 3.2 驱动轮/导向轮防护与半外露策略
+   │  ├─ 要求：工业驱动轮、导向轮可部分外露（真实机械感），但要有防雪护罩
+   │  └─ 交付物：护罩结构图、排雪/排泥通道、维护窗口
+   └─ 3.3 冲击与振动隔离（结构层面）
+      ├─ 目标：控制传到传感器舱、灯具与电气舱的振动
+      └─ 交付物：隔振点位建议、橡胶/弹性支座策略（只给结构接口，不限定供应商）
+
+└─ 4. 前端双级除雪系统结构（Auger + Impeller + Housing）
+   ├─ 4.1 连续壳体（Aligned Housing）
+   │  ├─ 关键约束：绞龙→叶轮的雪流必须连续、可视化正确；不能出现不合理风道
+   │  └─ 交付物：壳体3D、雪流通道剖面、维修开口与防卡堵设计
+   ├─ 4.2 抛雪筒（Chute）与旋转机构的结构接口
+   │  ├─ 硬约束：抛雪筒底座固定，仅左右旋转；抛雪筒厚钢板外观（非塑料）
+   │  └─ 交付物：旋转支承结构、限位设计、雪密封与防冻结策略
+   └─ 4.3 前端抗冲击与防卷入防护结构
+      ├─ 目标：石子/冰块冲击、边沿磕碰；同时防止杂物卷入
+      └─ 交付物：前沿护板、格栅/防护罩方案、冲击损伤可替换件
+
+└─ 5. 切削边与牺牲耐磨件系统（Cutting Edge &amp; Wear Parts）
+   ├─ 5.1 可更换金属切削刀刃（Bolted-on）
+   │  ├─ 关键：必须“肉眼可见”是可替换件；螺栓固定；与结构件明显区分
+   │  └─ 交付物：刀刃零件图、孔位标准、替换流程与扭矩建议
+   ├─ 5.2 耐磨滑靴/耐磨板（Wear Shoes/Skids）
+   │  ├─ 目标：适配地面不平、路沿；牺牲件优先磨损
+   │  └─ 交付物：耐磨件布置、可调高度策略（结构接口）
+   └─ 5.3 牺牲式装甲护板（Sacrificial Armor Plates）
+      ├─ 目标：碰撞先坏外层，保护主车架；体现“装甲工业机器人”语言
+      └─ 交付物：护板分区图、快拆紧固件、备件编号规则建议
+
+└─ 6. 装甲外壳与开放式结构（Armored Shell / Open-frame）
+   ├─ 6.1 装甲钢板分块与折线语言
+   │  ├─ 要求：平直/多面焊接钢板；可见焊缝/螺栓；拒绝流线车壳
+   │  └─ 交付物：外壳分块方案、折弯/焊接工艺建议、装配公差策略
+   ├─ 6.2 “无人化”外观约束核查
+   │  ├─ 检查点：任何看起来像“人可以进去/坐进去/操作”的空间都必须消除
+   │  └─ 交付物：无人化核查清单（结构版）、整改清单与对策
+   └─ 6.3 维护开口、检修门与锁扣系统
+      ├─ 目标：可维护，但不形成“门/驾驶舱”错觉；门尺寸不能暗示人体进入
+      └─ 交付物：检修门方案、锁扣类型建议、密封与防雪水策略
+
+└─ 7. 传感器舱与安装结构（Sensors Integration, NO MAST）
+   ├─ 7.1 LiDAR 低矮装甲舱（Top Integrated）
+   │  ├─ 硬约束：低矮、内嵌、装甲化；绝对禁止透明罩与玻璃穹顶
+   │  └─ 交付物：LiDAR舱结构件、视场遮挡评估（结构侧）、防撞边缘设计
+   ├─ 7.2 工业相机装甲模块（Flush / Embedded）
+   │  ├─ 要求：嵌入式、抗冲击、防雪冰；不外伸、不立杆
+   │  └─ 交付物：相机模块安装座、保护窗（非玻璃语义，工程防护件）、更换流程
+   └─ 7.3 360°视野的结构避让与走线保护
+      ├─ 目标：结构不遮挡视野；走线全程装甲/护套；避免被冰雪拉扯
+      └─ 交付物：视野遮挡地图、走线槽/护管方案、固定点位图
+
+└─ 8. 安全照明与信号灯结构（Lighting Integration, LOW-PROFILE）
+   ├─ 8.1 顶部低矮圆柱琥珀警示灯（无立杆）
+   │  ├─ 硬约束：必须“嵌入顶部装甲结构”，短而宽；绝对禁止立杆式旋转灯
+   │  └─ 交付物：灯座结构、抗振与防撞结构、维护更换路径
+   ├─ 8.2 前向白色工作灯（工业级）
+   │  ├─ 要求：嵌入式/装甲保护式；密封抗冲击；夜间照雪颗粒真实可见
+   │  └─ 交付物：灯具安装位、散热与防雪堵策略、线束固定点
+   ├─ 8.3 后向琥珀灯与侧向示廓灯（Flush-mounted）
+   │  ├─ 要求：侧灯必须“齐平嵌入面板”，避免突出挂碰
+   │  └─ 交付物：嵌入开孔标准、密封垫圈结构、抗冲击边框
+   └─ 8.4 灯具防护等级与结构验证
+      ├─ 目标：封闭、防水、防雪、抗振；商业设备安全可视性
+      └─ 交付物：结构验证条目（IP/振动/冲击）与测试夹具需求
+
+└─ 9. 防雪、防冰、排水与可用性结构细节（Winterization by Structure）
+   ├─ 9.1 排雪/排水通道（避免积雪结冰）
+   │  ├─ 目标：所有水平面避免积雪堆积；形成排水坡度与导流槽
+   │  └─ 交付物：导流结构、排水孔位、易结冰风险点清单
+   ├─ 9.2 防夹雪缝隙与防冻卡结构
+   │  ├─ 目标：旋转件/铰链/锁扣避免冻死；关键机构留合理间隙与防护
+   │  └─ 交付物：间隙规范建议、关键机构防护罩设计
+   └─ 9.3 冲击区“牺牲件优先”的维修策略
+      ├─ 目标：常碰撞区域先损坏可替换件，不伤主结构
+      └─ 交付物：冲击热区地图、牺牲件库存建议、现场更换工装建议
+
+└─ 10. 结构交付物清单（给结构团队的最终验收）
+   ├─ 10.1 冻结版3D（装配）+ 2D（关键零件图）
+   ├─ 10.2 焊接总成与工艺建议（焊缝/定位/变形控制）
+   ├─ 10.3 维护拆装序列（含牺牲件更换流程）
+   ├─ 10.4 结构载荷与初版FEA结果（静强度+模态+关键冲击点）
+   ├─ 10.5 无人化约束核查报告（车辆化风险清单=0）
+   └─ 10.6 冬季结构风险清单（结冰、积雪、卡滞、密封失效）与对策
+</code></pre><h1>ARCBOS™ SnowBot</h1><h2>结构工程任务部署树（1 总工 + 若干兼职）</h2><hr><pre class="n-code-notion"><code class="language-plain text">SnowBot V1 结构工程组织模型
+├─ 角色定义
+│  ├─ 结构总工（你 or 核心合伙人）
+│  │  ├─ 决定：结构架构、模块边界、不可妥协约束
+│  │  ├─ 审核：所有兼职输出
+│  │  └─ 拒绝权：任何“像车 / 像有人设备 / 像消费品”的方案
+│  └─ 兼职工程师（按模块）
+│     ├─ 钣金/焊接工程师（兼职）
+│     ├─ 机构/装配工程师（兼职）
+│     ├─ 履带/底盘工程师（兼职）
+│     └─ 工艺/制造工程师（兼职）
+
+</code></pre><hr><h2>0️⃣ 全局结构铁律（总工先冻结，所有人遵守）</h2><pre class="n-code-notion"><code class="language-plain text">【结构红线】
+- 这是工业机器人，不是车辆
+- 不允许出现任何“人可以进去 / 坐 / 操作”的空间
+- 禁止驾驶舱、车顶、立杆、立灯、立式雷达
+- 所有传感器与灯具必须：低矮 + 内嵌 + 装甲化
+- 结构必须可制造、可焊接、可维护
+- 外观来自结构本身，而不是外壳造型
+
+</code></pre><blockquote><p>✅ 动作：</p></blockquote><hr><h2>1️⃣ 总体结构架构（仅结构总工负责）</h2><pre class="n-code-notion"><code class="language-plain text">1. 总体结构架构（总工独占）
+├─ 1.1 模块化架构定义
+│  ├─ 主承载焊接框架
+│  ├─ 前端除雪模块（独立加强副车架）
+│  ├─ 履带底盘模块（左右对称）
+│  ├─ 装甲外壳模块（非承载）
+│  ├─ 传感器装甲模块
+│  └─ 灯具与信号模块
+├─ 1.2 尺寸与比例冻结
+│  ├─ W ≈ 1.0 m
+│  ├─ L ≈ 1.5 m
+│  ├─ H ≈ 1.2 m（雷达与警示灯含在内）
+│  └─ 明确：任何兼职不得擅自改比例
+├─ 1.3 重心与姿态判断
+│  ├─ 履带包络线
+│  ├─ 除雪前端载荷
+│  └─ 禁止高耸上部结构
+└─ 1.4 结构风格冻结
+   ├─ 装甲化
+   ├─ 焊接钢板
+   ├─ 可见螺栓/焊缝
+   └─ 工业黄 + 深灰
+
+</code></pre><p><strong>交付物（总工）</strong></p><ul><li>一张 <strong>总体结构爆炸草图 / 粗 3D</strong></li><li>一页 <strong>模块边界定义图</strong></li><li>一页 <strong>“不像车”的自检清单</strong></li></ul><hr><h2>2️⃣ 主承载焊接框架（兼职 A：钣金 / 焊接）</h2><pre class="n-code-notion"><code class="language-plain text">2. 主承载框架（兼职 A）
+├─ 2.1 焊接主框架
+│  ├─ 厚钢板
+│  ├─ 加强筋
+│  ├─ 可见焊缝
+│  └─ 无任何“车架”语义
+├─ 2.2 前端加强副车架
+│  ├─ 抵抗冰块 / 路沿冲击
+│  └─ 与除雪模块独立
+└─ 2.3 吊装 / 维修受力点
+   ├─ 起吊孔
+   └─ 维修支撑点
+
+</code></pre><p><strong>验收标准（总工）</strong></p><ul><li>看一眼就知道是“工业设备底座”，不是车</li><li>焊接逻辑合理、可量产</li><li>前端明显比后端“更硬”</li></ul><hr><h2>3️⃣ 履带底盘模块（兼职 B：底盘 / 机构）</h2><pre class="n-code-notion"><code class="language-plain text">3. 履带底盘（兼职 B）
+├─ 3.1 左右履带安装结构
+│  ├─ 宽站距
+│  ├─ 低重心
+│  └─ 无轮胎语义
+├─ 3.2 驱动轮 / 导向轮半外露
+│  ├─ 工业真实感
+│  └─ 防雪护罩
+└─ 3.3 冲击与振动隔离接口
+
+</code></pre><p><strong>验收标准</strong></p><ul><li>看起来像工程机械履带，不像机器人玩具</li><li>维护可达（能换履带）</li></ul><hr><h2>4️⃣ 前端双级除雪结构（兼职 C：机构）</h2><pre class="n-code-notion"><code class="language-plain text">4. 双级除雪模块（兼职 C）
+├─ 4.1 绞龙 + 叶轮连续壳体
+│  ├─ 雪流物理正确
+│  └─ 无奇怪风道
+├─ 4.2 抛雪筒
+│  ├─ 固定底座
+│  ├─ 左右旋转
+│  └─ 厚钢板外观
+└─ 4.3 防卡堵 / 防冲击护罩
+
+</code></pre><p><strong>验收标准</strong></p><ul><li>不需要解释，工程师一看就懂雪怎么走</li><li>抛雪方向“可信”</li></ul><hr><h2>5️⃣ 切削边 &amp; 牺牲耐磨件（兼职 D：钣金）</h2><pre class="n-code-notion"><code class="language-plain text">5. 牺牲件系统（兼职 D）
+├─ 5.1 切削刀刃（可更换）
+├─ 5.2 耐磨滑靴
+└─ 5.3 装甲护板（先坏它）
+
+</code></pre><p><strong>验收标准</strong></p><ul><li>一眼能看出哪些是“该坏的件”</li><li>换件不用拆半台机器</li></ul><hr><h2>6️⃣ 装甲外壳（兼职 A 或 D）</h2><pre class="n-code-notion"><code class="language-plain text">6. 装甲外壳（非承载）
+├─ 平面 / 折线钢板
+├─ 无大开口
+├─ 无“门”的错觉
+└─ 强工业感
+
+</code></pre><p><strong>总工重点检查</strong></p><ul><li>有没有“人可以钻进去”的空间</li><li>有没有被误读成“车壳”</li></ul><hr><h2>7️⃣ 传感器 &amp; 灯具结构（兼职 E：结构+电子协同）</h2><pre class="n-code-notion"><code class="language-plain text">7. 传感器与灯具集成
+├─ 7.1 雷达装甲舱（低矮）
+├─ 7.2 相机嵌入模块
+├─ 7.3 顶部低矮圆柱警示灯
+└─ 7.4 所有灯具齐平嵌入
+
+</code></pre><p><strong>红线</strong></p><p>❌ 不允许立杆</p><p>❌ 不允许透明罩</p><p>❌ 不允许“像自动驾驶汽车”的雷达塔</p><hr><h2>8️⃣ 冬季结构专项（总工 + 任一兼职）</h2><pre class="n-code-notion"><code class="language-plain text">8. 冬季结构专项
+├─ 排雪 / 排水坡度
+├─ 防结冰缝隙
+├─ 铰链 / 旋转件防冻
+└─ 易损区域地图
+
+</code></pre><hr><h2>9️⃣ 最终结构验收（总工）</h2><pre class="n-code-notion"><code class="language-plain text">9. 结构冻结检查表
+├─ 是否还能被误认成车？（否）
+├─ 是否存在人可进入空间？（否）
+├─ 是否所有高风险部位都有牺牲件？（是）
+├─ 是否符合 prompt 的工业气质？（是）
+└─ 是否可以进入样机焊接？（是）
+
+</code></pre></article>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 Energize Solutions Inc. — All rights reserved. Powered by GitHub Pages | Contact:</span>
+    <a href="mailto:info@energizeos.com">info@energizeos.com</a>
+    <span class="sep">·</span>
+    <a class="icon" href="https://www.linkedin.com/in/gongtiejing" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v13H0zM7 8h4.8v1.8h.07C12.54 8.94 14.17 8 16.6 8c5.06 0 6 3.33 6 7.66V21h-5v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.69-2.5 3.43V21H7V8z"/>
+      </svg>
+    </a>
+    <a class="icon" href="https://github.com/enxpower" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.15 8.96 7.52 10.41.55.1.75-.24.75-.53 0-.26-.01-1.1-.02-1.99-3.06.66-3.71-1.3-3.71-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.56 1.19 3.18.91.1-.72.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.43 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.42.11-2.96 0 0 .93-.3 3.05 1.13a10.7 10.7 0 0 1 2.78-.37c.94 0 1.88.13 2.78.37 2.12-1.43 3.05-1.13 3.05-1.13.6 1.54.22 2.68.11 2.96.71.77 1.13 1.75 1.13 2.95 0 4.22-2.58 5.14-5.03 5.41.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53A10.54 10.54 0 0 0 23 11.5C23 5.24 18.27.5 12 .5z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.min.js"></script>
+
+</body></html>
