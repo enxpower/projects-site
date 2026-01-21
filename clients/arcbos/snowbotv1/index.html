@@ -385,7 +385,309 @@
 ├─ 是否符合 prompt 的工业气质？（是）
 └─ 是否可以进入样机焊接？（是）
 
-</code></pre></article>
+</code></pre><h1>ARCBOS 无人重载机器人</h1><h2>全局系统架构树（Conceptual System Tree）</h2><hr><pre class="n-code-notion"><code class="language-plain text">ARCBOS Autonomous Industrial Robot Platform
+（无人重载工业机器人平台）
+│
+├─ A. 机器人整体系统（Robot as a System）
+│  ├─ A1. 物理存在（Physical Entity）
+│  │  └─ 机器人作为一个在现实世界中
+│  │     占据空间、施加力、承受环境的实体
+│  │
+│  ├─ A2. 自主行为体（Autonomous Agent）
+│  │  └─ 在无人干预条件下
+│  │     感知 → 决策 → 执行 → 反馈
+│  │
+│  └─ A3. 商用工业资产（Commercial Asset）
+│     └─ 可部署、可维护、可规模化复制
+│
+├─ B. 硬件系统（Hardware System）
+│  │
+│  ├─ B1. 机械与物理系统（Mechanical / Physical）
+│  │  └─ 所有“直接与物理世界交互”的部分
+│  │
+│  ├─ B2. 电气与能量系统（Electrical / Power）
+│  │  └─ 能量获取、存储、分配、保护
+│  │
+│  ├─ B3. 计算与电子系统（Compute / Electronics）
+│  │  └─ 算力、通信、I/O、实时控制
+│  │
+│  ├─ B4. 感知硬件系统（Perception Hardware）
+│  │  └─ 对环境、状态、风险的物理感知
+│  │
+│  └─ B5. 安全与可见性硬件（Safety &amp; Visibility）
+│     └─ 让“无人机器”在现实世界中
+│        被识别、被理解、被允许存在
+│
+├─ C. 软件系统（Software System）
+│  │
+│  ├─ C1. 底层控制软件（Low-level Control）
+│  │  └─ 与物理世界直接闭环的实时控制
+│  │
+│  ├─ C2. 机器人操作系统层（Robot OS / Middleware）
+│  │  └─ 抽象硬件，管理状态、通信、任务
+│  │
+│  ├─ C3. 自主与智能系统（Autonomy &amp; Intelligence）
+│  │  └─ 感知理解、规划、决策、策略
+│  │
+│  ├─ C4. 任务与行为系统（Mission / Behavior）
+│  │  └─ “要做什么、什么时候做、怎么做”
+│  │
+│  └─ C5. 软件安全与可靠性（Software Safety）
+│     └─ 防失控、防异常、防不可恢复状态
+│
+├─ D. 软硬件接口层（HW–SW Interface Layer）
+│  │
+│  ├─ D1. 硬件抽象层（HAL）
+│  │  └─ 把“具体硬件”变成“通用能力”
+│  │
+│  ├─ D2. 状态与反馈接口
+│  │  └─ 硬件真实状态 → 软件可信输入
+│  │
+│  └─ D3. 故障与退化接口
+│     └─ 当硬件异常时
+│        软件如何降级、接管或停止
+│
+├─ E. 平台层（Platform Layer）
+│  │
+│  ├─ E1. 机器人平台（Robot Platform）
+│  │  └─ 一套可复用的
+│  │     机械 + 电气 + 电子 + 软件骨架
+│  │
+│  ├─ E2. 产品平台（Product Family Platform）
+│  │  └─ SnowBot / MowBot / PatrolBot
+│  │     共用的底层能力集合
+│  │
+│  ├─ E3. 算法与软件平台
+│  │  └─ 不为某一型号服务
+│  │     而为“无人重载机器人”服务
+│  │
+│  └─ E4. 部署与运维平台
+│     └─ 安装、更新、监控、维护、日志
+│
+├─ F. 系统级安全与责任边界（Safety &amp; Responsibility）
+│  │
+│  ├─ F1. 物理安全
+│  │  └─ 不伤人、不失控、不造成灾难性后果
+│  │
+│  ├─ F2. 功能安全（Functional Safety）
+│  │  └─ 异常时可预测、可控制
+│  │
+│  ├─ F3. 法规与合规边界
+│  │  └─ 不是车辆
+│  │     不进入车辆监管体系
+│  │
+│  └─ F4. 责任切割与系统自我保护
+│     └─ 系统知道“自己能做什么、不能做什么”
+│
+├─ G. 生命周期与工程系统（Lifecycle System）
+│  │
+│  ├─ G1. 设计与工程化
+│  │
+│  ├─ G2. 制造与装配
+│  │
+│  ├─ G3. 测试与验证
+│  │
+│  ├─ G4. 部署与运行
+│  │
+│  └─ G5. 维护、升级与退役
+│
+├─ H. 商业与资产视角（Business &amp; Asset Layer）
+│  │
+│  ├─ H1. 设备作为资产（Robot-as-Asset）
+│  │
+│  ├─ H2. 软件与能力作为服务
+│  │
+│  ├─ H3. 数据与运行价值
+│  │
+│  └─ H4. 成本、可靠性与规模化
+│
+└─ I. 你容易忽略但必须存在的“隐性系统”
+   │
+   ├─ I1. 工程约束系统
+   │  └─ 不写在代码里
+   │     但写在规则和红线里的系统
+   │
+   ├─ I2. 人类理解系统
+   │  └─ 让非工程人员
+   │     一眼理解这是“安全的无人设备”
+   │
+   ├─ I3. 失败管理系统
+   │  └─ 假设一定会失败
+   │     系统如何优雅地失败
+   │
+   └─ I4. 平台演化系统
+      └─ 今天的 SnowBot
+         如何不锁死明天的产品
+
+</code></pre><hr><h1>ARCBOS 硬件核心技术体系（Hardware Core Technology Tree）</h1><pre class="n-code-notion"><code class="language-plain text">HARDWARE SYSTEM（硬件系统总览）
+│
+├─ H1. 机械与物理执行系统（Mechanical &amp; Physical Execution）
+├─ H2. 动力与能量系统（Power &amp; Energy）
+├─ H3. 运动与驱动系统（Motion &amp; Drive）
+├─ H4. 计算与控制电子系统（Compute &amp; Control Electronics）
+├─ H5. 感知硬件系统（Perception Hardware）
+├─ H6. 通信与网络硬件（Communication &amp; Networking）
+├─ H7. 安全、可见性与人机边界硬件（Safety &amp; Visibility）
+└─ H8. 环境适应与工业防护系统（Environmental &amp; Ruggedization）
+
+</code></pre><p>下面逐一展开。</p><hr><h2>🟦 H1. 机械与物理执行系统</h2><p><strong>（这是你“不是车、而是重载工业机器人”的第一根支柱）</strong></p><pre class="n-code-notion"><code class="language-plain text">H1. 机械与物理执行系统
+├─ H1.1 主承载结构与装甲结构
+│  ├─ 厚钢焊接框架
+│  ├─ 装甲化钢板外壳
+│  └─ 牺牲式耐磨与防撞结构
+│
+├─ H1.2 前端除雪执行机构
+│  ├─ 双级除雪（Auger + Impeller）
+│  ├─ 抛雪筒与旋转机构
+│  └─ 抗冲击、防卡堵结构
+│
+└─ H1.3 耐磨与耗损件系统
+   ├─ 切削边
+   ├─ 滑靴
+   └─ 装甲护板
+
+</code></pre><p><strong>行业顶流参考（不是唯一，但是天花板）：</strong></p><ul><li>Aebi Schmidt</li><li>Bosch Rexroth（机械结构+执行系统）</li><li>CNH Industrial</li></ul><blockquote><p>⚠️ 注意：</p></blockquote><hr><h2>🟩 H2. 动力与能量系统（全电动是战略选择）</h2><pre class="n-code-notion"><code class="language-plain text">H2. 动力与能量系统
+├─ H2.1 动力电池系统（Battery Pack）
+│  ├─ 工业级锂电（LFP 为优先）
+│  ├─ 低温性能与加热策略
+│  └─ 结构+电气一体化 Pack
+│
+├─ H2.2 电池管理系统（BMS）
+│  ├─ 安全监控
+│  ├─ 低温保护
+│  └─ SOH / SOC 精准管理
+│
+└─ H2.3 电源分配与保护
+   ├─ 高压到低压转换
+   ├─ 工业级 DC/DC
+   └─ 断路与熔断保护
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>CATL（LFP 工业应用）</li><li>BYD</li><li>Vicor</li><li>Bel Power Solutions</li></ul><hr><h2>🟨 H3. 运动与驱动系统（真正的“重载机器人内核”）</h2><pre class="n-code-notion"><code class="language-plain text">H3. 运动与驱动系统
+├─ H3.1 履带驱动系统
+│  ├─ 工业履带
+│  ├─ 驱动轮 / 导向轮
+│  └─ 张紧与减振结构
+│
+├─ H3.2 电机系统
+│  ├─ 高扭矩低速电机
+│  ├─ 工业级密封
+│  └─ 低温可用性
+│
+└─ H3.3 电机驱动器（Motor Drive）
+   ├─ 工业级功率驱动
+   ├─ 功能安全支持
+   └─ CAN / EtherCAT 等接口
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>Parker Hannifin</li><li>Kollmorgen</li><li>Nidec</li><li>SEW-EURODRIVE</li></ul><hr><h2>🟧 H4. 计算与控制电子系统（机器的“神经系统”）</h2><pre class="n-code-notion"><code class="language-plain text">H4. 计算与控制电子系统
+├─ H4.1 主控计算单元（Robot Computer）
+│  ├─ 工业级 x86 / ARM
+│  ├─ 宽温、抗振
+│  └─ 无风扇设计优先
+│
+├─ H4.2 实时控制单元
+│  ├─ MCU / PLC
+│  ├─ 硬实时 I/O
+│  └─ 安全状态控制
+│
+└─ H4.3 工业 I/O 与现场总线
+   ├─ CAN / CAN-FD
+   ├─ EtherCAT / Profinet
+   └─ 工业隔离
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>NVIDIA（Jetson 工业应用）</li><li>Intel</li><li>Beckhoff</li><li>Siemens</li></ul><hr><h2>🟥 H5. 感知硬件系统（无人化合法性的核心）</h2><pre class="n-code-notion"><code class="language-plain text">H5. 感知硬件系统
+├─ H5.1 激光雷达（LiDAR）
+│  ├─ 主环境感知
+│  ├─ 抗雪雾干扰
+│  └─ 工业防护等级
+│
+├─ H5.2 工业相机
+│  ├─ 低照度
+│  ├─ 宽动态
+│  └─ 冬季可靠性
+│
+└─ H5.3 状态与环境传感
+   ├─ IMU
+   ├─ 温度 / 电流 / 振动
+   └─ 健康监测
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>Ouster</li><li>Hesai</li><li>Basler</li><li>FLIR</li></ul><hr><h2>🟪 H6. 通信与网络硬件</h2><pre class="n-code-notion"><code class="language-plain text">H6. 通信与网络硬件
+├─ H6.1 车内工业网络
+│  ├─ 工业以太网
+│  ├─ CAN 总线
+│  └─ 网络隔离
+│
+├─ H6.2 外部通信模块
+│  ├─ LTE / 5G
+│  ├─ GNSS（非导航依赖）
+│  └─ 远程诊断
+│
+└─ H6.3 网络安全硬件
+   ├─ TPM
+   ├─ Secure Boot
+   └─ 硬件级隔离
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>Quectel</li><li>u-blox</li><li>Cisco</li></ul><hr><h2>🟫 H7. 安全、可见性与人机边界硬件</h2><pre class="n-code-notion"><code class="language-plain text">H7. 安全与可见性
+├─ H7.1 工业警示灯与信号灯
+├─ H7.2 工作照明系统
+├─ H7.3 物理急停与安全回路
+└─ H7.4 无人设备身份可视化
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>Federal Signal</li><li>Hella</li><li>Patlite</li></ul><hr><h2>🟤 H8. 环境适应与工业防护系统（你赢在这里）</h2><pre class="n-code-notion"><code class="language-plain text">H8. 环境适应与防护
+├─ H8.1 低温防护与加热
+├─ H8.2 防水 / 防雪 / 防冰
+├─ H8.3 抗振 / 抗冲击
+└─ H8.4 工业密封与线束防护
+
+</code></pre><p><strong>行业顶流品牌：</strong></p><ul><li>TE Connectivity</li><li>Amphenol</li><li>Lapp</li></ul><hr><h1>ARCBOS 硬件分阶段投入策略（BOM 负责人视角）</h1><h2>总体判断原则（先给结论）</h2><pre class="n-code-notion"><code class="language-plain text">Phase 1：凡是“换了就要重构系统”的 → 直接用顶级
+Phase 2：凡是“接口稳定、性能可线性提升”的 → 允许升级
+Phase 3：凡是“不影响安全与平台边界”的 → 延后
+
+</code></pre><hr><h2>🟥 Phase 1【必须直接用顶级｜不能省钱】</h2><blockquote><p>这些硬件一旦选低配，后面升级 = 架构返工</p></blockquote><h3>1️⃣ 感知硬件系统（H5）—— ❗绝对第一优先级</h3><pre class="n-code-notion"><code class="language-plain text">H5. 感知硬件系统
+├─ LiDAR（主环境感知）
+├─ 工业相机（低照度 / 宽动态）
+└─ 核心状态传感（IMU / 电流 / 温度）
+
+</code></pre><p><strong>原因（BOM 负责人判断）：</strong></p><ul><li>这是“无人设备是否可信”的根基</li><li>感知误差 → 不是性能问题，是<strong>安全责任问题</strong></li><li>后期更换 LiDAR = 重做标定、重做算法假设、重做验证</li></ul><p><strong>Phase 1 建议直接锁顶级：</strong></p><ul><li>Ouster / Hesai（工业级 LiDAR）</li><li>Basler / FLIR（工业相机 / 热成像）</li></ul><p>✅ <strong>结论</strong>：</p><p><strong>Phase 1 必须买最贵，绝不妥协。</strong></p><hr><h3>2️⃣ 计算与控制电子（H4）—— 平台神经系统</h3><pre class="n-code-notion"><code class="language-plain text">H4. 计算与控制电子
+├─ 主控计算单元（Robot Computer）
+├─ 实时控制单元（MCU / PLC）
+└─ 工业 I/O 与现场总线
+
+</code></pre><p><strong>原因：</strong></p><ul><li>决定你整个软件栈的“地基”</li><li>算力/接口一旦变 → 软件架构跟着变</li><li>这是平台，不是“可替换零件”</li></ul><p><strong>Phase 1 建议：</strong></p><ul><li>工业级计算平台（即使算力富余）</li><li>工业实时控制（不是消费 MCU）</li></ul><p><strong>顶流参考：</strong></p><ul><li>NVIDIA（Jetson 工业路线）</li><li>Beckhoff</li><li>Siemens</li></ul><p>✅ <strong>结论</strong>：</p><p><strong>Phase 1 锁平台级配置，后面只能“加”，不能“换”。</strong></p><hr><h3>3️⃣ 安全与可见性硬件（H7）—— 合规与责任边界</h3><pre class="n-code-notion"><code class="language-plain text">H7. 安全与可见性
+├─ 工业警示灯 / 信号灯
+├─ 工作照明
+└─ 物理急停与安全回路
+
+</code></pre><p><strong>原因：</strong></p><ul><li>无人设备能不能“被允许存在”</li><li>这是法规 / 物业 / 客户第一眼看的东西</li><li>后期升级意义不大，但返工成本高</li></ul><p><strong>顶流参考：</strong></p><ul><li>Federal Signal</li><li>Patlite</li></ul><p>✅ <strong>结论</strong>：</p><p><strong>Phase 1 直接工业级顶配，一步到位。</strong></p><hr><h3>4️⃣ 电池系统的“安全与低温部分”（H2 的关键子集）</h3><pre class="n-code-notion"><code class="language-plain text">H2（子集）
+├─ BMS
+├─ 低温加热与保护
+└─ 高压保护与断路
+
+</code></pre><p><strong>原因：</strong></p><ul><li>冬季 + 无人 + 大功率 = 风险叠加</li><li>BMS / 保护逻辑不稳 = 项目直接死亡</li><li>电芯可以升级，但<strong>安全架构不能动</strong></li></ul><p><strong>顶流参考：</strong></p><ul><li>CATL</li><li>BYD</li><li>工业级 BMS（车规 / 工业）</li></ul><p>✅ <strong>结论</strong>：</p><p><strong>Phase 1 用成熟方案，不做试验田。</strong></p><hr><h2>🟨 Phase 2【允许升级｜性能驱动】</h2><blockquote><p>这些系统：Phase 1 用“够用 + 工业级”，
+Phase 2 再拉满性能。</p></blockquote><h3>5️⃣ 运动与驱动系统（H3）</h3><pre class="n-code-notion"><code class="language-plain text">H3. 运动与驱动
+├─ 电机
+├─ 驱动器
+└─ 履带传动效率
+
+</code></pre><p><strong>原因：</strong></p><ul><li>接口清晰、升级路径线性</li><li>算法与结构不强绑定</li><li>Phase 1 更关注“能稳稳跑”</li></ul><p><strong>顶流参考：</strong></p><ul><li>Parker Hannifin</li><li>Kollmorgen</li><li>SEW-EURODRIVE</li></ul><p>🟡 <strong>策略</strong>：</p><p>Phase 1 选“工业级但不过度”，</p><p>Phase 2 再追效率、噪音、能耗。</p><hr><h3>6️⃣ 能量系统的“容量层面”（H2 的另一部分）</h3><pre class="n-code-notion"><code class="language-plain text">H2（子集）
+├─ 电池容量
+├─ 能量密度
+└─ 续航时间
+
+</code></pre><p><strong>原因：</strong></p><ul><li>这本质是“商业参数”</li><li>对平台和安全影响小于你想象</li><li>可以通过加 Pack / 换 Pack 升级</li></ul><p>🟡 <strong>策略</strong>：</p><p>Phase 1：够用</p><p>Phase 2：拉续航</p><p>Phase 3：优化重量</p><hr><h2>🟩 Phase 3【可延后｜不影响平台】</h2><blockquote><p>这些是“工程成熟度提升项”，不是成败项</p></blockquote><h3>7️⃣ 通信与网络硬件（H6）</h3><pre class="n-code-notion"><code class="language-plain text">H6. 通信与网络
+├─ LTE → 5G
+├─ 带宽
+└─ 网络冗余
+
+</code></pre><ul><li>Phase 1：能远程诊断即可</li><li>Phase 3：再谈高带宽、低延迟</li></ul><hr><h3>8️⃣ 结构件的“材料升级”（H1 的非核心）</h3><pre class="n-code-notion"><code class="language-plain text">H1（子集）
+├─ 更轻材料
+├─ 表面工艺
+└─ 外观精致度
+
+</code></pre><ul><li>Phase 1：结实、好焊、好修</li><li>Phase 3：减重、美观、品牌化</li></ul><hr><h2>🧠 最终给你一个<strong>一句话版决策表</strong></h2><pre class="n-code-notion"><code class="language-plain text">感知 / 控制 / 安全 / 电池安全  → Phase 1 顶配
+驱动 / 续航 / 性能            → Phase 2 升级
+通信 / 轻量化 / 美观           → Phase 3
+
+</code></pre><hr></article>
 
   <footer class="footer">
   <div class="footer-inner">
