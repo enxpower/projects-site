@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EnergizeOS™ 微电网EMS系统功能规划</title>
+<link rel="canonical" href="https://advisory.energizeos.com/clients/ems/v2/">
+<meta name="description" content="ems">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EnergizeOS Advisory">
+<meta property="og:title" content="EnergizeOS™ 微电网EMS系统功能规划">
+<meta property="og:description" content="ems">
+<meta property="og:url" content="https://advisory.energizeos.com/clients/ems/v2/">
+<meta property="og:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EnergizeOS™ 微电网EMS系统功能规划">
+<meta name="twitter:description" content="ems">
+<meta name="twitter:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+<body>
+<main>
+  <div class="header-flex">
+    <h1>EnergizeOS™ 微电网EMS系统功能规划</h1>
+    <img class="barcode" alt="Barcode ENX0QP6ZHWW82" src="data:image/png;base64,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GIZhGMYePiAZhmEYhmEYhmHs4QOSYRiGYRiGYRjGHj4gGYZhGIZhGIZh7OEDkmEYhmEYhmEYxh4+IBmGYRiGYRiGYezhA5JhGIZhGIZhGMYePiAZhmEYhmEYhmHs4QOSYRiGYRiGYRjGHj4gGYZhGIZhGIZh7OEDkmEYhmEYhmEYxh4+IBmGYRiGYRiGYezhA5JhGIZhGIZhGMYePiAZhmEYhmEYhmHs4QOSYRiGYRiGYRjGHj4gGYZhGIZhGIZh7OEDkmEYhmEYhmEYxh4+IBmGYRiGYRiGYezhA5JhGIZhGIZhGMYePiAZhmEYhmEYhmHs4QOSYRiGYRiGYRjGHj4gGYZhGIZhGIZh7OEDkmEYhmEYhmEYxh4+IBmGYRiGYRiGYezhA5JhGIZhGIZhGMYePiAZhmEYhmEYhmHs4QOSYRiGYRiGYRjGHj4gGYZhGIZhGIZh7OEDkmEYhmEYhmEYxh4+IBmGYRiGYRiGYezhA5JhGIZhGIZhGMYePiAZhmEYhmEYhmHs4QOSYRiGYRiGYRjGHj4gGYZhGIZhGIZh7OEDkmEYhmEYhmEYxh4+IBmGYRiGYRiGYezhA5JhGIZhGIZhGMYe/w8hge+4kIDzXgAAAABJRU5ErkJggg==">
+  </div>
+
+  <article><p></p><pre class="n-code-notion"><code class="language-markup">EnergizeOS™ Microgrid EMS
+│
+├─ 0. 全局设计原则与工程冻结（Global Principles &amp; Freeze）
+│  ├─ 全球统一内核（Global Core）
+│  ├─ 区域能力插件化（Regional Add-ons）
+│  ├─ 核心控制逻辑不可分叉
+│  ├─ 工程优先级：稳定性 &gt; 可审计性 &gt; 功能丰富度
+│  ├─ 不承担 Engineer of Record 原则
+│  └─ 所有后续版本仅允许向下细化
+│
+├─ 1. 系统边界与责任划分（Control Boundary &amp; Responsibility）
+│  ├─ EMS / AIPP / EPC / Utility 职责边界
+│  ├─ 合闸控制权唯一性声明（EMS Only）
+│  ├─ 跳闸控制的冗余与优先级
+│  ├─ 非 EMS 合闸路径禁止声明
+│  ├─ 合规责任与法律边界说明
+│  └─ 技术输出的免责与适用范围
+│
+├─ 2. EMS 总体系统架构（System Architecture）
+│  ├─ Global Core + Regional Add-ons 架构树
+│  ├─ 控制链路：感知 → 判据 → 控制 → 反馈
+│  ├─ 通信链路：南向 / 北向
+│  ├─ 冗余设计：Fail-safe / Fail-degraded
+│  └─ 本地优先、离线可运行架构
+│
+├─ 3. 核心控制引擎（Core Control Engine）
+│  ├─ 并–离–并状态机（Grid ↔ Island ↔ Grid）
+│  │  ├─ 状态定义与迁移条件
+│  │  ├─ 主网异常检测
+│  │  ├─ 孤岛切入流程
+│  │  ├─ 再并网同步与合闸
+│  │  └─ 失败回退与保护
+│  │
+│  ├─ PCC 主断路器控制
+│  │  ├─ DO1：跳闸（Shunt Trip）
+│  │  ├─ DO2：合闸（Close Coil）
+│  │  ├─ DI1 / DI2：状态反馈
+│  │  └─ 合闸互锁判据 C1–C7
+│  │
+│  ├─ 黑启动与系统恢复序列
+│  ├─ UVT / UPS / 控制电源失效链
+│  └─ 防误控、防越权、防非法合闸
+│
+├─ 4. 多电源协调与能量调度（Multi-Source Coordination）
+│  ├─ BESS 管理
+│  │  ├─ SOC / SOH
+│  │  ├─ 备用容量保留
+│  │  ├─ 充放电策略
+│  │  └─ 循环与寿命约束
+│  │
+│  ├─ PV 协调
+│  │  ├─ 限发 / 跟随
+│  │  └─ 并网 / 孤岛差异化行为
+│  │
+│  ├─ DG 协调
+│  │  ├─ 启停逻辑
+│  │  ├─ 最小运行时间
+│  │  ├─ 最小负载率
+│  │  └─ 冷却与维护约束
+│  │
+│  └─ 关键负荷优先级与切除
+│
+├─ 5. 策略系统设计与执行机制（Strategy System）
+│  ├─ 策略注册与生命周期
+│  │  ├─ 策略版本
+│  │  ├─ 启用 / 停用
+│  │  ├─ 触发条件
+│  │  ├─ 互斥关系
+│  │  └─ OTA 推送
+│  │
+│  ├─ 策略执行引擎
+│  ├─ 策略优先级与裁决
+│  ├─ 策略冲突处理与降级
+│  └─ 策略日志与审计
+│
+├─ 6. 稳定性与电能质量协调（Stability Coordination）
+│  ├─ 并网模式功率协调
+│  ├─ 孤岛模式 P / Q 设定
+│  ├─ Droop / 下垫控制协同
+│  ├─ 频率 / 电压稳定目标
+│  └─ EMS 与一次控制器边界
+│
+├─ 7. 数据、事件与审计系统（Data, Event &amp; Audit）
+│  ├─ 实时测点数据模型
+│  ├─ 控制命令记录
+│  ├─ 状态变化事件
+│  ├─ 告警与故障日志
+│  ├─ 审计级日志（不可篡改）
+│  └─ 数据留存与追溯规则
+│
+├─ 8. 通信与设备抽象层（Connectivity &amp; Abstraction）
+│  ├─ 南向通信
+│  │  ├─ Modbus TCP / RTU
+│  │  ├─ IEC 61850
+│  │  ├─ DNP3
+│  │  └─ IEC 104 / 101
+│  │
+│  ├─ 北向接口
+│  │  ├─ SCADA / DMS
+│  │  └─ 云平台（可选）
+│  │
+│  ├─ 设备驱动模块化
+│  └─ 通信异常降级与自愈
+│
+├─ 9. HMI 与运维体系（HMI &amp; O&amp;M）
+│  ├─ 本地 HMI / Web / 移动端
+│  ├─ 实时运行态可视化
+│  ├─ 手动 / 自动控制
+│  ├─ 策略配置页结构冻结
+│  ├─ 合闸失败 / 判据提示
+│  └─ 运维操作留痕
+│
+├─ 10. 安全与权限体系（Security）
+│  ├─ 用户 / 角色 / 权限
+│  ├─ 最小端口暴露
+│  ├─ 配置变更审计
+│  ├─ 网络安全基线
+│  └─ 离线运行安全策略
+│
+├─ 11. 区域扩展模块（Regional Add-ons）
+│  ├─ 中国区
+│  │  ├─ IEC 104 调度通信
+│  │  ├─ 峰谷 / 尖峰电价
+│  │  ├─ 国标并网参数
+│  │  └─ 本地化合规
+│  │
+│  ├─ 美国区
+│  │  ├─ 需量管理
+│  │  ├─ 需求响应（OpenADR）
+│  │  ├─ IEEE 1547 / UL 1741
+│  │  └─ NERC-CIP
+│  │
+│  ├─ 欧洲区（V2+）
+│  │  ├─ 辅助服务
+│  │  ├─ 能源社区
+│  │  └─ GDPR / 多语言
+│  │
+│  └─ 澳大利亚 / 东南亚（V2+）
+│     ├─ 高 RE 渗透率
+│     ├─ 柴油优化
+│     ├─ 离网与长馈线
+│     └─ 无人值守
+│
+├─ 12. 授权与商业化结构（Licensing &amp; Packaging）
+│  ├─ Embedded Runtime License
+│  ├─ 策略模块 Add-on
+│  ├─ 设备 SN 绑定
+│  ├─ 离线授权与失效行为
+│  └─ 商业与技术边界
+│
+├─ 13. 工程验证与交付（Engineering Validation）
+│  ├─ FAT 测试体系
+│  ├─ SAT / 现场联调
+│  ├─ HIL / 实验室验证
+│  ├─ 控制闭环验证
+│  └─ 客户验收与证据链
+│
+├─ 14. 产品里程碑与版本规划（Roadmap）
+│  ├─ V1：可商用 / 可审计
+│  ├─ V2+：高级优化 / 多区域
+│  └─ 冻结与版本演进规则
+│
+└─ 15. 决策级总结（Executive Summary）
+   ├─ 技术不可替代性
+   ├─ 工程护城河
+   ├─ 商业可复制性
+   └─ 投资与落地价值
+</code></pre><hr><h2>0. 全局设计原则与工程冻结（Global Principles &amp; Freeze）</h2><h3>0.1 全球统一内核（Global Core）</h3><ul><li>EnergizeOS™ 采用<strong>单一全球核心代码库</strong></li><li>所有核心控制逻辑（并离网、PCC 控制、策略裁决、审计）<strong>仅存在一套实现</strong></li><li><strong>禁止任何区域 fork 核心逻辑</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">Global Core
+├─ Core Control Engine
+├─ Strategy Engine
+├─ Audit &amp; Event System
+├─ Security &amp; Permission
+└─ Local-First Runtime
+</code></pre><hr><h3>0.2 区域能力插件化（Regional Add-ons）</h3><ul><li>区域差异仅允许以 <strong>插件 / 模块 / 配置</strong> 形式加载</li><li>区域模块 <strong>不得修改或侵入 Global Core</strong></li><li>区域模块具备 <strong>可选安装、可卸载、可版本化</strong> 特性</li></ul><pre class="n-code-notion"><code class="language-plain text">Global Core
+└─ Regional Add-ons
+   ├─ CN Plugin
+   ├─ US Plugin
+   ├─ EU Plugin
+   └─ AU / SEA Plugin
+</code></pre><hr><h3>0.3 核心控制逻辑不可分叉</h3><ul><li>并–离–并状态机：<strong>全球唯一</strong></li><li>PCC 合闸 / 跳闸控制模型：<strong>全球唯一</strong></li><li>策略执行与裁决顺序：<strong>全球唯一</strong></li></ul><p><strong>禁止行为：</strong></p><ul><li>针对单一项目定制核心逻辑</li><li>为某区域复制一套“特殊版本内核”</li><li>在区域插件中实现“影子控制逻辑”</li></ul><hr><h3>0.4 工程优先级冻结</h3><p><strong>系统设计优先级固定如下（不可调整）：</strong></p><pre class="n-code-notion"><code class="language-plain text">稳定性
+ &gt; 可审计性
+   &gt; 可复现性
+     &gt; 功能丰富度
+</code></pre><ul><li>任何功能若影响系统稳定性 → <strong>直接否决</strong></li><li>任何控制动作若不可被审计 → <strong>禁止上线</strong></li><li>UI、美观、自动化便利性 <strong>永远低于工程确定性</strong></li></ul><hr><h3>0.5 Engineer of Record 责任冻结</h3><ul><li>EnergizeOS™ <strong>不承担 Engineer of Record（EoR）</strong></li><li>不提供：<ul><li>最终施工图</li><li>保护定值</li><li>Utility 合规背书</li><li>并网审批文件</li></ul></li></ul><p><strong>系统定位：</strong></p><ul><li>控制理念</li><li>接口定义</li><li>判据框架</li><li>工程级参考实现</li></ul><hr><h3>0.6 版本演进冻结规则</h3><ul><li>当前目录树为 <strong>宪法级冻结结构</strong></li><li>后续版本：<ul><li>✅ 允许：向下细化、实现、补充</li><li>❌ 禁止：重构、推翻、新增顶层章节</li></ul></li></ul><hr><h2>1. 系统边界与责任划分（Control Boundary &amp; Responsibility）</h2><h3>1.1 系统角色边界定义</h3><div class="table-wrap"><table><thead><tr><th>角色</th><th>核心职责</th></tr></thead><tbody><tr><td>EMS（EnergizeOS™）</td><td>判据裁决、策略执行、控制授权</td></tr><tr><td>AIPP</td><td>并网保护、主网异常检测</td></tr><tr><td>EPC / Panel Builder</td><td>设备选型、接线、施工</td></tr><tr><td>Utility / AHJ</td><td>并网审批、法规裁决</td></tr></tbody></table></div><hr><h3>1.2 合闸控制权唯一性（EMS Only）</h3><ul><li><strong>合闸（Close）仅允许 EMS 发起</strong></li><li>任意非 EMS 合闸路径 → <strong>非法路径</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">合法路径：
+EMS → DO2 → Close Coil → PCC Breaker
+
+非法路径：
+Relay Auto-Close
+Local Push Button
+PCS / Inverter 自行合闸
+</code></pre><hr><h3>1.3 跳闸控制的冗余与优先级</h3><p>跳闸允许多路径，但具备<strong>明确优先级</strong>：</p><pre class="n-code-notion"><code class="language-plain text">Priority 1: Protection Relay (AIPP)
+Priority 2: EMS 冗余跳闸
+Priority 3: UVT / 控制电源失效
+Priority 4: 人工紧急断开
+</code></pre><ul><li>跳闸路径 <strong>允许冗余</strong></li><li>合闸路径 <strong>绝对禁止冗余</strong></li></ul><hr><h3>1.4 非 EMS 合闸路径禁止声明</h3><p><strong>明确禁止以下行为：</strong></p><ul><li>继电器 Auto-Reclose</li><li>PCS 内部并网自恢复</li><li>外部 SCADA 直接控制 Close Coil</li><li>本地 HMI 绕过 EMS 授权</li></ul><p><strong>后果：</strong></p><ul><li>系统进入 Unsupported State</li><li>EnergizeOS™ 拒绝调试 / 策略支持</li></ul><hr><h3>1.5 合规责任与法律边界</h3><ul><li>并网合规责任：<strong>EPC / PE / Utility</strong></li><li>EnergizeOS™ 输出不构成：<ul><li>法规承诺</li><li>合规担保</li><li>安全背书</li></ul></li></ul><hr><h3>1.6 技术输出的免责与适用范围</h3><p>EnergizeOS™ 所有输出均属于：</p><ul><li>控制逻辑参考</li><li>系统架构示意</li><li>判据与策略模板</li></ul><p><strong>最终配置与现场行为责任归属：</strong></p><ul><li>EPC</li><li>Panel Builder</li><li>Licensed PE</li></ul><hr><h2>2. EMS 总体系统架构（System Architecture）</h2><h3>2.1 Global Core + Regional Add-ons 架构</h3><ul><li>系统由 <strong>全球统一内核（Global Core）</strong> 与 <strong>区域插件（Regional Add-ons）</strong> 组成</li><li>Global Core <strong>始终常驻、本地运行</strong></li><li>Regional Add-ons <strong>按区域、法规、商业需求加载</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">EMS Runtime
+├─ Global Core (Always On)
+│  ├─ Core Control Engine
+│  ├─ Strategy Engine
+│  ├─ Audit &amp; Event Engine
+│  ├─ Security &amp; Permission
+│  └─ Local Runtime Manager
+│
+└─ Regional Add-ons (Optional)
+   ├─ CN / US / EU / AU / SEA
+   └─ Compliance / Tariff / DR Plugins
+</code></pre><hr><h3>2.2 控制链路结构（Control Flow）</h3><ul><li>EMS 控制链路为 <strong>单向可追溯闭环</strong></li><li>所有控制动作必须具备 <strong>感知来源、判据依据、执行记录、反馈确认</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">感知 (Sense)
+ → 判据 (Decision)
+   → 控制 (Actuation)
+     → 状态反馈 (Feedback)
+</code></pre><ul><li>任一环节缺失 → 控制动作无效</li></ul><hr><h3>2.3 通信链路结构（Communication Flow）</h3><ul><li>南向通信：设备级、实时控制</li><li>北向通信：监控、调度、集成</li></ul><pre class="n-code-notion"><code class="language-plain text">Northbound
+├─ SCADA / DMS
+└─ Cloud (Optional)
+
+Southbound
+├─ PCS / BESS
+├─ PV Inverter
+├─ DG Controller
+├─ Protection Relay
+└─ Meter / Sensor
+</code></pre><hr><h3>2.4 冗余与失效模式设计</h3><ul><li>EMS 采用 <strong>Fail-safe + Fail-degraded</strong> 组合设计</li><li>任一模块失效时：<ul><li>不引发非法合闸</li><li>不破坏系统安全状态</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Failure Scenario
+├─ Communication Loss → Freeze / Degrade
+├─ EMS Crash → UVT / Relay Protection
+└─ Partial Data Loss → Conservative Strategy
+</code></pre><hr><h3>2.5 本地优先、离线可运行架构</h3><ul><li>EMS <strong>不依赖云端运行</strong></li><li>云端仅用于：<ul><li>策略分发</li><li>远程运维</li><li>数据汇总</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Offline Mode
+├─ Core Control
+├─ Strategy Execution
+├─ Logging &amp; Audit
+└─ Local HMI
+</code></pre><hr><h2>3. 核心控制引擎（Core Control Engine）</h2><h3>3.1 并–离–并状态机（Grid ↔ Island ↔ Grid）</h3><ul><li>核心控制逻辑采用 <strong>显式状态机</strong></li><li>任一时刻系统仅处于一个合法状态</li></ul><pre class="n-code-notion"><code class="language-plain text">Grid-Connected
+   ↓ (Grid Abnormal)
+Islanded
+   ↓ (Sync Ready)
+Grid-Reconnected
+</code></pre><hr><h3>3.2 状态定义与迁移条件</h3><ul><li>状态迁移必须满足 <strong>完整判据集合</strong></li><li>不允许“强制跳状态”</li></ul><pre class="n-code-notion"><code class="language-plain text">Transition Conditions
+├─ Voltage / Frequency
+├─ Protection Relay Status
+├─ PCC Breaker Feedback
+└─ Internal Interlock (C1–C7)
+</code></pre><hr><h3>3.3 主网异常检测</h3><ul><li>主网异常由 <strong>保护装置与冗余感知路径</strong> 判定</li><li>EMS 不直接承担一次保护功能</li></ul><pre class="n-code-notion"><code class="language-plain text">Grid Fault Detection
+├─ AIPP Relay (Primary)
+└─ Meter / EMS Monitoring (Secondary)
+</code></pre><hr><h3>3.4 孤岛切入流程</h3><ul><li>孤岛切入为 <strong>保护优先、控制跟随</strong></li><li>EMS 不抢占继电器跳闸控制权</li></ul><pre class="n-code-notion"><code class="language-plain text">Grid Fault
+ → Relay Trip
+   → PCC Open Confirmed
+     → EMS Island Mode Enable
+</code></pre><hr><h3>3.5 再并网同步与合闸控制</h3><ul><li>再并网必须满足 <strong>同步 + 授权 + 互锁</strong></li><li>合闸仅由 EMS 执行</li></ul><pre class="n-code-notion"><code class="language-plain text">Reconnection Flow
+├─ Sync Check (V / f / Phase)
+├─ Interlock Check (C1–C7)
+├─ EMS Close Command (DO2)
+└─ 52a Feedback Confirmation
+</code></pre><hr><h3>3.6 PCC 主断路器 I/O 模型</h3><pre class="n-code-notion"><code class="language-plain text">DO1 → Shunt Trip Coil
+DO2 → Close Coil
+DI1 → 52a (Closed)
+DI2 → 52b (Open)
+</code></pre><ul><li>I/O 定义 <strong>全球冻结</strong></li><li>不允许项目级重定义</li></ul><hr><h3>3.7 合闸互锁判据（C1–C7）</h3><ul><li>合闸前必须 <strong>全部满足</strong></li><li>任一判据失败 → 合闸禁止</li></ul><pre class="n-code-notion"><code class="language-plain text">Interlock Gate
+├─ Grid Healthy
+├─ Sync Ready
+├─ No Active Trip
+├─ EMS Authorized
+├─ Breaker Ready
+├─ Power Source Ready
+└─ No Lockout
+</code></pre><hr><h3>3.8 黑启动与系统恢复序列</h3><ul><li>黑启动为 <strong>显式受控流程</strong></li><li>禁止隐式自启动</li></ul><pre class="n-code-notion"><code class="language-plain text">Black Start
+├─ Control Power Ready
+├─ EMS Boot
+├─ Local Source Enable
+└─ Load Restoration Sequence
+</code></pre><hr><h3>3.9 UVT / UPS / 控制电源失效链</h3><ul><li>控制电源失效 → <strong>系统必须跳闸</strong></li><li>UVT 作为 <strong>最终物理 Fail-safe</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">UPS Loss
+ → UVT De-energized
+   → Breaker Trip
+</code></pre><hr><h3>3.10 防误控、防越权、防非法合闸</h3><ul><li>所有控制命令需满足：<ul><li>身份校验</li><li>状态校验</li><li>判据校验</li><li>审计记录</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Control Command
+├─ Auth Check
+├─ State Check
+├─ Interlock Check
+└─ Audit Log
+</code></pre><hr><h2>4. 多电源协调与能量调度（Multi-Source Coordination）</h2><h3>4.1 多电源统一协调原则</h3><ul><li>EMS 作为<strong>唯一调度裁决层</strong></li><li>各电源控制器（PCS / PV / DG）仅执行本地一次控制</li><li>EMS 不替代设备内部保护与底层控制</li></ul><pre class="n-code-notion"><code class="language-plain text">EMS (Supervisory)
+├─ Dispatch Decision
+└─ Power Setpoints
+   ├─ BESS
+   ├─ PV
+   └─ DG
+</code></pre><hr><h3>4.2 BESS 管理（Battery Energy Storage System）</h3><ul><li>BESS 为核心可调度资源</li><li>EMS 负责能量层与策略层约束</li></ul><pre class="n-code-notion"><code class="language-plain text">BESS Control Scope
+├─ SOC / SOH Monitoring
+├─ Charge / Discharge Limits
+├─ Reserve Margin
+└─ Lifetime Constraints
+</code></pre><h3>关键约束（必须同时满足）：</h3><ul><li>SOC 上下限</li><li>备用容量保留（Island / Black Start）</li><li>循环次数与功率斜率限制</li></ul><hr><h3>4.3 PV 协调控制</h3><ul><li>PV 以<strong>可再生优先</strong>为原则</li><li>EMS 仅在必要时进行限发或跟随控制</li></ul><pre class="n-code-notion"><code class="language-plain text">PV Modes
+├─ Grid-Connected
+│  ├─ MPPT / Export Limit
+│  └─ Curtailment
+└─ Islanded
+   ├─ Grid-Forming Follower
+   └─ Frequency / Power Following
+</code></pre><hr><h3>4.4 DG 协调控制（Diesel Generator）</h3><ul><li>DG 作为备用 / 长时支撑电源</li><li>EMS 约束其非经济、非必要运行</li></ul><pre class="n-code-notion"><code class="language-plain text">DG Constraints
+├─ Start / Stop Logic
+├─ Minimum Run Time
+├─ Minimum Loading
+└─ Cooldown / Maintenance
+</code></pre><ul><li>禁止频繁启停</li><li>禁止低负载长时间运行</li></ul><hr><h3>4.5 关键负荷优先级与切除机制</h3><ul><li>负荷按<strong>等级与可中断性</strong>分组</li><li>EMS 仅在必要时执行切除</li></ul><pre class="n-code-notion"><code class="language-plain text">Load Priority
+├─ Tier 1: Critical (Never Shed)
+├─ Tier 2: Important
+└─ Tier 3: Non-Critical
+</code></pre><ul><li>切除动作必须记录并可审计</li></ul><hr><h2>5. 策略系统设计与执行机制（Strategy System）</h2><h3>5.1 策略系统总体原则</h3><ul><li>策略 ≠ 控制逻辑</li><li>策略运行在 <strong>Core Control Engine 之上</strong></li><li>策略不允许绕过底层安全判据</li></ul><pre class="n-code-notion"><code class="language-plain text">Control Stack
+├─ Protection &amp; Interlock (Non-bypassable)
+├─ Core Control Engine
+└─ Strategy Layer (Configurable)
+</code></pre><hr><h3>5.2 策略注册与生命周期管理</h3><pre class="n-code-notion"><code class="language-plain text">Strategy Lifecycle
+├─ Register
+├─ Configure
+├─ Enable / Disable
+├─ Execute
+└─ Retire
+</code></pre><h3>注册信息（强制）：</h3><ul><li>策略名称 / ID</li><li>版本号</li><li>适用条件</li><li>互斥关系</li></ul><hr><h3>5.3 策略执行引擎</h3><ul><li>策略执行为 <strong>事件驱动</strong></li><li>不允许周期性盲执行</li></ul><pre class="n-code-notion"><code class="language-plain text">Trigger Sources
+├─ State Change
+├─ Time Window
+├─ Threshold Event
+└─ External Signal
+</code></pre><hr><h3>5.4 策略优先级与裁决机制</h3><ul><li>多策略同时满足时：<ul><li>按优先级排序</li><li>按互斥关系裁决</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Strategy Arbitration
+├─ Priority Level
+├─ Mutual Exclusion
+└─ Safety Override
+</code></pre><ul><li>安全相关策略优先级最高</li></ul><hr><h3>5.5 策略冲突处理与降级</h3><ul><li>冲突不可自动“折中”</li><li>必须明确胜出或降级</li></ul><pre class="n-code-notion"><code class="language-plain text">Conflict Handling
+├─ One Strategy Wins
+├─ Others Disabled
+└─ Fallback to Safe State
+</code></pre><hr><h3>5.6 策略日志与审计</h3><ul><li>每次策略执行必须记录：<ul><li>触发源</li><li>判据结果</li><li>控制输出</li><li>执行结果</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Strategy Log
+├─ Timestamp
+├─ Strategy ID / Version
+├─ Trigger Reason
+├─ Action Taken
+└─ Result
+</code></pre><ul><li>日志为<strong>审计级，不可篡改</strong></li></ul><hr><h2>6. 稳定性与电能质量协调（Stability Coordination）</h2><h3>6.1 稳定性控制职责边界</h3><ul><li>EMS 属于<strong>二级/调度层控制</strong></li><li>一次控制与快速闭环由设备本体承担</li><li>EMS <strong>不直接参与毫秒级控制</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">Control Responsibility
+├─ Primary Control (Inverter / DG)
+│  ├─ Voltage Loop
+│  ├─ Frequency Loop
+│  └─ Protection
+└─ EMS (Supervisory)
+   ├─ Setpoints
+   ├─ Mode Selection
+   └─ Constraint Enforcement
+</code></pre><hr><h3>6.2 并网模式下的功率协调</h3><ul><li>并网模式下：<ul><li>电网为频率与电压基准</li><li>EMS 以功率目标为主</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Grid-Connected Mode
+├─ Active Power Dispatch (P)
+├─ Reactive Power Setpoint (Q)
+└─ Export / Import Constraints
+</code></pre><ul><li>EMS 不对并网点电能质量作直接承诺</li></ul><hr><h3>6.3 孤岛模式下的 P / Q 设定</h3><ul><li>孤岛模式需明确：<ul><li>Grid-forming 源</li><li>Grid-following 源</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Islanded Mode
+├─ Grid-Forming Source
+│  ├─ Frequency Reference
+│  └─ Voltage Reference
+└─ Grid-Following Sources
+   ├─ Power Following
+   └─ Droop Participation
+</code></pre><hr><h3>6.4 Droop / 下垫控制协同</h3><ul><li>Droop 控制由一次设备执行</li><li>EMS 仅负责：<ul><li>启停 Droop 模式</li><li>参数区间约束</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Droop Coordination
+├─ Enable / Disable
+├─ Upper / Lower Limits
+└─ Operating Mode Selection
+</code></pre><hr><h3>6.5 频率与电压稳定目标</h3><ul><li>EMS 以<strong>目标区间</strong>管理稳定性</li><li>超出区间 → 进入保护或降级逻辑</li></ul><pre class="n-code-notion"><code class="language-plain text">Stability Targets
+├─ Frequency Band
+├─ Voltage Band
+└─ Recovery Time Window
+</code></pre><hr><h3>6.6 EMS 与一次控制器边界</h3><ul><li>EMS 禁止：<ul><li>覆盖设备保护参数</li><li>绕过设备闭环控制</li></ul></li><li>EMS 仅输出<strong>高层指令与约束</strong></li></ul><hr><h2>7. 数据、事件与审计系统（Data, Event &amp; Audit）</h2><h3>7.1 数据系统总体原则</h3><ul><li>数据用于：<ul><li>运行判断</li><li>事后追溯</li><li>工程审计</li></ul></li><li><strong>数据不可作为即时控制的唯一依据</strong></li></ul><hr><h3>7.2 实时测点数据模型</h3><ul><li>所有测点具备：<ul><li>来源</li><li>单位</li><li>刷新周期</li><li>有效性标识</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Measurement Model
+├─ Source Device
+├─ Signal Type
+├─ Timestamp
+├─ Quality Flag
+└─ Value
+</code></pre><hr><h3>7.3 控制命令记录</h3><ul><li>每一条控制命令必须记录：</li></ul><pre class="n-code-notion"><code class="language-plain text">Control Command Log
+├─ Command ID
+├─ Issuer (User / Strategy)
+├─ Target Device
+├─ Parameters
+├─ Timestamp
+└─ Result
+</code></pre><hr><h3>7.4 状态变化事件</h3><ul><li>系统状态变化必须事件化</li><li>不允许“静默状态迁移”</li></ul><pre class="n-code-notion"><code class="language-plain text">State Event
+├─ Previous State
+├─ New State
+├─ Trigger Reason
+└─ Validation Result
+</code></pre><hr><h3>7.5 告警与故障日志</h3><ul><li>告警分级：<ul><li>Info</li><li>Warning</li><li>Critical</li></ul></li><li>Critical 告警必须：<ul><li>阻断相关控制动作</li><li>留存审计证据</li></ul></li></ul><hr><h3>7.6 审计级日志（不可篡改）</h3><ul><li>审计日志具备：<ul><li>时间顺序一致性</li><li>防篡改机制</li><li>可导出能力</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Audit Log
+├─ Control Actions
+├─ Strategy Decisions
+├─ Security Events
+└─ Configuration Changes
+</code></pre><hr><h3>7.7 数据留存与追溯规则</h3><ul><li>数据留存策略：<ul><li>本地优先</li><li>可配置周期</li></ul></li><li>任一工程结论必须可追溯至：<ul><li>原始测点</li><li>控制命令</li><li>状态事件</li></ul></li></ul><hr><h2>8. 通信与设备抽象层（Connectivity &amp; Abstraction）</h2><h3>8.1 通信层设计原则</h3><ul><li>通信层与控制逻辑<strong>严格解耦</strong></li><li>通信异常不得直接触发非法控制动作</li><li>控制决策以<strong>最后有效状态 + 保守策略</strong>为准</li></ul><pre class="n-code-notion"><code class="language-plain text">Design Rules
+├─ Decouple Control &amp; Transport
+├─ No Implicit Control via Comms
+└─ Conservative on Uncertainty
+</code></pre><hr><h3>8.2 南向通信（Southbound）</h3><ul><li>南向通信用于设备监测与控制</li><li>支持多协议并存</li><li>协议差异不影响上层控制逻辑</li></ul><pre class="n-code-notion"><code class="language-plain text">Southbound Protocols
+├─ Modbus TCP / RTU
+├─ IEC 61850
+├─ DNP3
+└─ IEC 104 / 101
+</code></pre><ul><li>所有南向设备通过<strong>设备驱动模块</strong>接入</li></ul><hr><h3>8.3 北向接口（Northbound）</h3><ul><li>北向接口用于系统集成与监控</li><li>北向接口 <strong>无直接控制权</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">Northbound Interfaces
+├─ SCADA
+├─ DMS
+└─ Cloud Platform (Optional)
+</code></pre><ul><li>北向控制请求必须经过 EMS 内部裁决</li></ul><hr><h3>8.4 设备驱动与抽象模型</h3><ul><li>每类设备映射为统一抽象对象</li><li>驱动负责协议细节，不承担控制逻辑</li></ul><pre class="n-code-notion"><code class="language-plain text">Device Abstraction
+├─ Device ID
+├─ Capability Set
+├─ Status Model
+└─ Command Interface
+</code></pre><hr><h3>8.5 通信异常处理与降级</h3><ul><li>通信异常统一进入降级流程</li><li>不允许通信恢复即自动恢复控制</li></ul><pre class="n-code-notion"><code class="language-plain text">Comms Failure
+├─ Freeze Last Safe State
+├─ Disable Non-Essential Control
+└─ Require Explicit Recovery
+</code></pre><hr><h2>9. HMI 与运维体系（HMI &amp; O&amp;M）</h2><h3>9.1 HMI 设计原则</h3><ul><li>HMI 为<strong>控制授权界面，不是控制逻辑</strong></li><li>HMI 操作不绕过 EMS 判据体系</li><li>HMI 行为必须可审计</li></ul><hr><h3>9.2 本地与远程访问形态</h3><pre class="n-code-notion"><code class="language-plain text">HMI Access
+├─ Local Panel / Touch Screen
+├─ Web Interface
+└─ Mobile Interface
+</code></pre><ul><li>本地 HMI 在离线状态下可完整运行</li><li>远程访问受权限与安全策略约束</li></ul><hr><h3>9.3 实时运行态可视化</h3><ul><li>实时界面必须显示：<ul><li>当前系统状态</li><li>并网 / 孤岛模式</li><li>主断路器状态</li><li>可用电源状态</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Runtime View
+├─ System State
+├─ PCC Breaker Status
+├─ Active Power Sources
+└─ Alarms
+</code></pre><hr><h3>9.4 手动 / 自动控制边界</h3><ul><li>自动控制：策略驱动</li><li>手动控制：需显式授权</li></ul><pre class="n-code-notion"><code class="language-plain text">Control Modes
+├─ Automatic (Strategy)
+└─ Manual (Authorized User)
+</code></pre><ul><li>手动控制同样受互锁与安全判据约束</li></ul><hr><h3>9.5 策略配置页结构冻结</h3><ul><li>策略配置页结构：<ul><li>字段定义冻结</li><li>行为语义冻结</li></ul></li><li>不允许项目级随意改 UI 逻辑</li></ul><hr><h3>9.6 合闸失败与判据提示</h3><ul><li>合闸失败必须：<ul><li>明确失败原因</li><li>指向具体判据</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Close Failure Message
+├─ Failed Interlock ID
+├─ Current Value
+└─ Required Condition
+</code></pre><hr><h3>9.7 运维操作留痕</h3><ul><li>所有运维操作必须记录：<ul><li>操作人</li><li>操作时间</li><li>操作内容</li><li>系统状态</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">O&amp;M Log
+├─ User ID
+├─ Action
+├─ Timestamp
+└─ Result
+</code></pre><hr><h2>10. 安全与权限体系（Security）</h2><h3>10.1 安全体系总体原则</h3><ul><li>安全设计遵循 <strong>最小暴露、最小权限、可审计</strong></li><li>任一安全异常不得触发非法控制行为</li><li>安全机制不依赖外部网络可用性</li></ul><pre class="n-code-notion"><code class="language-plain text">Security Principles
+├─ Least Privilege
+├─ Explicit Authorization
+└─ Full Auditability
+</code></pre><hr><h3>10.2 用户、角色与权限模型</h3><ul><li>权限以<strong>角色为中心</strong>分配</li><li>用户不得直接绑定控制权限</li></ul><pre class="n-code-notion"><code class="language-plain text">RBAC Model
+├─ User
+│  └─ Assigned Role(s)
+└─ Role
+   ├─ View
+   ├─ Operate
+   ├─ Engineer
+   └─ Admin
+</code></pre><ul><li>合闸、策略修改、配置变更均为 <strong>高权限操作</strong></li></ul><hr><h3>10.3 控制权限与操作授权</h3><ul><li>所有控制命令必须满足：</li></ul><pre class="n-code-notion"><code class="language-plain text">Authorization Check
+├─ User Identity
+├─ Role Permission
+├─ Current System State
+└─ Interlock Validation
+</code></pre><ul><li>未通过任一检查 → 控制命令拒绝</li></ul><hr><h3>10.4 网络安全基线</h3><ul><li>默认关闭所有非必要端口</li><li>网络接口按功能隔离</li></ul><pre class="n-code-notion"><code class="language-plain text">Network Zones
+├─ Control Network
+├─ Monitoring Network
+└─ External Access (Optional)
+</code></pre><ul><li>控制网络禁止直连互联网</li></ul><hr><h3>10.5 配置变更与安全审计</h3><ul><li>任一配置变更必须：<ul><li>具备授权</li><li>生成审计记录</li><li>可回滚</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Config Change Log
+├─ Who
+├─ What
+├─ When
+└─ Result
+</code></pre><hr><h3>10.6 离线运行安全策略</h3><ul><li>离线状态下：<ul><li>权限体系完整有效</li><li>控制逻辑不降级</li></ul></li><li>离线 ≠ 安全豁免</li></ul><hr><h2>11. 区域扩展模块（Regional Add-ons）</h2><h3>11.1 区域模块总体原则</h3><ul><li>区域模块仅实现：<ul><li>法规适配</li><li>市场规则</li><li>本地化功能</li></ul></li><li>不允许引入新的核心控制逻辑</li></ul><pre class="n-code-notion"><code class="language-plain text">Regional Add-on Scope
+├─ Compliance
+├─ Tariff / Market Rules
+└─ Localization
+</code></pre><hr><h3>11.2 中国区模块（CN）</h3><pre class="n-code-notion"><code class="language-plain text">CN Add-on
+├─ IEC 104 调度通信
+├─ 峰谷 / 尖峰电价模型
+├─ 国标并网参数
+└─ 本地法规适配
+</code></pre><ul><li>不影响 Global Core 状态机与控制模型</li></ul><hr><h3>11.3 美国区模块（US）</h3><pre class="n-code-notion"><code class="language-plain text">US Add-on
+├─ 需量管理（Demand Charge）
+├─ 需求响应（OpenADR）
+├─ IEEE 1547 / UL 1741 参数集
+└─ NERC-CIP 适配
+</code></pre><ul><li>合规参数通过配置加载</li><li>不嵌入核心控制判断</li></ul><hr><h3>11.4 欧洲区模块（EU，V2+）</h3><pre class="n-code-notion"><code class="language-plain text">EU Add-on
+├─ 辅助服务接口
+├─ 能源社区逻辑
+└─ GDPR / 多语言支持
+</code></pre><ul><li>默认不加载于 V1</li></ul><hr><h3>11.5 澳大利亚 / 东南亚模块（AU / SEA，V2+）</h3><pre class="n-code-notion"><code class="language-plain text">AU / SEA Add-on
+├─ 高可再生渗透率支持
+├─ 柴油机优化策略
+├─ 离网与长馈线场景
+└─ 无人值守运行模式
+</code></pre><hr><h3>11.6 区域模块的加载与边界</h3><ul><li>区域模块：<ul><li>可独立升级</li><li>可独立授权</li></ul></li><li>卸载区域模块不得影响系统安全状态</li></ul><hr><h2>12. 授权与商业化结构（Licensing &amp; Packaging）</h2><h3>12.1 授权体系总体原则</h3><ul><li>授权体系与控制逻辑<strong>解耦</strong></li><li>授权失效不得引发系统不安全行为</li><li>授权仅影响<strong>功能可用性，不影响安全机制</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">Licensing Rules
+├─ No License ≠ Unsafe State
+├─ Core Safety Always On
+└─ Graceful Degradation
+</code></pre><hr><h3>12.2 Embedded Runtime License</h3><ul><li>Embedded Runtime 为 <strong>本地运行授权</strong></li><li>授权对象：单一物理设备（SN 绑定）</li></ul><pre class="n-code-notion"><code class="language-plain text">Embedded Runtime License
+├─ Core Control Engine
+├─ Strategy Execution Engine
+├─ Audit &amp; Event System
+└─ Local HMI
+</code></pre><ul><li>未激活 Runtime：<ul><li>系统不得进入自动运行</li><li>保留只读与安全状态</li></ul></li></ul><hr><h3>12.3 策略模块 Add-on 授权</h3><ul><li>策略模块采用 <strong>独立 Add-on 授权</strong></li><li>Add-on 不得修改 Core 行为</li></ul><pre class="n-code-notion"><code class="language-plain text">Strategy Add-ons
+├─ Demand Charge Management
+├─ TOU Optimization
+├─ DG Coordination
+└─ Advanced Optimization (V2+)
+</code></pre><ul><li>Add-on 仅在授权有效时可执行</li></ul><hr><h3>12.4 设备 SN 绑定机制</h3><ul><li>授权与设备 SN 强绑定</li><li>授权文件不可跨设备迁移</li></ul><pre class="n-code-notion"><code class="language-plain text">License Binding
+├─ Device SN
+├─ Hardware Fingerprint
+└─ License ID
+</code></pre><hr><h3>12.5 离线授权与失效行为</h3><ul><li>支持完全离线授权</li><li>授权失效行为冻结如下：</li></ul><pre class="n-code-notion"><code class="language-plain text">License Expiry
+├─ Disable Paid Add-ons
+├─ Keep Core Safety Active
+└─ Log License State
+</code></pre><ul><li>不允许：<ul><li>强制停机</li><li>非预期跳闸</li><li>数据清除</li></ul></li></ul><hr><h3>12.6 商业与技术边界</h3><ul><li>授权 ≠ 工程责任</li><li>授权 ≠ 合规承诺</li><li>商业条款不得改变技术边界</li></ul><hr><h2>13. 工程验证与交付（Engineering Validation）</h2><h3>13.1 工程验证总体原则</h3><ul><li>所有交付必须可验证、可复现、可审计</li><li>验证以<strong>控制闭环</strong>为核心</li></ul><pre class="n-code-notion"><code class="language-plain text">Validation Focus
+├─ Control Logic
+├─ Interlock Enforcement
+└─ Safe Failure Behavior
+</code></pre><hr><h3>13.2 FAT 测试体系（Factory Acceptance Test）</h3><ul><li>FAT 在受控环境完成</li><li>必须覆盖：</li></ul><pre class="n-code-notion"><code class="language-plain text">FAT Scope
+├─ I/O 点验证
+├─ 状态机迁移
+├─ 合闸互锁 C1–C7
+├─ 通信异常处理
+└─ UPS / UVT 失效场景
+</code></pre><ul><li>FAT 结果需形成正式记录</li></ul><hr><h3>13.3 SAT 与现场联调（Site Acceptance Test）</h3><ul><li>SAT 验证系统与现场设备协同</li><li>EMS 不承担现场施工正确性责任</li></ul><pre class="n-code-notion"><code class="language-plain text">SAT Focus
+├─ Interface Verification
+├─ Signal Polarity
+├─ Breaker Feedback
+└─ Mode Transition
+</code></pre><hr><h3>13.4 HIL / 实验室验证</h3><ul><li>支持 HIL / 仿真环境验证</li><li>用于：<ul><li>极端场景</li><li>故障注入</li><li>策略边界测试</li></ul></li></ul><hr><h3>13.5 控制闭环验证</h3><ul><li>任一控制动作需验证完整闭环：</li></ul><pre class="n-code-notion"><code class="language-plain text">Closed Loop
+├─ Sense
+├─ Decide
+├─ Actuate
+└─ Confirm
+</code></pre><ul><li>缺失任一环节 → 测试失败</li></ul><hr><h3>13.6 客户验收与证据链</h3><ul><li>验收材料需包含：<ul><li>测试脚本</li><li>执行记录</li><li>日志与截图</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Acceptance Evidence
+├─ FAT / SAT Records
+├─ Audit Logs
+└─ Configuration Snapshot
+</code></pre><hr><h2>14. 产品里程碑与版本规划（Roadmap）</h2><h3>14.1 版本规划总体原则</h3><ul><li>版本规划以<strong>工程可交付性</strong>为唯一准绳</li><li>任何版本不得突破既定系统边界与责任划分</li><li>版本升级不得破坏已部署系统的安全状态</li></ul><pre class="n-code-notion"><code class="language-plain text">Version Rules
+├─ Backward Compatible
+├─ Safety Preserved
+└─ Structure Frozen
+</code></pre><hr><h3>14.2 V1：可商用、可审计版本</h3><p><strong>V1 目标：</strong></p><ul><li>可部署</li><li>可长期运行</li><li>可接受第三方审计</li></ul><pre class="n-code-notion"><code class="language-plain text">V1 Scope
+├─ Global Core 全量启用
+├─ 并–离–并状态机
+├─ PCC 控制与互锁 C1–C7
+├─ 基础多电源协调（BESS / PV / DG）
+├─ 策略系统（基础策略）
+├─ 审计级日志
+└─ 本地离线运行
+</code></pre><ul><li>V1 不追求全功能</li><li>V1 不引入高复杂度优化算法</li></ul><hr><h3>14.3 V2+：高级优化与多区域扩展</h3><p><strong>V2+ 仅在 V1 稳定后推进</strong></p><pre class="n-code-notion"><code class="language-plain text">V2+ Scope
+├─ 高级策略模块
+├─ 区域市场深度适配
+├─ 辅助服务接口
+├─ AI / 高阶优化（可选）
+└─ 多区域统一管理
+</code></pre><ul><li>V2+ 模块必须：<ul><li>可选</li><li>可卸载</li><li>不影响 Core 安全</li></ul></li></ul><hr><h3>14.4 版本冻结与演进规则</h3><ul><li>任一版本发布后：<ul><li>核心结构冻结</li><li>仅允许 Bug Fix 与性能优化</li></ul></li><li>新功能只能进入 <strong>下一个主版本</strong></li></ul><pre class="n-code-notion"><code class="language-plain text">Release Discipline
+├─ Freeze After Release
+├─ No Hot Feature Injection
+└─ Versioned Evolution
+</code></pre><hr><h2>15. 决策级总结（Executive Summary）</h2><h3>15.1 技术不可替代性</h3><ul><li>EnergizeOS™ 是 <strong>控制系统，不是监控软件</strong></li><li>具备：<ul><li>明确控制权模型</li><li>严格工程边界</li><li>可审计控制闭环</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Technical Moat
+├─ Control Authority Model
+├─ State-Machine Driven
+└─ Audit-First Design
+</code></pre><hr><h3>15.2 工程护城河</h3><ul><li>并–离–并状态机冻结</li><li>合闸控制权唯一性</li><li>多层 Fail-safe / Fail-degraded</li></ul><pre class="n-code-notion"><code class="language-plain text">Engineering Moat
+├─ No Illegal Close
+├─ Deterministic Behavior
+└─ Failure Contained
+</code></pre><hr><h3>15.3 商业可复制性</h3><ul><li>Global Core + Regional Add-ons 架构</li><li>License + Add-on 商业模型</li><li>区域模块可规模化复制</li></ul><pre class="n-code-notion"><code class="language-plain text">Business Scalability
+├─ One Core
+├─ Many Markets
+└─ Modular Monetization
+</code></pre><hr><h3>15.4 投资与落地价值</h3><ul><li>适用于：<ul><li>工商业微电网</li><li>高可靠园区</li><li>离网与弱网场景</li></ul></li><li>投资价值来源于：<ul><li>高切换成本</li><li>长期订阅收入</li><li>工程级壁垒</li></ul></li></ul><pre class="n-code-notion"><code class="language-plain text">Value Proposition
+├─ High Switching Cost
+├─ Long-Term Revenue
+└─ Engineering Credibility
+</code></pre><hr><h1>EnergizeOS™ EMS</h1><h2>开发任务树（Epic → Story）</h2><hr><h2>EPIC 0｜全局工程冻结与基础框架</h2><h3>Story 0.1｜全局工程冻结规则实现</h3><ul><li>冻结 Global Core 与 Regional Add-ons 结构</li><li>禁止核心逻辑分叉机制</li><li>版本演进规则校验</li></ul><h3>Story 0.2｜工程优先级约束机制</h3><ul><li>稳定性优先策略</li><li>可审计性强制要求</li><li>非关键功能降级策略</li></ul><hr><h2>EPIC 1｜系统边界与控制权模型</h2><h3>Story 1.1｜系统角色与责任边界定义</h3><ul><li>EMS / AIPP / EPC / Utility 边界模型</li><li>合规与法律责任标注</li></ul><h3>Story 1.2｜合闸控制权唯一性实现</h3><ul><li>EMS Only 合闸路径</li><li>非 EMS 合闸路径检测与阻断</li></ul><h3>Story 1.3｜跳闸控制冗余与优先级</h3><ul><li>继电器主跳</li><li>EMS 冗余跳</li><li>UVT / 电源失效跳闸</li></ul><hr><h2>EPIC 2｜EMS 总体系统架构</h2><h3>Story 2.1｜Global Core Runtime 架构</h3><ul><li>本地运行框架</li><li>模块加载机制</li></ul><h3>Story 2.2｜控制链路闭环实现</h3><ul><li>Sense → Decide → Actuate → Confirm</li><li>闭环完整性校验</li></ul><h3>Story 2.3｜南向 / 北向通信分层</h3><ul><li>Southbound 驱动层</li><li>Northbound 接口层</li></ul><hr><h2>EPIC 3｜核心控制引擎（并–离–并）</h2><h3>Story 3.1｜并–离–并状态机实现</h3><ul><li>状态定义</li><li>合法迁移路径</li><li>非法状态防护</li></ul><h3>Story 3.2｜主网异常检测接口</h3><ul><li>AIPP 输入</li><li>冗余感知路径</li></ul><h3>Story 3.3｜孤岛切入流程控制</h3><ul><li>保护优先</li><li>EMS 跟随逻辑</li></ul><h3>Story 3.4｜再并网同步与合闸流程</h3><ul><li>同步条件判断</li><li>合闸授权机制</li></ul><h3>Story 3.5｜PCC 主断路器 I/O 模型</h3><ul><li>DO1 / DO2</li><li>DI1 / DI2</li><li>全球冻结定义</li></ul><h3>Story 3.6｜合闸互锁判据 C1–C7</h3><ul><li>判据建模</li><li>判据组合裁决</li><li>判据失败反馈</li></ul><h3>Story 3.7｜黑启动与系统恢复</h3><ul><li>黑启动序列</li><li>负荷恢复顺序</li></ul><h3>Story 3.8｜UVT / UPS 失效链</h3><ul><li>电源失效检测</li><li>Fail-safe 跳闸逻辑</li></ul><hr><h2>EPIC 4｜多电源协调与调度</h2><h3>Story 4.1｜多电源统一调度模型</h3><ul><li>BESS / PV / DG 抽象</li><li>调度权模型</li></ul><h3>Story 4.2｜BESS 管理逻辑</h3><ul><li>SOC / SOH</li><li>备用容量</li><li>寿命约束</li></ul><h3>Story 4.3｜PV 协调控制</h3><ul><li>并网限发</li><li>孤岛跟随</li></ul><h3>Story 4.4｜DG 协调控制</h3><ul><li>启停逻辑</li><li>最小运行与负载约束</li></ul><h3>Story 4.5｜负荷优先级与切除</h3><ul><li>Tier 定义</li><li>切除与恢复流程</li></ul><hr><h2>EPIC 5｜策略系统</h2><h3>Story 5.1｜策略注册与生命周期</h3><ul><li>注册</li><li>启用 / 停用</li><li>版本管理</li></ul><h3>Story 5.2｜策略执行引擎</h3><ul><li>事件驱动模型</li><li>执行上下文</li></ul><h3>Story 5.3｜策略优先级与互斥裁决</h3><ul><li>优先级排序</li><li>冲突处理</li></ul><h3>Story 5.4｜策略降级与回退</h3><ul><li>安全优先</li><li>保守状态</li></ul><h3>Story 5.5｜策略日志与审计</h3><ul><li>执行记录</li><li>决策追溯</li></ul><hr><h2>EPIC 6｜稳定性与电能质量</h2><h3>Story 6.1｜EMS 与一次控制边界</h3><ul><li>二级控制角色限制</li><li>禁止直接闭环控制</li></ul><h3>Story 6.2｜并网模式功率协调</h3><ul><li>P / Q 设定</li><li>出口限制</li></ul><h3>Story 6.3｜孤岛模式稳定控制</h3><ul><li>Grid-forming / Following</li><li>参考源管理</li></ul><h3>Story 6.4｜Droop 协同机制</h3><ul><li>模式切换</li><li>参数约束</li></ul><hr><h2>EPIC 7｜数据、事件与审计</h2><h3>Story 7.1｜实时测点数据模型</h3><ul><li>测点抽象</li><li>数据质量标识</li></ul><h3>Story 7.2｜控制命令日志</h3><ul><li>命令记录</li><li>结果确认</li></ul><h3>Story 7.3｜状态事件系统</h3><ul><li>状态迁移事件化</li></ul><h3>Story 7.4｜告警与故障日志</h3><ul><li>分级告警</li><li>控制阻断</li></ul><h3>Story 7.5｜审计级日志系统</h3><ul><li>不可篡改</li><li>可追溯</li></ul><hr><h2>EPIC 8｜通信与设备抽象层</h2><h3>Story 8.1｜设备抽象模型</h3><ul><li>能力建模</li><li>状态统一接口</li></ul><h3>Story 8.2｜南向协议驱动</h3><ul><li>Modbus</li><li>IEC 61850</li><li>DNP3</li><li>IEC 104/101</li></ul><h3>Story 8.3｜北向接口</h3><ul><li>SCADA</li><li>DMS</li><li>Cloud（可选）</li></ul><h3>Story 8.4｜通信异常降级</h3><ul><li>Freeze</li><li>显式恢复</li></ul><hr><h2>EPIC 9｜HMI 与运维</h2><h3>Story 9.1｜本地 HMI</h3><ul><li>离线可用</li><li>实时状态显示</li></ul><h3>Story 9.2｜远程 Web / Mobile</h3><ul><li>只读 / 受控操作</li></ul><h3>Story 9.3｜手动 / 自动控制边界</h3><ul><li>授权模型</li><li>判据约束</li></ul><h3>Story 9.4｜合闸失败提示</h3><ul><li>判据级反馈</li></ul><h3>Story 9.5｜运维操作留痕</h3><ul><li>全量审计</li></ul><hr><h2>EPIC 10｜安全与权限体系</h2><h3>Story 10.1｜RBAC 权限模型</h3><ul><li>用户 / 角色</li><li>权限映射</li></ul><h3>Story 10.2｜控制命令授权校验</h3><ul><li>身份</li><li>权限</li><li>状态</li></ul><h3>Story 10.3｜网络安全基线</h3><ul><li>端口最小化</li><li>网络分区</li></ul><h3>Story 10.4｜配置变更审计</h3><ul><li>变更记录</li><li>回滚支持</li></ul><hr><h2>EPIC 11｜区域扩展模块</h2><h3>Story 11.1｜区域模块加载机制</h3><ul><li>插件化架构</li><li>独立授权</li></ul><h3>Story 11.2｜中国区插件</h3><ul><li>IEC 104</li><li>峰谷电价</li><li>国标参数</li></ul><h3>Story 11.3｜美国区插件</h3><ul><li>需量管理</li><li>OpenADR</li><li>IEEE 1547 / UL 1741</li></ul><h3>Story 11.4｜EU / AU / SEA 插件（V2+）</h3><hr><h2>EPIC 12｜授权与商业化</h2><h3>Story 12.1｜Embedded Runtime License</h3><ul><li>本地授权</li><li>SN 绑定</li></ul><h3>Story 12.2｜策略 Add-on 授权</h3><ul><li>模块级授权</li></ul><h3>Story 12.3｜离线授权机制</h3><ul><li>授权失效行为</li></ul><hr><h2>EPIC 13｜工程验证与交付</h2><h3>Story 13.1｜FAT 测试框架</h3><ul><li>I/O</li><li>状态机</li><li>互锁</li></ul><h3>Story 13.2｜SAT 与现场联调</h3><ul><li>接口验证</li><li>信号确认</li></ul><h3>Story 13.3｜HIL / 仿真验证</h3><h3>Story 13.4｜验收证据链</h3><ul><li>日志</li><li>配置快照</li></ul><hr><h2>EPIC 14｜版本规划</h2><h3>Story 14.1｜V1 功能冻结</h3><h3>Story 14.2｜V2+ 扩展规划</h3><h3>Story 14.3｜版本升级与回滚规则</h3><hr><h2>EPIC 15｜决策与产品支撑</h2><h3>Story 15.1｜技术护城河表达</h3><h3>Story 15.2｜商业模型支撑</h3><h3>Story 15.3｜投资与尽调支持材料</h3><hr></article>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 Energize Solutions Inc. — All rights reserved. Powered by GitHub Pages | Contact:</span>
+    <a href="mailto:info@energizeos.com">info@energizeos.com</a>
+    <span class="sep">·</span>
+    <a class="icon" href="https://www.linkedin.com/in/gongtiejing" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v13H0zM7 8h4.8v1.8h.07C12.54 8.94 14.17 8 16.6 8c5.06 0 6 3.33 6 7.66V21h-5v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.69-2.5 3.43V21H7V8z"/>
+      </svg>
+    </a>
+    <a class="icon" href="https://github.com/enxpower" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.15 8.96 7.52 10.41.55.1.75-.24.75-.53 0-.26-.01-1.1-.02-1.99-3.06.66-3.71-1.3-3.71-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.56 1.19 3.18.91.1-.72.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.43 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.42.11-2.96 0 0 .93-.3 3.05 1.13a10.7 10.7 0 0 1 2.78-.37c.94 0 1.88.13 2.78.37 2.12-1.43 3.05-1.13 3.05-1.13.6 1.54.22 2.68.11 2.96.71.77 1.13 1.75 1.13 2.95 0 4.22-2.58 5.14-5.03 5.41.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53A10.54 10.54 0 0 0 23 11.5C23 5.24 18.27.5 12 .5z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.min.js"></script>
+
+</body></html>
