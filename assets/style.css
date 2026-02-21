@@ -1,0 +1,31 @@
+:root { --bg:#0b0c10; --card:#11131a; --txt:#e7e9ee; --muted:#9aa3b2; --line:#2a2f3a; }
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--txt); }
+a{ color:#7db7ff; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+.wrap{ max-width: 980px; margin: 0 auto; padding: 16px; }
+.top{ display:flex; align-items:center; justify-content:space-between; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.logo{ font-weight: 700; letter-spacing: 0.4px; }
+.meta .code{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+.main{ padding: 20px 0 60px; }
+.h1{ margin: 6px 0 14px; font-size: 26px; }
+.crumbs{ color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+.card{ background:var(--card); border:1px solid var(--line); border-radius: 16px; padding: 16px; margin: 14px 0; }
+.code{ background:#0f1117; border:1px solid var(--line); border-radius: 12px; padding: 12px; overflow:auto; }
+code{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+pre{ margin:0; }
+blockquote{ margin: 12px 0; padding: 8px 12px; border-left: 3px solid #3a78ff; color: var(--muted); }
+hr{ border:0; border-top:1px solid var(--line); margin: 18px 0; }
+.callout{ display:flex; gap:10px; background:#0f1117; border:1px solid var(--line); border-radius: 12px; padding: 12px; }
+.callout .ico{ font-size: 18px; line-height: 1; }
+.img img{ max-width:100%; border-radius: 12px; border:1px solid var(--line); }
+.img figcaption{ color: var(--muted); font-size: 12px; margin-top: 8px; }
+.tbl{ width:100%; border-collapse: collapse; border:1px solid var(--line); border-radius: 12px; overflow:hidden; }
+.tbl td{ border:1px solid var(--line); padding: 8px 10px; vertical-align: top; }
+.footer{ border-top:1px solid var(--line); padding: 14px 0; color: var(--muted); }
+.n-columns{ display:grid; gap:12px; }
+.n-columns.cols-1{ grid-template-columns: 1fr; }
+.n-columns.cols-2{ grid-template-columns: 1fr 1fr; }
+.n-columns.cols-3{ grid-template-columns: 1fr 1fr 1fr; }
+.unknown{ color: var(--muted); font-size: 12px; }
+.eq{ padding: 10px 12px; background:#0f1117; border:1px solid var(--line); border-radius: 12px; overflow:auto; }
