@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARCBOS 全电动-全自治-无人重载除雪机器人-结构设计</title>
+<link rel="canonical" href="https://advisory.energizeos.com/clients/arcbos/v1/">
+<meta name="description" content="arcbos">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EnergizeOS Advisory">
+<meta property="og:title" content="ARCBOS 全电动-全自治-无人重载除雪机器人-结构设计">
+<meta property="og:description" content="arcbos">
+<meta property="og:url" content="https://advisory.energizeos.com/clients/arcbos/v1/">
+<meta property="og:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ARCBOS 全电动-全自治-无人重载除雪机器人-结构设计">
+<meta name="twitter:description" content="arcbos">
+<meta name="twitter:image" content="https://advisory.energizeos.com/assets/share/default.png">
+
+<link rel="stylesheet" href="/assets/base.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+<body>
+<main>
+  <div class="header-flex">
+    <h1>ARCBOS 全电动-全自治-无人重载除雪机器人-结构设计</h1>
+    <img class="barcode" alt="Barcode ENXAAM9DQMWQ9" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAAFoCAYAAABt1NvEAAAAHnRFWHRTb2Z0d2FyZQBid2lwLWpzLm1ldGFmbG9vci5jb21Tnbi0AABb5UlEQVR4nO2dC/D+Wz39D0No3DKJGoUGNWcimSQmFVMuZ0plpMuUHCPRoDRkmJTb1LgVMQgRmYiQMqFRKiPqhGTSnVSOSMnhKNfHvL/z/M58f5/v872sZ6+117P3Z62Z7/z/zue33/u19nvt3fN5rldsoiiKoiiKoiiKoiNd4QaIoiiKoiiKoig6FOUGKYqiKIqiKIqiaKvcIEVRFEVRFEVRFG2VG6QoiqIoiqIoiqKtcoMURVEURVEURVG0VW6QoiiKoiiKoiiKtsoNUhRFURRFURRF0Va5QYqiKIqiKIqiKNoqN0hRFEVRFEVRFEVb5QYpiqIoiqIoiqJoq9wgRVEURVEURVEUbZUbpCiKoiiKoiiKoq1ygxRFURRFURRFUbRVbpCiKIqiKIqiKIq2yg1SFEVRFEVRFEXRVrlBiqIoiqIoiqIo2io3SFEURVEURVEURVvlBimKoiiKoiiKomir3CBFURRFURRFURRtlRukKIqiKIqiKIqirXKDFEVRFEVRFEVRtFVukKIoiqIoiqIoirbKDVIURVEURVEURdFWuUGKoiiKoiiKoijaKjdIURRFURRFURRFW+UGKYqiKIqiKIqiaKvcIEVRFEVRFEVRFG2VG6QoiqIoiqIoiqKtcoMURVEURVEURVG0VW6QoiiKoiiKoiiKtsoNUhRFURRFURRF0Va5QYqiKIqiKIqiKNoqN0hRFEVRFEVRFEVb5QYpiqIoiqIoiqJoq9wgRVEURVEURVEUbbX6G6QrrrjizL/z/j1an83bOp7tFx1/Ho/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzafUroD7g2IFTbzj1fCiP26+ah82LXkd5e/sfjZedN7Z/tL6a370+rePdeWafD6Pn191fN5+636gfdn11Pbdftv/evLNp9SugPuDYgVNvOPV8KI/br5qHzYteR3l7+x+Nl503tn+0vprfvT6t4915Zp8Po+fX3V83n7rfqB92fXU9t1+2/968s2n1K6A+4NiBU2849Xwoj9uvmofNi15HeXv7H42XnTe2f7S+mt+9Pq3j3Xlmnw+j59fdXzefut+oH3Z9dT23X7b/3ryzKSsQRVEURVEURVG0VW6QoiiKoiiKoiiKtsoNUhRFURRFURRF0Va5QYqiKIqiKIqiKNoqN0hRFEVRFEVRFEVb5QYpiqIoiqIoiqJoq9wgRVEURVEURVEUbZUbpCiKoiiKoiiKoq1ygxRFURRFURRFUbRVbpCiKIqiKIqiKIq2yg1SFEVRFEVRFEXRVrlBiqIoiqIoiqIo2io3SFEURVEURVEURVvlBimKoiiKoiiKomir3CBFURRFURRFURRtlRukKIqiKIqiKIqirXKDFEVRFEVRFEVRtFVukKIoiqIoiqIoirbKDVIUDaR//dd/3bzkJS/ZvPjFL9686U1v2rvOf/3Xf22uueaao/+3RW9/+9s3119/fVON97znPZt/+7d/a6oR7dY73vGOzRvf+MYb/t75zndeeOz//d//bf7mb/7msvHvfe97pbzR5Xrf+963+eu//uvN7//+72/e/OY3y+c7pLxce+21e49d6r//+78373rXu2j1jqt3j6Io6qPcIEXRBfTzP//zmy/90i/d3P72t2/6++zP/uzNt3/7t2/+/u//HmZ44hOfuPnQD/3QzRVXXHHD31VXXbX5j//4D6jOH/3RH21ucpObHI3/mI/5mM0rXvEKmOX973//5vM///OPahTTd37nd8I1rrvuus1jH/vYzUd8xEdsPuzDPuzIn0Ive9nLNo961KM2D33oQ2/4e8ITnrD527/9W8l8h8Dy6le/+ihvx7Ny6e9zPudzjm5Kz+P8hE/4hBNjb3SjG22+8iu/cvM///M/NM6nPvWpm2/8xm/cfNEXfdHmkz7pk46ycNvb3vYo29/8zd+8+dEf/dHNG97wBsp8x/Xbv/3bmy/4gi/Y3PKWt9zc4Q532HzxF3/x5iEPecjmMY95zOa5z31u843/vqp98YM/+IObW9/61psP+IAPuGz9P/7jP35zv/vdb/MjP/Ijmz/7sz+jzXlIefnjP/7joxzU+MpBa++f9rSnbW5605tuPvADP3Bzr3vdq/lJoY2pR2fJuY+iaFblBimKzlH9D/auBw4tf1/1VV8FMdQrR8ubo0t/j3/846Fa9T+Yy5ssVM94xjNOcLzwhS+EajzsYQ+7bPyHfMiHbP75n/8ZZjlLz3/+848eGO1at3og0/OVq54s9QDtrPzVA6nTVA9mb3WrW505/pnPfGYT3+tf//rN/e9//wvvl1q3Bz3oQZvXvva1TfNeUuXsIz/yI8+cs/bbve997yOv9epID9UTMZeevLjI33d913dR2A4pL/e85z0vG1t931f/8i//svnwD//wy+r9zM/8zN71NsYe7ZJ7H0XRzMoNUhSdo+/7vu+j3yBdffXVEEO94nTWA7l6a8tF9bmf+7mXja9niFHVq1BLjnoG+bxnmi/pN3/zN0+Mv/nNb057ZeKSvvALv/DMPvzqr/4qdb5DYfnMz/zMM+eqB3j1KuAu1VuFzsvv93zP9+zF9U//9E+br/mar9l80Ad90F77pp6trweEF83ZaUKf9KhXHlRv0bqkX/qlXzrxasRF/h784Aef2suL6pDycte73vWyscW2r17zmtecYHnKU56ydz1nj47rUPZRFM2s3CBF0TnadYNUb1248sor4b96K8+3fdu3Qe/t35xzg1R/9QzwRcW4QSo9/OEPP8FxkWd7//Ef/3Fzs5vd7MTY3/md39mL4zTVg4jlA4jlg5t6kNBDvVnOe8Bbf89+9rN3jn3gAx9IfcB7SfUq6Glcd7/73Y/eeviTP/mTm9/4jd84ehD7Td/0TSeyeunvLne5C/zW0uPadYNUr+Kd5fkWt7jF5g//8A/3nvMs/dZv/daJfNQTH7Uu9RbM5z3veUdrU3tu1yvJd7vb3Zoe7B5SXupVu+NjP/ETP3FvXy996UtPsNQrQPvI3aNLOqR9FEUzKzdIUXSOdt0gsd8Kdp7Ou0G6AniLG+sGqd4S9imf8iknOM57JeS+973viTHf8A3fsBfDWaq30iznqQcLx//vG9/4xl0+a9KbZfkAqm7olw/uvuRLvuTEuHpL0vLB3e1ud7vmG6R69rw+77Osc+c73/no1cizVF9I8nmf93knxt7nPvfZ+xXHXTdIv/7rv360z376p3/66POGux7k1luU6i1T9aF/lmrf1ttLj8/zWZ/1WUe92KV6tbg+Z7Jke+QjH7k3wyHlpT6Xd3xsvRVyX9VNzZKlXr1GdQg92hzgPoqimZUbpCg6R6PcINWDmot8AJl1g1T6kz/5kxMPpOrtOKd9CcUv/MIvnOD+tE/7NMlNyvIBSj0IrC9DWM5fz7Sq1Ztl+YC3HlTV28SWD/brW8uOq555XjL98A//cPMNUn1Qf1nj677u6y782Yz//d//3XzZl33ZiRrf8R3fAXFc0mk3SMdVTwDUzX59kcny39YXlLztbW/ba+7jqs+Q1I3x8gbjvPOl2C59kcGlv7pR+Yd/+Ie9OA4pL/V5p+X4fb9Y4elPf/qJWi960YugGofSo80B7qMomlm5QYqic3SoN0j1DVHL/1bfnHSemDdIpfqSiCVHfSPY8n+0/+7v/m7zUR/1UZf9uw/+4A/evPKVr2yaf5eqP1X7+FzVx1I983v8v7d8CPxQWXY94K2br2WfnvSkJ1027k53utNl1+uBYfWt5QFvfV3zcny9GoG+ClMPOD/90z/9sjr1pMA+usgN0iX91V/91dHb65b/vj5z1/q15/WNlsu6r3vd6y409g/+4A9OjP3Wb/3WvTgOKS/1jZjL8fW23H2062YN/Wa5Q+nRIe6jKJpZuUGKonN0qDdI9UxrfZXr8f9WNyDnfb6JfYNUz+7W15cv+X7iJ37ihn9Tz1zuemvIvh/2P08/93M/d2KuS9/ctOxnfc14/ZaJSg6WXQ94//M//3PzsR/7sZf999vc5jY3jCmmJWd922K9jailb7/8y798Yvxf/uVf7uWrngBY1qrPd6FCbpA227dM7Xo76SMe8Yi9fGy2vxu0fIXhjne8I1Sj5j8+vr6xbZ+z6ZDyUl+fvRxfr+Lso3plZFnrLW95y4XHH1KPDnEfRdHMyg1SFJ2jQ71B+qEf+qHNd3/3d5/471/91V99Zi32DVKpfl9jebNW//el392o3+BYctb75pmf5Tiuemb1+FzHnyGtH3VcstRv4qjkYNn1gLf06Ec/+sR8dbNQqme2l9fqcwutD3jr27aOj623rNUN8z7adWNTnzNh1DnrBqlUb43a9VtB9cPN+6jenrqs9eQnPxmqsevr/+szVKgOKS+7Pq/38pe/HPZUqs82tpzdh9SjQ9xHUTSzcoMURefokG+Q6huIls9w1rej/emf/umptRQ3SJtTPo9QtestSssHCPUs6pve9CbKvEvVN0Ut3364fI993aQcv47+LtWhs5z2gLeecV72qL51q25Ul9/iVrmqZ9BbH/De4x73uGxsvb1nX731rW89wfLjP/7jcJ19bpA2234uf1enPkO3zzeB/ezP/uwJhvrWNVTLXtePgrbWcOal+rAcv+83XD7gAQ+4rE59jgr5QoJD6tEh7qMomlm5QYqic3TIN0il5zznOSeu1VveTnt2UXWDVA+O6tu/liy7fpCz9ccaz9KuL4J41ateddm/WX7O4aM/+qOP3lI0C8tpD3g3Oz73VP2pr3Bectark5vtN5W1POCtf7t8kHrat3+dp/qx3SXLK17xCrjOvjdIpS//8i8/MbZ+HwfVrnNlnycN6nNrx2vU5/9QHVJedv3G2mk/NFufAavPFJ32ttTll6PUb60hOqQeHeI+iqKZlRukKDpHu/5Hsv5bvdXion91E9PyexNn3SBtTvkR0voGp11S3SBttm9DWn5uYflX36Kk1FVXXXXZfPU7KssvjKgHVUsu9u8wOVnOesBbzxQv51t+U1u9ClnfsrchPOB92ctedmL8vs9Wf+/3fu9ldeqVyX2+4azlBqluhpZj661oqOpVhGWdf//3f4frLNekXslBdUh5qc8ILcf/2I/92GX/pp78qfPt0u+p1dt564xdanlzh35+6JB6dIj7KIpmVm6Qougc7bpB2uevnr2sbxDaR+fdINXb2JZft10PHnZ9y5byBmlzym+PXPr7uI/7uL2/keoiKr/L3yvZ9eB114evr7766mlYznrA++53v3vnb/yc9u9bH/DWq2HLHwaurKKftXrBC15w9CUWx+vc9a53hWpcUssNUq3fcq/Vj4CiWr79a98H38u3pNXNCvpkzCHlpdiX45dvS63fMlr+m/qCmqXv5ZM16JMzh9SjQ9xHUTSzcoMUReeIdYN0RcPv3Jx3g7Q55dnOXQ/I1TdIm1MeWFxxgR+RbdWuZ/frmddd+pZv+ZbL/l09K858FtXJctYD3s0Z/bn0d/wtY60PeDfbV8mWX/FeN4/1Ifo3v/nNZ46tz7vU59uWNyW7HjhfVC03SKXlNzLW2yIv+ls0l3S/+93vBEN9W94u1Suzpz25Ug+Ql3XQtwAfWl7qt9SOj6/5j2vX2xzr71nPetYN/+a66647cf3rv/7rIY5D6tHmAPdRFM2s3CBF0Tli3SDVs8z7frbkIjdI9QHy5TOm9fs79erScalvkIqjfiNm1xo85CEPoc611PJHEOsVq9M+i7Xrsw4vfOELp2A57wHv7/3e752a0/qMyfFnyRkPeDfbtwgtv+nwiu1nKeqHV+vLKR73uMcd/XZNfYV9ffvfp37qp574DalLf/VA8e1vf/te69N6g7Trq6jr938Q1YP1ZY361rSl6tXEWqN6Faf+/8tvfnzCE55wWY16dQDVoeXlyiuvvGx8fabyeP3TXtGqz0Be0qtf/eoT1+utZYgOqUeXdEj7KIpmVm6Qougc7bpBqh8AvOaaay78Vzc4LbrIDVLpaU972ol/V59POi71DVLdBJ32YOqKhlfRztOur9M963dq6mZl+U1c9av0M7Cc94C3vsnrlre85c7+1NcJHxfrBqlU3wB2hzvc4cx8XPTvtM/YXUStN0jLr7iuB6fXX389xLB80Fx/z33ucy/7N7u+Br4+8H/8Rvve9773Zdf3+XazQ8vLPe95z8vG3/SmN73h2q5vlrv0V6+O1Cs5m1Pehle/SYbokHp0XIeyj6JoZuUGKYrO0aF/i91x1f8o7/ofzuMfYFbeINXNz3n/g1yvcik+h7TrhxQ/4zM+Y3Ove93r1L/le/rr/0a+BvhQWc57wLvZ8e15l/7q1azjYt4gbbafuaovoVjmEPk7/krBPmK/xa5e8UBVP6S8ZPipn/qpy/5NvRKx6wdqv/Zrv/aGt/TVZxuPX9vnS1AOLS/L3/ypv3rSoXT3u9/9zGzUj6CW6hWU5bUXvehFEMch9WipQ9hHUTSzcoMURedopBukzSlv16ovAbj0oWDVDVLd9Czf4lfP6N7//vc/wXPf+96XMudx7fq8wD5/9WOXo7Nc5AFvfV3xcr76TZ/lZ2nYN0jH9cpXvvLoq9Drmfp6a1B9WPw2t7nNEX/9/5c+riC9JajlBqnWpz5zdHzsQx/6UJhh11ct143yUm984xtPvLpYf4961KM211577c7/jurQ8rLrLYx/8Rd/sXnb29529AUHZ+2Z8rI55Udi3/GOd0Ach9Sjs+TaR1E0s3KDFEXnaLQbpNKDH/zgE/++/sdzI7xB2nVTUB/+rc9d3f72tz9x7Rd/8Rcp85bqw9HnfdPWRf8e+chHDs9ykQe8peXvVtUz5kspb5DO0hve8IbNJ3/yJ182bz04/pVf+ZXm2i03SLuegHjKU54CM9QTFssfna0nFN75znee+Lf1OcJ6m9ly3rvc5S4n/tvyFZ2L6NDysutLDeotcz/wAz9w4r/Xbwot/1v9wG199ub4f6vP/aBfpHFIPdpXyn0URTMrN0hRdI5GvEGqZ0qX/8NeD9rrt0oUN0i7vrGt3mf//ve//+h6Pft7oxvd6LLr9Sw86xnM+na85fz1QKY+mHze3/IZ6Xom+LQvUxiF5aIPeN/1rncdfdapnmU+7UG+4wbp5S9/+c4Hm/v+7stS+94g1auky8/i7PoilIvqgQ984AmOemvYLtU3mC1fuVr+3fnOd96L49DyUg/qd61LvU31+H+rLx943eted+Lf1mfE6tWt4//t+Bc9IDqUHu0j9T6KopmVG6QoOkcj3iCVnvSkJ50YU1+Py75Bqpuc5YOCetBYDxaOa/lL8PVXv3SPPqu7S1/xFV9x4mbwor85VW9NWXK1PMN7CCwXfcB7EfW+QaoPwe/6lq7ahyztc4NUnzXZ9fmXFq5dXyRQ33Z42g1XPeBdPvFx/G/fL0A5tLzUWi+/da1uLJZ1L70qfqc73emy/15PLCy/znrfb9A8lB6h6rGPomhm5QYpis7RqDdI9erNrg8P19fysm6Q6uambnKWczz+8Y8/8W/rd32Wv2xff/XbHC2qrxhePhDY9TmB01S9XD6Y2vczAofCcmgPeC+qykJ9I9xyvnpFgCn0Bqk+Y1J9XI6pt0+1fKlH7Z/6KuZl3XrW/8///M93jjntK7fr1ZR9X/k8xLzc9ra3PfUm49JfvdJUqldEzvu3+94YHEqPEPXaR1E0s3KDFEXnaNQbpNLznve8cx84tNwg1f8QL+vVg63Tfu+pnnWtHzY8/u9vfOMbn/sjh2dp+Sv1V+zxdb71VejHx9fbqPZ5ZetQWA7xAe9ZKn/1ebVd+Xz4wx9OeZXxuC56g1RvqavPge36DZn6kHu9ZbVV5a3mWNavVyHqy0zqCwte8pKXHH2F/33uc59TX52oV3Ff9apX7cVwiHnZ9da24393vOMdb/i3dR4v38K7/KtvfNtXh9Cji3L23EdRNLNygxRF52jkG6TNjg9Ws26Q6qZm+UCgHqTUDzSepSc+8YknGFqeiX/AAx5wWa165hT9GvFdX+e76wchR2E5xAe8p6leWaxv3tqVzfqhTsbXri+16wbp137t145eKarPkD32sY/d3OMe9zi6ed/FVW/hQr8y+iyd9gAc/bvJTW5y9Hk/VIeYl6c+9alnen3yk5982b+vG5Wz/v273/3uvT1tDqBH58mxj6JoZuUGKYrO0a4bpPra7Fvf+tbwX71tpL5+9q1vfSvE0HKD9PrXv/7MZ1f3uUGqt4ns+nami/xSfX2+YPmZgfqrZ2FR7fqWqfo1eVS1vssvSHjMYx4zLMshPuDdpeuuu27nWzTrc1v1eSyVdt0gLd/aeNpffW294gmSfR6A73obVb31C/3SiEPMS32G8Szfyx/fPus32OrcZcjZo7Pk2kdRNLNygxRF52jXDVLrX719BFHLDVKp3nvOvEHa9exufb6onsW8iOrX55dfhV3/d/3WCqJdH6C+9EORqJYfAq+bYOQtKYfEcogPeJeqZ7R3ffC+vpJY8Qz7ce26QTrvr94e9cxnPlPKVT3+3d/93Z1fXb18gF2f86tvq9z12aj6EoH3vOc9F573EPNST6Sc9la1ehvqUvWZy3p1Zte/rx+eZcnVo9Pk3EdRNLNygxRF5+gVr3gF/Qap3vKAqB50LD8HsfxF97NUv0K/64cM669+LwTV8m179bki9BnRusFbsjz96U+Hauz6XZS3vOUtoJvTeZDPRh0Sy/LVvauuumovjs32iyeW2dv3xu+4XvCCF5zwWA8kGQ8az9P73ve+za1udatz92k94H7Qgx509JsxtQd7qp5EqM+01Nv96tsnH/awhx09WVOflbr++usv81I3NEv2ZzzjGRee61Dzsvw83nnnRH2hya5/j34O8KLq2aPT5NxHUTSzcoMURRfQs571rKMfQq1n6lr+6vdD6m1o+7xF59GPfvQN/wNYryjUAxFE9ZmJK6+88rL/Ia1XbV760pfCLM95znNueBvYzW9+872eWa9nPu92t7vdwFJfRlBvFUFUn++pD8tfqvGIRzwC5rik+ozC8R9UrJvAUVme/exn39CfeuvYi1/84r1ZSnVDf4nlZje7GeXBVz3jX/vhiu2rM9///d/f5Ru+Lqk+K1dvd62vva8c1meO7n3ve2+uvvrqzeMe97ijD93XqxgjqL5G/vhNzi1ucYvNe9/73guPP9S81Nm0fHtw/ej0aWdfvc11+TMGt7vd7aC1UKm1R6fJvY+iaFblBimKBtJrX/vao6+Qvehb2Zaq/+Gst4fUD7vWe/brlaV9de211x59S96lH4PdR/V2lXrlqR6Q7ftgtJ6pLY5XvvKVzQ8M6gbt+c9//uaaa64ZnqXellk9rh/3ZOg1r3nNEU89G87UO9/5zmFuRA5d9bXT+54Ph5qXykd9cUa9UlPfRHfekyiVpZq7PntT/56d11a19OgsZR9FEVe5QYqiKIqiKIqiKNoqN0hRFEVRFEVRFEVb5QYpiqIoiqIoiqJoq9wgRVEURVEURVEUbZUbpCiKoiiKoiiKoq1ygxRFURRFURRFUbRVbpCiKIqiKIqiKIq2yg1SFEVRFEVRFEXRVrlBiqIoiqIoiqIo2io3SFEURVEURVEURVvlBimKoiiKoiiKomir3CBFURRFURRFURRtlRukKIqiKIqiKIqirXKDFEVRFEVRFEVRtFVukKIoiqIoiqIoirbKDVIURVEURVEURdFWuUGKoiiKoiiKoijaKjdIURRFURRFURRFW+UGKYqiKIqiKIqiaKvcIEVRFEVRFEVRFG2VG6QoiqIoiqIoiqKtcoMURVEURVEURVG0VW6QoiiKoiiKoiiKtsoNUhRFURRFURRF0Va5QYqiKIqiKIqiKNoqN0hRFEVRFEVRFEVb5QYpiqIoiqIoiqJoq9wgRVEURVEURVEUbZUbpCiKoiiKoiiKoq1ygxRFURRFURRFUbRVbpCiKIqiKIqiKIq2yg1SFEVRFEVRFEXRVrlBiqIoiqIoiqIo2io3SFEURVEURVEURVvlBimKoiiKoiiKomir3CBFURRFURRFURRtlRukKIqiKIqiKIqirf4fxfjPyUf6VGYAAAAASUVORK5CYII=">
+  </div>
+
+  <article><figure><img src="/assets/images/arcbos/v1/199a08fef4614386137df83ea5652c0.jpg" alt=""><figcaption></figcaption></figure><h1>冻结级 结构设计基线 Baseline v1.0</h1><pre class="n-code-notion"><code class="language-markup">一台重载级、全电动、自主运行的除雪机器人。
+紧凑型工业尺度，整体占地尺寸接近大型商用履带式除雪机。
+该设备是工业机器人，而不是车辆。
+
+【核心身份约束】
+这是一个完全无人化的工业机器人系统。
+在任何设计层面，都不允许承载、容纳或服务人类。
+外观与结构必须明确避免任何“可驾驶设备”或“有人操作机械”的暗示。
+
+【绝对禁止的元素】
+- 任何形式的驾驶舱、座舱、操作舱
+- 挡风玻璃、玻璃、窗户、透明面板
+- 顶棚、车顶结构、雨棚
+- 雨刷、后视镜
+- 方向盘、座椅、把手、踏板
+- 类车辆比例或车身语言
+- 任何用于传感器或灯具的立杆、立柱、桅杆
+- 科幻化造型、消费级产品风格、玩具感设计
+
+【整体造型语言】
+- 装甲化工业机器人平台
+- 开放式结构或装甲钢壳式结构
+- 平直、折线化或多面焊接钢板
+- 清晰可见的螺栓、紧固件、焊缝、加强筋
+- 加强型边角与抗冲击结构
+- 可拆卸、螺栓固定的牺牲式耐磨部件
+- 不存在任何足以容纳人体的封闭空间
+- 明确呈现为“机器人/机械系统”，而非车辆
+
+【工业设计哲学】
+- 功能优先，零装饰
+- 机械真实感：结构与受力路径可被直观看出
+- 设计目标是承受冰块、路沿、硬雪、杂物的反复冲击
+- 所有部件看起来都可维护、可更换
+- 商用级工业设备，而非消费级产品
+
+【大致尺寸比例】
+- 宽度约 1.0 米
+- 长度约 1.5 米
+- 高度约 1.2 米
+- 紧凑、密实的工业比例
+- 低重心设计
+- 短前后悬，无高耸上部结构
+
+【底盘与材料】
+- 重型焊接钢结构底盘
+- 厚实钢板，清晰可见材料厚度
+- 外露工业级紧固件
+- 围绕除雪系统的加强型副车架
+- 工业黄色 + 深灰色配色
+  灵感来源于卡特彼勒（Caterpillar）与约翰迪尔（John Deere）
+- 哑光或半哑光工业涂层
+- 禁止高光、装饰性表面处理
+
+【前端除雪系统】
+- 商用级重载双级除雪系统
+- 前置螺旋绞龙直接喂入中央叶轮
+- 绞龙与叶轮处于同一连续壳体内
+- 除雪流向在视觉与物理上必须真实合理
+- 叶轮将雪垂直向上抛出
+- 抛雪筒直接安装在叶轮壳体正上方
+- 抛雪筒仅左右旋转，底座固定
+- 抛雪筒为厚钢板结构，不得使用塑料外观
+- 禁止侧向抛雪或不合理的气流路径
+
+【切削边与耐磨件】
+- 清晰可见、可更换的金属切削刀刃
+- 螺栓固定的牺牲式切削边
+- 硬化钢耐磨滑靴
+- 耐磨件与结构件在视觉上有明确区分
+- 重载商用级钢结构外观
+
+【履带行走系统】
+- 厚实的工业级橡胶履带
+- 紧凑型履带驱动系统
+- 相对于高度具有较宽的履带站距
+- 针对积雪、结冰、不平整路面优化
+- 不得出现轮胎
+- 工业级驱动轮与导向轮部分外露
+
+【动力与系统属性】
+- 全电动驱动系统
+- 电池供电的工业设备
+- 不得出现排气口或暗示内燃机的进气结构
+- 密封式电气舱
+- 可隐约看到高压电安全警示标识
+
+【传感器与自主系统】
+- 激光雷达集成于低矮装甲化传感器舱内
+- 工业相机嵌入装甲式传感器模块
+- 传感器外置但与结构高度一体化
+- 禁止玻璃罩、透明穹顶
+- 禁止任何传感器立杆或高耸支架
+- 传感器布局支持 360 度环境感知
+- 所有感知硬件为工业级、抗冲击、抗低温设计
+
+【安全与照明系统】
+- 低矮圆柱形工业琥珀色 LED 警示灯
+- 警示灯完全嵌入顶部装甲结构
+- 禁止立杆、支架、外伸结构
+- 短而宽、重载型警示灯
+  风格接近机场或重型施工设备
+- 前向高亮白色工业工作灯
+- 后向琥珀色警示灯
+- 侧向嵌入式示廓灯
+- 所有灯具均为密封、防冲击、抗振动结构
+- 适用于无人化、公共或半公共环境运行
+- 符合商用设备可视与安全预期
+
+【运行特征】
+- 自主优先设计（Autonomous-first）
+- 无任何明显人工操作界面
+- 设计用于夜间、无人值守连续运行
+- 工业可靠性高于外观美感
+- 安静、电动、目的性极强的存在感
+
+【场景与环境】
+- 机器人正在商业停车场内执行除雪作业
+- 暴雪环境，雪量大、雪花密集
+- 雪流清晰可见地通过绞龙、叶轮与抛雪筒
+- 夜间或低照度环境
+- 工作灯与警示灯照亮飞雪颗粒
+- 警示灯处于闪烁状态
+- 场景中无任何人类
+- 无近距离交互的车辆
+- 电影级但真实的工业摄影风格
+- 高真实度、物理逻辑合理
+- 专业级商用工业设备气质
+</code></pre><h1>结构工程师任务树（Work Breakdown Tree / WBS）</h1><pre class="n-code-notion"><code class="language-markup">ARCBOS SnowBot（全电动无人重载除雪机器人）
+└─ 0. 全局硬约束（所有结构设计必须同时满足）
+   ├─ 身份约束：工业机器人，不是车辆（禁止任何车辆语义）
+   ├─ 绝对禁止：驾驶舱/座舱/操作舱、玻璃/窗、雨棚/车顶、方向盘/座椅/把手、雨刷/后视镜
+   ├─ 禁止立杆/桅杆：任何传感器与灯具不得使用立柱、外伸支架
+   ├─ 外形语言：装甲化工业平台；焊接钢板；可见焊缝、螺栓、加强筋；牺牲式耐磨件可更换
+   ├─ 尺寸边界：W≈1.0m / L≈1.5m / H≈1.2m；低重心；短前后悬；无高耸上部结构
+   ├─ 商用级：抗冲击/抗低温/抗振；可维护可更换；结构真实感（受力路径可读）
+   └─ 外观限制：哑光/半哑光工业涂层；工业黄+深灰（CAT/John Deere 气质）；拒绝玩具感/科幻感/装饰面
+
+└─ 1. 总体结构架构（结构总工牵头）
+   ├─ 1.1 总体布置与结构分区（Frame + Modules）
+   │  ├─ 目标：形成“开放式结构/装甲壳”但无人体容积；可快速拆装维护
+   │  ├─ 关键点：结构受力路径清晰；雪流通道不被结构干扰；传感器/灯具必须低矮内嵌
+   │  └─ 交付物：总体布置图（2D/3D）、模块安装面定义、质量/重心预估、维修开盖路径图
+   ├─ 1.2 强度/刚度/振动基础指标（冬季工况）
+   │  ├─ 工况：冰块冲击、路沿磕碰、硬雪反力、履带振动、叶轮高转速激振
+   │  └─ 交付物：设计载荷表、结构安全系数假设、初版FEA计划（静强度+模态）
+   └─ 1.3 模块化与可维护性策略
+      ├─ 目标：关键部件“快拆+标准紧固件+可替换耐磨件”
+      └─ 交付物：模块拆装序列、备件/牺牲件清单、检修空间与工具可达性评估
+
+└─ 2. 主承载底盘与焊接钢车架（Chassis / Main Frame）
+   ├─ 2.1 焊接主框架（重载钢结构）
+   │  ├─ 要求：厚钢板、可见焊缝与加强筋、结构“机械真实感”
+   │  ├─ 防跑偏：不能做成“汽车底盘+外壳”的车辆套路；必须像工业机器人底座
+   │  └─ 交付物：焊接总成图、焊缝等级与工艺建议、吊装/搬运点设计
+   ├─ 2.2 加强副车架（Snowblower Module Subframe）
+   │  ├─ 目标：前端除雪模块与主框架之间形成抗冲击隔离/加强结构
+   │  └─ 交付物：安装基准面、定位销/螺栓组、抗冲击加强件设计
+   └─ 2.3 密封电气舱结构（非透明/非玻璃）
+      ├─ 要求：密封、防雪水侵入、抗振；可隐约呈现高压警示标识
+      └─ 交付物：电气舱外壳图、密封方案、检修门与锁扣方案
+
+└─ 3. 履带底盘结构（Tracked Undercarriage）
+   ├─ 3.1 履带模块与安装界面
+   │  ├─ 要求：厚工业橡胶履带；宽站距；低重心；不出现轮胎语义
+   │  └─ 交付物：履带模块安装图、受力路径说明、快速更换方案
+   ├─ 3.2 驱动轮/导向轮防护与半外露策略
+   │  ├─ 要求：工业驱动轮、导向轮可部分外露（真实机械感），但要有防雪护罩
+   │  └─ 交付物：护罩结构图、排雪/排泥通道、维护窗口
+   └─ 3.3 冲击与振动隔离（结构层面）
+      ├─ 目标：控制传到传感器舱、灯具与电气舱的振动
+      └─ 交付物：隔振点位建议、橡胶/弹性支座策略（只给结构接口，不限定供应商）
+
+└─ 4. 前端双级除雪系统结构（Auger + Impeller + Housing）
+   ├─ 4.1 连续壳体（Aligned Housing）
+   │  ├─ 关键约束：绞龙→叶轮的雪流必须连续、可视化正确；不能出现不合理风道
+   │  └─ 交付物：壳体3D、雪流通道剖面、维修开口与防卡堵设计
+   ├─ 4.2 抛雪筒（Chute）与旋转机构的结构接口
+   │  ├─ 硬约束：抛雪筒底座固定，仅左右旋转；抛雪筒厚钢板外观（非塑料）
+   │  └─ 交付物：旋转支承结构、限位设计、雪密封与防冻结策略
+   └─ 4.3 前端抗冲击与防卷入防护结构
+      ├─ 目标：石子/冰块冲击、边沿磕碰；同时防止杂物卷入
+      └─ 交付物：前沿护板、格栅/防护罩方案、冲击损伤可替换件
+
+└─ 5. 切削边与牺牲耐磨件系统（Cutting Edge &amp; Wear Parts）
+   ├─ 5.1 可更换金属切削刀刃（Bolted-on）
+   │  ├─ 关键：必须“肉眼可见”是可替换件；螺栓固定；与结构件明显区分
+   │  └─ 交付物：刀刃零件图、孔位标准、替换流程与扭矩建议
+   ├─ 5.2 耐磨滑靴/耐磨板（Wear Shoes/Skids）
+   │  ├─ 目标：适配地面不平、路沿；牺牲件优先磨损
+   │  └─ 交付物：耐磨件布置、可调高度策略（结构接口）
+   └─ 5.3 牺牲式装甲护板（Sacrificial Armor Plates）
+      ├─ 目标：碰撞先坏外层，保护主车架；体现“装甲工业机器人”语言
+      └─ 交付物：护板分区图、快拆紧固件、备件编号规则建议
+
+└─ 6. 装甲外壳与开放式结构（Armored Shell / Open-frame）
+   ├─ 6.1 装甲钢板分块与折线语言
+   │  ├─ 要求：平直/多面焊接钢板；可见焊缝/螺栓；拒绝流线车壳
+   │  └─ 交付物：外壳分块方案、折弯/焊接工艺建议、装配公差策略
+   ├─ 6.2 “无人化”外观约束核查
+   │  ├─ 检查点：任何看起来像“人可以进去/坐进去/操作”的空间都必须消除
+   │  └─ 交付物：无人化核查清单（结构版）、整改清单与对策
+   └─ 6.3 维护开口、检修门与锁扣系统
+      ├─ 目标：可维护，但不形成“门/驾驶舱”错觉；门尺寸不能暗示人体进入
+      └─ 交付物：检修门方案、锁扣类型建议、密封与防雪水策略
+
+└─ 7. 传感器舱与安装结构（Sensors Integration, NO MAST）
+   ├─ 7.1 LiDAR 低矮装甲舱（Top Integrated）
+   │  ├─ 硬约束：低矮、内嵌、装甲化；绝对禁止透明罩与玻璃穹顶
+   │  └─ 交付物：LiDAR舱结构件、视场遮挡评估（结构侧）、防撞边缘设计
+   ├─ 7.2 工业相机装甲模块（Flush / Embedded）
+   │  ├─ 要求：嵌入式、抗冲击、防雪冰；不外伸、不立杆
+   │  └─ 交付物：相机模块安装座、保护窗（非玻璃语义，工程防护件）、更换流程
+   └─ 7.3 360°视野的结构避让与走线保护
+      ├─ 目标：结构不遮挡视野；走线全程装甲/护套；避免被冰雪拉扯
+      └─ 交付物：视野遮挡地图、走线槽/护管方案、固定点位图
+
+└─ 8. 安全照明与信号灯结构（Lighting Integration, LOW-PROFILE）
+   ├─ 8.1 顶部低矮圆柱琥珀警示灯（无立杆）
+   │  ├─ 硬约束：必须“嵌入顶部装甲结构”，短而宽；绝对禁止立杆式旋转灯
+   │  └─ 交付物：灯座结构、抗振与防撞结构、维护更换路径
+   ├─ 8.2 前向白色工作灯（工业级）
+   │  ├─ 要求：嵌入式/装甲保护式；密封抗冲击；夜间照雪颗粒真实可见
+   │  └─ 交付物：灯具安装位、散热与防雪堵策略、线束固定点
+   ├─ 8.3 后向琥珀灯与侧向示廓灯（Flush-mounted）
+   │  ├─ 要求：侧灯必须“齐平嵌入面板”，避免突出挂碰
+   │  └─ 交付物：嵌入开孔标准、密封垫圈结构、抗冲击边框
+   └─ 8.4 灯具防护等级与结构验证
+      ├─ 目标：封闭、防水、防雪、抗振；商业设备安全可视性
+      └─ 交付物：结构验证条目（IP/振动/冲击）与测试夹具需求
+
+└─ 9. 防雪、防冰、排水与可用性结构细节（Winterization by Structure）
+   ├─ 9.1 排雪/排水通道（避免积雪结冰）
+   │  ├─ 目标：所有水平面避免积雪堆积；形成排水坡度与导流槽
+   │  └─ 交付物：导流结构、排水孔位、易结冰风险点清单
+   ├─ 9.2 防夹雪缝隙与防冻卡结构
+   │  ├─ 目标：旋转件/铰链/锁扣避免冻死；关键机构留合理间隙与防护
+   │  └─ 交付物：间隙规范建议、关键机构防护罩设计
+   └─ 9.3 冲击区“牺牲件优先”的维修策略
+      ├─ 目标：常碰撞区域先损坏可替换件，不伤主结构
+      └─ 交付物：冲击热区地图、牺牲件库存建议、现场更换工装建议
+
+└─ 10. 结构交付物清单（给结构团队的最终验收）
+   ├─ 10.1 冻结版3D（装配）+ 2D（关键零件图）
+   ├─ 10.2 焊接总成与工艺建议（焊缝/定位/变形控制）
+   ├─ 10.3 维护拆装序列（含牺牲件更换流程）
+   ├─ 10.4 结构载荷与初版FEA结果（静强度+模态+关键冲击点）
+   ├─ 10.5 无人化约束核查报告（车辆化风险清单=0）
+   └─ 10.6 冬季结构风险清单（结冰、积雪、卡滞、密封失效）与对策
+</code></pre></article>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 Energize Solutions Inc. — All rights reserved. Powered by GitHub Pages | Contact:</span>
+    <a href="mailto:info@energizeos.com">info@energizeos.com</a>
+    <span class="sep">·</span>
+    <a class="icon" href="https://www.linkedin.com/in/gongtiejing" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v13H0zM7 8h4.8v1.8h.07C12.54 8.94 14.17 8 16.6 8c5.06 0 6 3.33 6 7.66V21h-5v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.69-2.5 3.43V21H7V8z"/>
+      </svg>
+    </a>
+    <a class="icon" href="https://github.com/enxpower" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.15 8.96 7.52 10.41.55.1.75-.24.75-.53 0-.26-.01-1.1-.02-1.99-3.06.66-3.71-1.3-3.71-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.56 1.19 3.18.91.1-.72.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.43 0-1.2.43-2.18 1.13-2.95-.11-.28-.49-1.42.11-2.96 0 0 .93-.3 3.05 1.13a10.7 10.7 0 0 1 2.78-.37c.94 0 1.88.13 2.78.37 2.12-1.43 3.05-1.13 3.05-1.13.6 1.54.22 2.68.11 2.96.71.77 1.13 1.75 1.13 2.95 0 4.22-2.58 5.14-5.03 5.41.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53A10.54 10.54 0 0 0 23 11.5C23 5.24 18.27.5 12 .5z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']]
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.min.js"></script>
+
+</body></html>
